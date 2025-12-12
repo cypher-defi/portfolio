@@ -119,7 +119,7 @@ interface TechStackSectionProps {
 
 export const TechStackSection = ({ badges }: TechStackSectionProps) => {
   return (
-    <section className='max-w-6xl mx-auto pt-16'>
+    <section className='pt-16'>
       <BadgeGroup badges={badges} />
     </section>
   )

@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from "react"
 import Link from "next/link"
+import { DocsPageHeader } from "@/components/molecules/DocsHeader"
 
 import {
   DocsIcon,
@@ -148,52 +149,33 @@ export default function DutchAuctionDocs() {
 
   return (
     <main className='bg-[#0C0C0E] text-white min-h-screen'>
-      <nav className='sticky top-0 z-50 backdrop-blur-md bg-[#0C0C0E]/80 border-b border-[#2A2A2E]'>
-        <div className='max-w-6xl mx-auto px-6 py-4 flex items-center justify-between'>
-          <div className='flex items-center gap-3'>
-            <AuctionIcon />
-            <span className='text-[#A7C8FF] font-bold text-lg'>
-              Dutch Auction Docs
-            </span>
-          </div>
-          <div className='flex gap-6'>
-            <a
-              href='#overview'
-              className='text-[#8A8A8A] hover:text-[#A7C8FF] transition'
-            >
-              Overview
-            </a>
-            <a
-              href='https://github.com/Enricrypto'
-              target='_blank'
-              rel='noopener noreferrer'
-              className='text-[#8A8A8A] hover:text-[#A7C8FF] transition flex items-center gap-1'
-            >
-              <GitHubIcon /> GitHub
-            </a>
-            <Link
-              href='/'
-              className='text-[#A7C8FF] hover:text-[#6BFF95] transition font-medium'
-            >
-              ← Back
-            </Link>
-          </div>
-        </div>
-      </nav>
+      {/* RESPONSIVE HEADER - Replace the old navigation */}
+      <DocsPageHeader
+        protocolName='Token Launchpad'
+        protocolIcon={<AuctionIcon />}
+        githubLink='https://github.com/Enricrypto'
+        navItems={[
+          { label: "Overview", href: "#overview" },
+          { label: "Pricing", href: "#pricing" },
+          { label: "Security", href: "#security" },
+          { label: "Testing", href: "#testing" }
+        ]}
+      />
 
       <div className='max-w-6xl mx-auto px-6 py-16 md:py-24'>
         <header className='space-y-4 pb-16 border-b border-[#2A2A2E]'>
           <div className='flex items-center gap-4 flex-wrap'>
             <Heading level='display-lg' color='accent-blue' className='mb-0'>
-              Dutch Auction
+              Token Launchpad
             </Heading>
             <span className='px-3 py-1 bg-[rgba(167,200,255,0.1)] border border-[rgba(167,200,255,0.3)] rounded-full text-sm text-[#A7C8FF] min-w-fit'>
               Descending Price Auction
             </span>
           </div>
           <p className='text-lg leading-relaxed max-w-4xl text-[#D4D4D4]'>
-            A sophisticated Dutch auction system with descending prices,
-            time-based mechanics, and instant settlement capabilities.
+            A sophisticated Token Launchap using a Dutch auction system with
+            descending prices, time-based mechanics, and instant settlement
+            capabilities.
           </p>
 
           <div className='flex flex-wrap gap-2 pt-4'>

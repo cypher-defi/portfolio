@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from "react"
 import Link from "next/link"
+import { DocsPageHeader } from "@/components/molecules/DocsHeader"
 
 // IMPORT ICONS FROM CENTRALIZED LIBRARY
 import {
@@ -152,39 +153,18 @@ export default function NFTMarketplaceDocs() {
 
   return (
     <main className='bg-[#0C0C0E] text-white min-h-screen'>
-      {/* Navigation */}
-      <nav className='sticky top-0 z-50 backdrop-blur-md bg-[#0C0C0E]/80 border-b border-[#2A2A2E]'>
-        <div className='max-w-6xl mx-auto px-6 py-4 flex items-center justify-between'>
-          <div className='flex items-center gap-3'>
-            <MarketplaceIcon />
-            <span className='text-[#A7C8FF] font-bold text-lg'>
-              NFT Marketplace Docs
-            </span>
-          </div>
-          <div className='flex gap-6'>
-            <a
-              href='#overview'
-              className='text-[#8A8A8A] hover:text-[#A7C8FF] transition'
-            >
-              Overview
-            </a>
-            <a
-              href='https://github.com/Enricrypto'
-              target='_blank'
-              rel='noopener noreferrer'
-              className='text-[#8A8A8A] hover:text-[#A7C8FF] transition flex items-center gap-1'
-            >
-              <GitHubIcon /> GitHub
-            </a>
-            <Link
-              href='/'
-              className='text-[#A7C8FF] hover:text-[#6BFF95] transition font-medium'
-            >
-              ← Back
-            </Link>
-          </div>
-        </div>
-      </nav>
+      {/* RESPONSIVE HEADER - Replace the old navigation */}
+      <DocsPageHeader
+        protocolName='NFT Marketplace'
+        protocolIcon={<MarketplaceIcon />}
+        githubLink='https://github.com/Enricrypto/nft-marketplace'
+        navItems={[
+          { label: "Overview", href: "#overview" },
+          { label: "Auctions", href: "#auctions" },
+          { label: "Security", href: "#security" },
+          { label: "Testing", href: "#testing" }
+        ]}
+      />
 
       {/* Main Content Container */}
       <div className='max-w-6xl mx-auto px-6 py-16 md:py-24'>

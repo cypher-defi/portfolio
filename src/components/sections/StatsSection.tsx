@@ -12,7 +12,7 @@ interface StatsSectionProps {
 export const StatsSection = ({ stats }: StatsSectionProps) => {
   return (
     <section className='w-full bg-[#0C0C0E]'>
-      <div className='max-w-6xl mx-auto px-6 py-12 mt-20'>
+      <div className='max-w-6xl mx-auto px-6 py-12 mt-8'>
         <div className='grid grid-cols-2 md:grid-cols-4 gap-8 animate-fade-in-up delay-600'>
           {stats.map((stat) => (
             <div key={stat.label} className='text-center'>
