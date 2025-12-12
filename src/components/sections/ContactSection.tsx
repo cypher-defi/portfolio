@@ -57,6 +57,8 @@ export const ContactSection = () => {
       {/* Email Form */}
       <form
         onSubmit={handleSubmit}
+        action='https://formsubmit.co/eibarraf@gmail.com'
+        method='POST'
         className='flex gap-3 mb-8 flex-col sm:flex-row'
       >
         <input

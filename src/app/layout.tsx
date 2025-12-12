@@ -3,7 +3,10 @@ import "./globals.css"
 
 export const metadata: Metadata = {
   title: "Enrique | Blockchain Developer",
-  description: "Smart contract architect & DeFi builder."
+  description: "Smart contract architect & DeFi builder.",
+  icons: {
+    icon: "/favicon.svg"
+  }
 }
 
 export default function RootLayout({
@@ -19,9 +22,6 @@ export default function RootLayout({
           href='https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700&display=swap'
           rel='stylesheet'
         />
-
-        {/* Favicon */}
-        <link rel='icon' href='/favicon.png' sizes='64x64' type='image/png' />
       </head>
       <body className='bg-[#0C0C0E]'>{children}</body>
     </html>
