@@ -14,10 +14,14 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <head>
+        {/* Google Fonts */}
         <link
           href='https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700&display=swap'
           rel='stylesheet'
         />
+
+        {/* Favicon */}
+        <link rel='icon' href='/favicon.png' sizes='64x64' type='image/png' />
       </head>
       <body className='bg-[#0C0C0E]'>{children}</body>
     </html>
