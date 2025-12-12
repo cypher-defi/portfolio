@@ -1,0 +1,412 @@
+"use client"
+
+import React, { useEffect, useState } from "react"
+import Link from "next/link"
+
+// IMPORT ICONS FROM CENTRALIZED LIBRARY
+import {
+  DocsIcon,
+  GitHubIcon,
+  SecurityIcon,
+  TestIcon,
+  VaultIcon,
+  YieldIcon
+} from "@/components/icons"
+
+// --- II. UTILITY COMPONENTS (Reused) ---
+
+interface HeadingProps extends React.HTMLAttributes<HTMLHeadingElement> {
+  level?: "display-lg" | "display-md" | "h1" | "h2" | "h3" | "h4"
+  color?: "primary" | "accent-blue" | "accent-red" | "accent-green"
+  children: React.ReactNode
+}
+
+export const Heading: React.FC<HeadingProps> = ({
+  level = "h1",
+  color = "primary",
+  className = "",
+  children,
+  ...props
+}) => {
+  const levelMap = {
+    "display-lg": { size: "text-[3.5rem]", weight: "font-bold" },
+    "display-md": { size: "text-[2.5rem]", weight: "font-bold" },
+    h1: { size: "text-[2rem]", weight: "font-bold" },
+    h2: { size: "text-[1.5rem]", weight: "font-semibold" },
+    h3: { size: "text-[1.25rem]", weight: "font-semibold" },
+    h4: { size: "text-[1.125rem]", weight: "font-medium" }
+  }
+
+  const { size, weight } = levelMap[level]
+
+  const colorMap = {
+    primary: "text-[#FFFFFF]",
+    "accent-blue": "text-[#A7C8FF]",
+    "accent-red": "text-[#FF6B6B]",
+    "accent-green": "text-[#6BFF95]"
+  }
+
+  const baseClassName = `${size} ${weight} ${colorMap[color]} ${className}`
+
+  const Tag =
+    level === "h2" || level === "h3" || level === "h4" ? level : ("h1" as any)
+
+  return (
+    <Tag className={baseClassName} {...props}>
+      {children}
+    </Tag>
+  )
+}
+
+// --- Table Components (Reused) ---
+const Table: React.FC<React.PropsWithChildren> = ({ children }) => (
+  <div className='overflow-x-auto my-6'>
+    <table className='min-w-full divide-y divide-[#2A2A2E] border border-[#2A2A2E] rounded-lg'>
+      {children}
+    </table>
+  </div>
+)
+
+const THead: React.FC<React.PropsWithChildren> = ({ children }) => (
+  <thead>{children}</thead>
+)
+
+const Th: React.FC<React.PropsWithChildren> = ({ children }) => (
+  <th className='px-6 py-3'>{children}</th>
+)
+
+const TBody: React.FC<React.PropsWithChildren> = ({ children }) => (
+  <tbody className='divide-y divide-[#2A2A2E]'>{children}</tbody>
+)
+
+interface TrProps {
+  isHeader?: boolean
+}
+const Tr: React.FC<React.PropsWithChildren<TrProps>> = ({
+  children,
+  isHeader = false
+}) => {
+  const headerClasses =
+    "text-left text-xs font-medium uppercase tracking-wider text-[#A7C8FF] bg-[#161619]"
+  const rowClasses = isHeader
+    ? `bg-[#161619] hover:bg-[#161619] ${headerClasses}`
+    : "hover:bg-[#161619]/50"
+
+  return <tr className={rowClasses}>{children}</tr>
+}
+
+interface TdProps {
+  className?: string
+}
+const Td: React.FC<React.PropsWithChildren<TdProps>> = ({
+  children,
+  className = ""
+}) => (
+  <td
+    className={`px-6 py-4 whitespace-nowrap text-sm text-[#D4D4D4] ${className}`}
+  >
+    {children}
+  </td>
+)
+
+interface CardProps extends React.PropsWithChildren {
+  glow?: "blue" | "purple" | "green" | "red"
+  className?: string
+}
+
+const Card: React.FC<CardProps> = ({
+  children,
+  glow = "blue",
+  className = ""
+}) => {
+  const glowColor = {
+    blue: "hover:border-[#A7C8FF]",
+    purple: "hover:border-[#C3A6FF]",
+    green: "hover:border-[#6BFF95]",
+    red: "hover:border-[#FF6B6B]"
+  }[glow]
+
+  return (
+    <div
+      className={`bg-[#161619] p-6 rounded-xl border border-[#2A2A2E] transition duration-300 ${glowColor} ${className}`}
+    >
+      {children}
+    </div>
+  )
+}
+
+// --- III. MAIN DOCUMENTATION COMPONENT ---
+
+export default function MeridianVaultDocs() {
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      setMousePosition({ x: e.clientX, y: e.clientY })
+    }
+
+    window.addEventListener("mousemove", handleMouseMove)
+    return () => window.removeEventListener("mousemove", handleMouseMove)
+  }, [])
+
+  return (
+    <main className='bg-[#0C0C0E] text-white min-h-screen'>
+      {/* Navigation */}
+      <nav className='sticky top-0 z-50 backdrop-blur-md bg-[#0C0C0E]/80 border-b border-[#2A2A2E]'>
+        <div className='max-w-6xl mx-auto px-6 py-4 flex items-center justify-between'>
+          <div className='flex items-center gap-3'>
+            <VaultIcon />
+            <span className='text-[#A7C8FF] font-bold text-lg'>
+              Meridian Vault Docs
+            </span>
+          </div>
+          <div className='flex gap-6'>
+            <a
+              href='#overview'
+              className='text-[#8A8A8A] hover:text-[#A7C8FF] transition'
+            >
+              Overview
+            </a>
+            <a
+              href='https://github.com/Enricrypto/meridian-finance-yield-farming'
+              target='_blank'
+              rel='noopener noreferrer'
+              className='text-[#8A8A8A] hover:text-[#A7C8FF] transition flex items-center gap-1'
+            >
+              <GitHubIcon /> GitHub
+            </a>
+            <Link
+              href='/'
+              className='text-[#A7C8FF] hover:text-[#6BFF95] transition font-medium'
+            >
+              ← Back
+            </Link>
+          </div>
+        </div>
+      </nav>
+
+      {/* Main Content Container */}
+      <div className='max-w-6xl mx-auto px-6 py-16 md:py-24'>
+        {/* --- Header / Protocol Title --- */}
+        <header className='space-y-4 pb-16 border-b border-[#2A2A2E]'>
+          <div className='flex items-center gap-4 flex-wrap'>
+            <Heading level='display-lg' color='accent-blue' className='mb-0'>
+              Meridian Vault
+            </Heading>
+            <span className='px-3 py-1 bg-[rgba(167,200,255,0.1)] border border-[rgba(167,200,255,0.3)] rounded-full text-sm text-[#A7C8FF] min-w-fit'>
+              ERC-4626 Yield Farming
+            </span>
+          </div>
+          <p className='text-lg leading-relaxed max-w-4xl text-[#D4D4D4]'>
+            A comprehensive ERC-4626 compliant vault system with MRD governance
+            token rewards and auto-compounding features.
+          </p>
+
+          {/* Protocol Badges */}
+          <div className='flex flex-wrap gap-2 pt-4'>
+            <a
+              href='#'
+              className='px-3 py-1 bg-[rgba(167,200,255,0.1)] border border-[rgba(167,200,255,0.3)] rounded-full text-sm text-[#A7C8FF] min-w-fit hover:bg-[rgba(167,200,255,0.2)] transition'
+            >
+              DeFi
+            </a>
+            <a
+              href='#'
+              className='px-3 py-1 bg-[rgba(195,166,255,0.1)] border border-[rgba(195,166,255,0.3)] rounded-full text-sm text-[#C3A6FF] min-w-fit hover:bg-[rgba(195,166,255,0.2)] transition'
+            >
+              Smart Contracts
+            </a>
+            <a
+              href='#'
+              className='px-3 py-1 bg-[rgba(255,149,0,0.1)] border border-[rgba(255,149,0,0.3)] rounded-full text-sm text-[#FF9500] min-w-fit hover:bg-[rgba(255,149,0,0.2)] transition'
+            >
+              ERC-4626
+            </a>
+            <a
+              href='#'
+              className='px-3 py-1 bg-[rgba(107,255,149,0.1)] border border-[rgba(107,255,149,0.3)] rounded-full text-sm text-[#6BFF95] min-w-fit hover:bg-[rgba(107,255,149,0.2)] transition'
+            >
+              Yield Farming
+            </a>
+            <a
+              href='#'
+              className='px-3 py-1 bg-[rgba(153,69,255,0.1)] border border-[rgba(153,69,255,0.3)] rounded-full text-sm text-[#C3A6FF] min-w-fit hover:bg-[rgba(153,69,255,0.2)] transition'
+            >
+              ERC-20
+            </a>
+            <a
+              href='#'
+              className='px-3 py-1 bg-[rgba(255,107,107,0.1)] border border-[rgba(255,107,107,0.3)] rounded-full text-sm text-[#FF6B6B] min-w-fit hover:bg-[rgba(255,107,107,0.2)] transition'
+            >
+              Governance
+            </a>
+            <a
+              href='https://getfoundry.sh/'
+              target='_blank'
+              rel='noopener noreferrer'
+              className='px-3 py-1 bg-[rgba(255,107,107,0.1)] border border-[rgba(255,107,107,0.3)] rounded-full text-sm text-[#FF6B6B] min-w-fit hover:bg-[rgba(255,107,107,0.2)] transition'
+            >
+              Tested With Foundry
+            </a>
+            <a
+              href='https://opensource.org/licenses/MIT'
+              target='_blank'
+              rel='noopener noreferrer'
+              className='px-3 py-1 bg-[rgba(107,255,149,0.1)] border border-[rgba(107,255,149,0.3)] rounded-full text-sm text-[#6BFF95] min-w-fit'
+            >
+              License: MIT
+            </a>
+          </div>
+        </header>
+
+        {/* --- Overview Section --- */}
+        <section id='overview' className='py-16 border-b border-[#2A2A2E]'>
+          <Heading
+            level='h2'
+            className='mb-8 text-[#A7C8FF] flex items-center gap-3'
+          >
+            <VaultIcon /> Key Features
+          </Heading>
+
+          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
+            <Card glow='blue'>
+              <Heading level='h4' className='mb-3 text-[#A7C8FF]'>
+                ERC-4626 Compliance
+              </Heading>
+              <p className='text-sm text-[#D4D4D4]'>
+                Fully compliant with the ERC-4626 standard for tokenized vaults,
+                enabling seamless integration with the DeFi ecosystem.
+              </p>
+            </Card>
+
+            <Card glow='green'>
+              <Heading level='h4' className='mb-3 text-[#6BFF95]'>
+                Auto-Compounding Rewards
+              </Heading>
+              <p className='text-sm text-[#D4D4D4]'>
+                Automatic reinvestment of MRD governance token rewards for
+                exponential growth without manual intervention.
+              </p>
+            </Card>
+
+            <Card glow='purple'>
+              <Heading level='h4' className='mb-3 text-[#C3A6FF]'>
+                Governance Integration
+              </Heading>
+              <p className='text-sm text-[#D4D4D4]'>
+                Holders earn MRD tokens that grant voting rights in protocol
+                governance and strategic decisions.
+              </p>
+            </Card>
+          </div>
+        </section>
+
+        {/* --- Security Section --- */}
+        <section id='security' className='py-16 border-b border-[#2A2A2E]'>
+          <Heading
+            level='h2'
+            className='mb-6 text-[#FF6B6B] flex items-center gap-3'
+          >
+            <SecurityIcon /> Security Features
+          </Heading>
+
+          <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
+            <Card glow='green'>
+              <Heading level='h4' className='mb-3 text-[#6BFF95]'>
+                Comprehensive Protections
+              </Heading>
+              <ul className='list-disc list-inside space-y-2 text-sm text-[#D4D4D4]'>
+                <li>
+                  <i>ReentrancyGuard</i> (via OpenZeppelin)
+                </li>
+                <li>
+                  <i>CEI Pattern</i> (Checks-Effects-Interactions)
+                </li>
+                <li>
+                  <i>Pausable</i> functionality for emergency stops
+                </li>
+                <li>
+                  <i>First Depositor</i> attack mitigation
+                </li>
+              </ul>
+            </Card>
+
+            <Card glow='red'>
+              <Heading level='h4' className='mb-3 text-[#FF6B6B]'>
+                Attack Vectors Considered
+              </Heading>
+              <ul className='list-disc list-inside space-y-2 text-sm text-[#D4D4D4]'>
+                <li>Vault inflation attacks</li>
+                <li>Reentrancy exploits</li>
+                <li>Rounding errors & precision loss</li>
+                <li>Integer overflow/underflow</li>
+              </ul>
+            </Card>
+          </div>
+        </section>
+
+        {/* --- Testing Section --- */}
+        <section id='testing' className='py-16'>
+          <Heading
+            level='h2'
+            className='mb-6 text-[#6BFF95] flex items-center gap-3'
+          >
+            <TestIcon /> Testing & Quality Assurance
+          </Heading>
+
+          <p className='max-w-4xl mb-8 text-[#D4D4D4]'>
+            Over 100+ comprehensive tests with 100% pass rate, ensuring
+            production-grade reliability and security.
+          </p>
+
+          <Table>
+            <THead>
+              <Tr isHeader={true}>
+                <Th>Test Suite</Th>
+                <Th>Coverage</Th>
+                <Th>Focus Area</Th>
+              </Tr>
+            </THead>
+            <TBody>
+              <Tr>
+                <Td className='font-medium text-[#FFC36B]'>Unit Tests</Td>
+                <Td>75+</Td>
+                <Td>Core vault operations, deposit/withdraw logic</Td>
+              </Tr>
+              <Tr>
+                <Td className='font-medium text-[#A7C8FF]'>Integration</Td>
+                <Td>20+</Td>
+                <Td>Multi-contract interactions, reward distribution</Td>
+              </Tr>
+              <Tr>
+                <Td className='font-medium text-[#6BFF95]'>Security</Td>
+                <Td>10+</Td>
+                <Td>Reentrancy protection, edge cases</Td>
+              </Tr>
+            </TBody>
+          </Table>
+        </section>
+
+        {/* --- Footer --- */}
+        <footer className='max-w-6xl mx-auto px-6 py-8 border-t border-[#2A2A2E] mt-16'>
+          <div className='text-center text-sm text-[#8A8A8A] space-y-2'>
+            <p>
+              Meridian Vault Documentation. Built with institutional-grade
+              engineering.
+            </p>
+            <p className='text-[#A7C8FF]'>
+              <a
+                href='https://github.com/Enricrypto/meridian-finance-yield-farming'
+                target='_blank'
+                rel='noopener noreferrer'
+                className='hover:underline'
+              >
+                github.com/Enricrypto/meridian-finance-yield-farming
+              </a>
+            </p>
+          </div>
+        </footer>
+      </div>
+    </main>
+  )
+}
