@@ -42,18 +42,18 @@ export const DocsPageHeader = ({
     <header className='sticky top-0 z-50 backdrop-blur-md bg-[#0C0C0E]/95 border-b border-[#2A2A2E]'>
       <div className='mx-auto px-4 sm:px-6 py-4 flex items-center justify-between w-full'>
         {/* Left: Back Link (Desktop only) + Logo + Protocol Name */}
-        <div className='flex items-center gap-2 sm:gap-3 flex-shrink-0 min-w-0'>
+        <div className='flex items-center gap-2 sm:gap-3 shrink-0 min-w-0'>
           {/* Back Link - Desktop only */}
           <Link
             href='/'
-            className='hidden lg:inline-flex items-center justify-center w-10 h-10 text-[#A7C8FF] hover:text-[#6BFF95] hover:bg-[#2A2A2E] rounded transition flex-shrink-0'
+            className='hidden lg:inline-flex items-center justify-center w-10 h-10 text-[#A7C8FF] hover:text-[#6BFF95] hover:bg-[#2A2A2E] rounded transition shrink-0'
             title='Back to portfolio'
           >
             <ChevronLeft size={20} />
           </Link>
 
           {/* Logo */}
-          <div className='text-[#A7C8FF] flex-shrink-0'>{protocolIcon}</div>
+          <div className='text-[#A7C8FF] shrink-0'>{protocolIcon}</div>
 
           {/* Protocol Name */}
           <span className='text-[#A7C8FF] font-bold text-sm sm:text-base lg:text-lg truncate'>
