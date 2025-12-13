@@ -9,7 +9,7 @@ import { Navigation } from "@/components/navigation/Navigation"
 import { Footer } from "@/components/navigation/Footer"
 
 const HERO_DATA = {
-  title: "Building the Next Generation of Blockchain Finance",
+  title: "Building Next-Gen Blockchain Finance",
   description:
     "Modular and composable blockchain infrastructure and Solidity smart contracts for DeFi applications. With nearly three years of production experience, I've built sophisticated institutional-grade protocols across lending, yield farming, and arbitrage systems.",
   primaryCTA: "View Work",
