@@ -19,7 +19,7 @@ const HERO_DATA = {
 const STATS = [
   { value: "8", label: "DeFi Protocols" },
   { value: "50+", label: "Smart Contracts" },
-  { value: "6+", label: "Deployed Contracts" },
+  { value: "8+", label: "Deployed Contracts" },
   { value: "600+", label: "Comprehensive Tests" }
 ]
 
