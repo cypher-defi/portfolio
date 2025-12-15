@@ -1,3 +1,5 @@
+"use client"
+
 import { Heading } from "@/components/atoms/Heading"
 import { Text } from "@/components/atoms/Text"
 import { Button } from "@/components/atoms/Button"
@@ -17,21 +19,26 @@ export const ContactSection = () => {
 
     setIsLoading(true)
     try {
-      // Replace with your actual email service
-      // const response = await fetch('/api/contact', {
-      //   method: 'POST',
-      //   headers: { 'Content-Type': 'application/json' },
-      //   body: JSON.stringify({ email }),
-      // })
-
-      // Placeholder for demo
-      await new Promise((resolve) => setTimeout(resolve, 500))
-
-      setMessage({
-        type: "success",
-        text: `Thanks for reaching out! I'll get back to you soon.`
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email })
       })
-      setEmail("")
+
+      const data = await response.json()
+
+      if (response.ok) {
+        setMessage({
+          type: "success",
+          text: `Thanks for reaching out! I'll get back to you soon.`
+        })
+        setEmail("")
+      } else {
+        setMessage({
+          type: "error",
+          text: data.error || "Something went wrong. Please try again."
+        })
+      }
     } catch (error) {
       setMessage({
         type: "error",
@@ -57,8 +64,6 @@ export const ContactSection = () => {
       {/* Email Form */}
       <form
         onSubmit={handleSubmit}
-        action='https://formsubmit.co/eibarraf@gmail.com'
-        method='POST'
         className='flex gap-3 mb-8 flex-col sm:flex-row'
       >
         <input
@@ -67,6 +72,7 @@ export const ContactSection = () => {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           disabled={isLoading}
+          required
           className='flex-1 px-4 py-3 bg-[#1A1B1E] border border-[#2A2A2E] rounded-lg text-white placeholder-[#8A8A8A] focus:outline-none focus:border-[#A7C8FF] focus:shadow-[0_0_20px_rgba(167,200,255,0.3)] transition disabled:opacity-50'
         />
         <Button
