@@ -1,8 +1,6 @@
 import { NextRequest, NextResponse } from "next/server"
 import { Resend } from "resend"
 
-const resend = new Resend(process.env.RESEND_API_KEY)
-
 export async function POST(request: NextRequest) {
   try {
     const { email } = await request.json()
@@ -11,9 +9,12 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "Email is required" }, { status: 400 })
     }
 
+    // Initialize Resend inside the function
+    const resend = new Resend(process.env.RESEND_API_KEY)
+
     // Send email to your inbox
     const data = await resend.emails.send({
-      from: "onboarding@resend.dev", // Use this for now (free tier default)
+      from: "onboarding@resend.dev",
       to: "eibarraf@gmail.com",
       replyTo: email,
       subject: "New contact from your portfolio",
