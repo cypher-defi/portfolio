@@ -10,7 +10,7 @@ import { Footer } from "@/components/navigation/Footer"
 
 const HERO_DATA = {
   title: "Building Next-Gen Blockchain Finance",
-  description: `Cypher is my engineering brand. I’m Enrique Ibarra — a smart contract engineer building modular, institutional-grade DeFi infrastructure. With nearly three years of production experience, I’ve designed and shipped protocols across lending, yield, and execution systems.`,
+  description: `Cypher is my engineering brand. I’m Enrique Ibarra, a smart contract engineer building modular, institutional-grade DeFi infrastructure. With nearly three years of production experience, I’ve designed and shipped protocols across lending, yield, and execution systems.`,
   primaryCTA: "View Work",
   secondaryCTA: "Get In Touch"
 }
