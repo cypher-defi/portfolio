@@ -229,7 +229,7 @@ const PRODUCTION_PROJECTS: ProjectProps[] = [
   {
     title: "Meridian Finance",
     description:
-      "ERC-4626 compliant vault system with auto-compounding strategies, governance token (MRD), and rewards distribution system.",
+      "Institutional-grade yield automation for DeFi treasury management. ERC-4626 compliant vaults with auto-compounding strategies and governance-weighted rewards distribution (MRD), providing institutions a standardized interface for yield-bearing asset allocation.",
     github: "https://github.com/Enricrypto/meridian-finance-yield-farming",
     docs: "/meridian-finance-docs",
     metadata: {
@@ -254,7 +254,7 @@ const PRODUCTION_PROJECTS: ProjectProps[] = [
   {
     title: "LendCore Protocol",
     description:
-      "Multi-collateral lending platform with dynamic interest rates, health factor-based liquidations, and ERC-4626 vault integration. Jump rate model for efficient capital allocation.",
+      "Multi-collateral lending with institutional risk controls and capital efficiency. Jump rate model dynamically optimizes interest rates based on utilization, while health factor-based liquidations and ERC-4626 vault integration ensure robust risk management and treasury composability.",
     github: "https://github.com/Enricrypto/defi-lending-platform",
     docs: "/lendcore-protocol-docs",
     metadata: {
@@ -279,7 +279,7 @@ const PRODUCTION_PROJECTS: ProjectProps[] = [
   {
     title: "SwapHub DEX",
     description:
-      "Uniswap V2 model implementation with liquidity pools, multi-hop swaps, and factory-based pair management. Core DEX infrastructure with constant product formula.",
+      "Battle-tested DEX infrastructure for institutional swap execution and liquidity provision. Multi-hop routing optimizes trade paths across liquidity pools using the constant product AMM formula, enabling predictable pricing and composable treasury operations.",
     github: "https://github.com",
     docs: "/swaphub-dex-docs",
     metadata: {
@@ -304,7 +304,7 @@ const PRODUCTION_PROJECTS: ProjectProps[] = [
   {
     title: "VaultForge",
     description:
-      "Multi-token crypto savings bank with tiered lock periods (0-180 days), dynamic APY rates (0%-8%), penalty redistribution, and referral system.",
+      "Time-locked yield optimization for institutional liquidity planning. Tiered lock periods (0-180 days) provide dynamic APY rates up to 8%, with penalty redistribution rewarding capital commitment and EIP-4626 compliance enabling composable treasury integration.",
     github: "https://github.com/Enricrypto/vault-forge-crypto-bank",
     docs: "/vault-forge-docs",
     metadata: {
@@ -329,7 +329,7 @@ const PRODUCTION_PROJECTS: ProjectProps[] = [
   {
     title: "NFT Marketplace",
     description:
-      "Comprehensive NFT trading platform supporting fixed-price listings, English auctions, and buy offers. Full order management with settlement mechanisms and escrow functionality across any ERC-721 collection.",
+      "Institutional-grade NFT trading infrastructure with comprehensive order types and automated settlement. Supports fixed-price listings, English auctions, and buy offers with escrow mechanisms and ERC-2981 royalty compliance across any ERC-721 collection.",
     github: "https://github.com/Enricrypto/nft-marketplace",
     docs: "/nft-marketplace-docs",
     metadata: {
