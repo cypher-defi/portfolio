@@ -47,15 +47,15 @@ export const ContactSection = () => {
             GitHub
           </a>
           <a
-            href='https://twitter.com'
+            href='https://x.com/Enricrypto'
             target='_blank'
             rel='noopener noreferrer'
             className='text-[#8A8A8A] hover:text-[#A7C8FF] transition font-medium'
           >
-            Twitter
+            X
           </a>
           <a
-            href='https://linkedin.com'
+            href='https://linkedin.com/in/enrique-ibarra'
             target='_blank'
             rel='noopener noreferrer'
             className='text-[#8A8A8A] hover:text-[#A7C8FF] transition font-medium'
