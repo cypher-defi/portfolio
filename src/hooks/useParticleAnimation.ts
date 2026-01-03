@@ -184,6 +184,8 @@ export const useParticleAnimation = (
       Math.min(finalConfig.particleCount, Math.floor(canvas.width / 15))
     )
 
+    let animationFrameId: number
+
     const animate = () => {
       // Motion blur
       ctx.fillStyle = `rgba(12, 12, 14, ${finalConfig.motionBlurOpacity})`
@@ -194,7 +196,7 @@ export const useParticleAnimation = (
       drawConnections(ctx, particles, finalConfig)
       drawGlowAndParticles(ctx, particles)
 
-      requestAnimationFrame(animate)
+      animationFrameId = requestAnimationFrame(animate)
     }
 
     const resizeHandler = () => {
@@ -206,6 +208,9 @@ export const useParticleAnimation = (
 
     return () => {
       window.removeEventListener("resize", resizeHandler)
+      if (animationFrameId) {
+        cancelAnimationFrame(animationFrameId)
+      }
     }
-  }, [canvasId, config])
+  }, [canvasId])
 }
