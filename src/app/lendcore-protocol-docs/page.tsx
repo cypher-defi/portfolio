@@ -2,7 +2,14 @@
 
 import React from "react"
 import { Heading } from "@/components/atoms/Heading"
-import { Table, THead, TBody, Tr, Th, Td } from "@/components/molecules/DocsTable"
+import {
+  Table,
+  THead,
+  TBody,
+  Tr,
+  Th,
+  Td
+} from "@/components/molecules/DocsTable"
 import { DocsLayout } from "@/components/layout/DocsLayout"
 import { Navigation } from "@/components/navigation/Navigation"
 import { motion } from "framer-motion"
@@ -20,10 +27,10 @@ export default function LendCoreDocs() {
   return (
     <>
       <Navigation
-        variant="docs"
-        protocolName="LendCore"
+        variant='docs'
+        protocolName='LendCore'
         protocolIcon={<BankIcon />}
-        githubLink="https://github.com/Enricrypto/Isolated-Lending-Market"
+        githubLink='https://github.com/Enricrypto/Isolated-Lending-Market'
         navItems={[
           { label: "Overview", href: "#overview" },
           { label: "Features", href: "#overview" },
@@ -33,9 +40,13 @@ export default function LendCoreDocs() {
       />
 
       <DocsLayout>
-        <header className='space-y-4 pb-16 border-t border-white/5'>
+        <header className='space-y-4 pt-6 pb-16 border-t border-white/5'>
           <div className='flex items-center gap-4 flex-wrap'>
-            <Heading level='display-lg' color='accent-blue' className='mb-0 text-3xl sm:text-4xl md:text-5xl lg:text-6xl'>
+            <Heading
+              level='display-lg'
+              color='accent-blue'
+              className='mb-0 text-3xl sm:text-4xl md:text-5xl lg:text-6xl'
+            >
               LendCore
             </Heading>
             <span className='px-3 py-1 bg-[rgba(167,200,255,0.1)] border border-[rgba(167,200,255,0.3)] rounded-full text-sm text-[#A7C8FF]'>
@@ -108,8 +119,8 @@ export default function LendCoreDocs() {
 
           <motion.div
             variants={staggerContainer}
-            initial="initial"
-            whileInView="animate"
+            initial='initial'
+            whileInView='animate'
             viewport={{ once: true }}
             className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'
           >
@@ -162,8 +173,8 @@ export default function LendCoreDocs() {
 
           <motion.div
             variants={staggerContainer}
-            initial="initial"
-            whileInView="animate"
+            initial='initial'
+            whileInView='animate'
             viewport={{ once: true }}
             className='grid grid-cols-1 md:grid-cols-2 gap-6'
           >
@@ -219,7 +230,7 @@ export default function LendCoreDocs() {
             calculations, liquidations, and risk scenarios.
           </p>
 
-          <div className="overflow-x-auto -mx-6 px-6 sm:mx-0 sm:px-0">
+          <div className='overflow-x-auto -mx-6 px-6 sm:mx-0 sm:px-0'>
             <Table>
               <THead>
                 <Tr isHeader={true}>
@@ -245,7 +256,9 @@ export default function LendCoreDocs() {
                   <Td>Collateral health, liquidation triggers</Td>
                 </Tr>
                 <Tr>
-                  <Td className='font-medium text-[#C3A6FF]'>Risk Edge Cases</Td>
+                  <Td className='font-medium text-[#C3A6FF]'>
+                    Risk Edge Cases
+                  </Td>
                   <Td>20+</Td>
                   <Td>Rounding errors, precision loss</Td>
                 </Tr>

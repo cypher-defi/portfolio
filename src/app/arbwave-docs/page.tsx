@@ -3,7 +3,14 @@
 import React, { useEffect, useState } from "react"
 import Link from "next/link"
 import { Heading } from "@/components/atoms/Heading"
-import { Table, THead, TBody, Tr, Th, Td } from "@/components/molecules/DocsTable"
+import {
+  Table,
+  THead,
+  TBody,
+  Tr,
+  Th,
+  Td
+} from "@/components/molecules/DocsTable"
 import { DocsLayout } from "@/components/layout/DocsLayout"
 import { Navigation } from "@/components/navigation/Navigation"
 import { motion } from "framer-motion"
@@ -25,10 +32,10 @@ export default function ArbWaveDocs() {
   return (
     <>
       <Navigation
-        variant="docs"
-        protocolName="ArbWave"
+        variant='docs'
+        protocolName='ArbWave'
         protocolIcon={<WaveIcon />}
-        githubLink="https://github.com/Enricrypto/arb-wave-flashloans-arbitrage"
+        githubLink='https://github.com/Enricrypto/arb-wave-flashloans-arbitrage'
         navItems={[
           { label: "Overview", href: "#overview" },
           { label: "Architecture", href: "#architecture" },
@@ -39,9 +46,13 @@ export default function ArbWaveDocs() {
       />
 
       <DocsLayout>
-        <header className='space-y-4 pb-16 border-t border-white/5'>
+        <header className='space-y-4 pt-6 pb-16 border-t border-white/5'>
           <div className='flex items-center gap-4 flex-wrap'>
-            <Heading level='display-lg' color='accent-blue' className='mb-0 text-3xl sm:text-4xl md:text-5xl lg:text-6xl'>
+            <Heading
+              level='display-lg'
+              color='accent-blue'
+              className='mb-0 text-3xl sm:text-4xl md:text-5xl lg:text-6xl'
+            >
               ArbWave
             </Heading>
             <span className='px-3 py-1 bg-[rgba(167,200,255,0.1)] border border-[rgba(167,200,255,0.3)] rounded-full text-sm text-[#A7C8FF]'>
@@ -109,8 +120,8 @@ export default function ArbWaveDocs() {
 
           <motion.div
             variants={staggerContainer}
-            initial="initial"
-            whileInView="animate"
+            initial='initial'
+            whileInView='animate'
             viewport={{ once: true }}
             className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'
           >
@@ -120,8 +131,8 @@ export default function ArbWaveDocs() {
                   Flash Loans
                 </Heading>
                 <p className='text-sm text-[#E5E5E5]'>
-                  Zero capital requirement arbitrage using flash loan mechanics to
-                  capture instantaneous price spreads across protocols.
+                  Zero capital requirement arbitrage using flash loan mechanics
+                  to capture instantaneous price spreads across protocols.
                 </p>
               </Card>
             </motion.div>
@@ -132,8 +143,8 @@ export default function ArbWaveDocs() {
                   Multi-Protocol Integration
                 </Heading>
                 <p className='text-sm text-[#E5E5E5]'>
-                  Sophisticated routing across multiple DeFi protocols to identify
-                  and exploit arbitrage opportunities in real-time.
+                  Sophisticated routing across multiple DeFi protocols to
+                  identify and exploit arbitrage opportunities in real-time.
                 </p>
               </Card>
             </motion.div>
@@ -144,8 +155,8 @@ export default function ArbWaveDocs() {
                   Risk Management
                 </Heading>
                 <p className='text-sm text-[#E5E5E5]'>
-                  Comprehensive risk assessment and mitigation ensuring profitable
-                  execution with institutional safety standards.
+                  Comprehensive risk assessment and mitigation ensuring
+                  profitable execution with institutional safety standards.
                 </p>
               </Card>
             </motion.div>
@@ -163,8 +174,8 @@ export default function ArbWaveDocs() {
 
           <motion.div
             variants={staggerContainer}
-            initial="initial"
-            whileInView="animate"
+            initial='initial'
+            whileInView='animate'
             viewport={{ once: true }}
             className='grid grid-cols-1 md:grid-cols-2 gap-6'
           >
@@ -214,8 +225,8 @@ export default function ArbWaveDocs() {
 
           <motion.div
             variants={staggerContainer}
-            initial="initial"
-            whileInView="animate"
+            initial='initial'
+            whileInView='animate'
             viewport={{ once: true }}
             className='grid grid-cols-1 md:grid-cols-2 gap-6'
           >
@@ -260,8 +271,8 @@ export default function ArbWaveDocs() {
 
           <motion.div
             variants={staggerContainer}
-            initial="initial"
-            whileInView="animate"
+            initial='initial'
+            whileInView='animate'
             viewport={{ once: true }}
             className='grid grid-cols-1 md:grid-cols-2 gap-6'
           >
@@ -317,7 +328,7 @@ export default function ArbWaveDocs() {
             multi-protocol integration, and risk scenarios.
           </p>
 
-          <div className="overflow-x-auto -mx-6 px-6 sm:mx-0 sm:px-0">
+          <div className='overflow-x-auto -mx-6 px-6 sm:mx-0 sm:px-0'>
             <Table>
               <THead>
                 <Tr isHeader={true}>
@@ -349,7 +360,9 @@ export default function ArbWaveDocs() {
                   <Td>DEX interactions, routing</Td>
                 </Tr>
                 <Tr>
-                  <Td className='font-medium text-[#C3A6FF]'>Risk Management</Td>
+                  <Td className='font-medium text-[#C3A6FF]'>
+                    Risk Management
+                  </Td>
                   <Td>20+</Td>
                   <Td>Slippage, validation, safety</Td>
                 </Tr>

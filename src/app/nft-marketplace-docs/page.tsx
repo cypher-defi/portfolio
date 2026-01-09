@@ -2,7 +2,14 @@
 
 import React from "react"
 import { Heading } from "@/components/atoms/Heading"
-import { Table, THead, TBody, Tr, Th, Td } from "@/components/molecules/DocsTable"
+import {
+  Table,
+  THead,
+  TBody,
+  Tr,
+  Th,
+  Td
+} from "@/components/molecules/DocsTable"
 import { DocsLayout } from "@/components/layout/DocsLayout"
 import { Navigation } from "@/components/navigation/Navigation"
 import { motion } from "framer-motion"
@@ -21,10 +28,10 @@ export default function NFTMarketplaceDocs() {
   return (
     <>
       <Navigation
-        variant="docs"
-        protocolName="NFT Marketplace"
+        variant='docs'
+        protocolName='NFT Marketplace'
         protocolIcon={<MarketplaceIcon />}
-        githubLink="https://github.com/Enricrypto/nft-marketplace"
+        githubLink='https://github.com/Enricrypto/nft-marketplace'
         navItems={[
           { label: "Overview", href: "#overview" },
           { label: "Auctions", href: "#auctions" },
@@ -34,9 +41,13 @@ export default function NFTMarketplaceDocs() {
       />
 
       <DocsLayout>
-        <header className='space-y-4 pb-16 border-t border-white/5'>
+        <header className='space-y-4 pt-6 pb-16 border-t border-white/5'>
           <div className='flex items-center gap-4 flex-wrap'>
-            <Heading level='display-lg' color='accent-blue' className='mb-0 text-3xl sm:text-4xl md:text-5xl lg:text-6xl'>
+            <Heading
+              level='display-lg'
+              color='accent-blue'
+              className='mb-0 text-3xl sm:text-4xl md:text-5xl lg:text-6xl'
+            >
               NFT Marketplace
             </Heading>
             <span className='px-3 py-1 bg-[rgba(167,200,255,0.1)] border border-[rgba(167,200,255,0.3)] rounded-full text-sm text-[#A7C8FF]'>
@@ -110,8 +121,8 @@ export default function NFTMarketplaceDocs() {
 
           <motion.div
             variants={staggerContainer}
-            initial="initial"
-            whileInView="animate"
+            initial='initial'
+            whileInView='animate'
             viewport={{ once: true }}
             className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'
           >
@@ -133,8 +144,8 @@ export default function NFTMarketplaceDocs() {
                   English Auctions
                 </Heading>
                 <p className='text-sm text-[#E5E5E5]'>
-                  Time-based auction system with competitive bidding and automatic
-                  winner settlement.
+                  Time-based auction system with competitive bidding and
+                  automatic winner settlement.
                 </p>
               </Card>
             </motion.div>
@@ -145,8 +156,8 @@ export default function NFTMarketplaceDocs() {
                   Royalty System
                 </Heading>
                 <p className='text-sm text-[#E5E5E5]'>
-                  Creator royalties on secondary sales with automatic distribution
-                  to designated addresses.
+                  Creator royalties on secondary sales with automatic
+                  distribution to designated addresses.
                 </p>
               </Card>
             </motion.div>
@@ -164,8 +175,8 @@ export default function NFTMarketplaceDocs() {
 
           <motion.div
             variants={staggerContainer}
-            initial="initial"
-            whileInView="animate"
+            initial='initial'
+            whileInView='animate'
             viewport={{ once: true }}
             className='grid grid-cols-1 md:grid-cols-2 gap-6'
           >
@@ -210,8 +221,8 @@ export default function NFTMarketplaceDocs() {
 
           <motion.div
             variants={staggerContainer}
-            initial="initial"
-            whileInView="animate"
+            initial='initial'
+            whileInView='animate'
             viewport={{ once: true }}
             className='grid grid-cols-1 md:grid-cols-2 gap-6'
           >
@@ -267,7 +278,7 @@ export default function NFTMarketplaceDocs() {
             listings, auctions, offers, and royalty distributions.
           </p>
 
-          <div className="overflow-x-auto -mx-6 px-6 sm:mx-0 sm:px-0">
+          <div className='overflow-x-auto -mx-6 px-6 sm:mx-0 sm:px-0'>
             <Table>
               <THead>
                 <Tr isHeader={true}>
@@ -283,7 +294,9 @@ export default function NFTMarketplaceDocs() {
                   <Td>Create, cancel, purchase listings</Td>
                 </Tr>
                 <Tr>
-                  <Td className='font-medium text-[#A7C8FF]'>English Auctions</Td>
+                  <Td className='font-medium text-[#A7C8FF]'>
+                    English Auctions
+                  </Td>
                   <Td>35+</Td>
                   <Td>Bidding, settlement, buyout logic</Td>
                 </Tr>

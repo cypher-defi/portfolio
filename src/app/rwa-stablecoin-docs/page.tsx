@@ -2,7 +2,14 @@
 
 import React from "react"
 import { Heading } from "@/components/atoms/Heading"
-import { Table, THead, TBody, Tr, Th, Td } from "@/components/molecules/DocsTable"
+import {
+  Table,
+  THead,
+  TBody,
+  Tr,
+  Th,
+  Td
+} from "@/components/molecules/DocsTable"
 import { DocsLayout } from "@/components/layout/DocsLayout"
 import { Navigation } from "@/components/navigation/Navigation"
 import { motion } from "framer-motion"
@@ -20,10 +27,10 @@ export default function RWAStablecoinDocs() {
   return (
     <>
       <Navigation
-        variant="docs"
-        protocolName="RWA Stablecoin"
+        variant='docs'
+        protocolName='RWA Stablecoin'
         protocolIcon={<PropertyIcon />}
-        githubLink="https://github.com/Enricrypto"
+        githubLink='https://github.com/Enricrypto'
         navItems={[
           { label: "Overview", href: "#overview" },
           { label: "Collateral", href: "#collateral" },
@@ -33,9 +40,13 @@ export default function RWAStablecoinDocs() {
       />
 
       <DocsLayout>
-        <header className='space-y-4 pb-16 border-t border-white/5'>
+        <header className='space-y-4 pt-6 pb-16 border-t border-white/5'>
           <div className='flex items-center gap-4 flex-wrap'>
-            <Heading level='display-lg' color='accent-blue' className='mb-0 text-3xl sm:text-4xl md:text-5xl lg:text-6xl'>
+            <Heading
+              level='display-lg'
+              color='accent-blue'
+              className='mb-0 text-3xl sm:text-4xl md:text-5xl lg:text-6xl'
+            >
               RWA Stablecoin
             </Heading>
             <span className='px-3 py-1 bg-[rgba(167,200,255,0.1)] border border-[rgba(167,200,255,0.3)] rounded-full text-sm text-[#A7C8FF]'>
@@ -108,8 +119,8 @@ export default function RWAStablecoinDocs() {
 
           <motion.div
             variants={staggerContainer}
-            initial="initial"
-            whileInView="animate"
+            initial='initial'
+            whileInView='animate'
             viewport={{ once: true }}
             className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'
           >
@@ -131,8 +142,8 @@ export default function RWAStablecoinDocs() {
                   150% Collateralization
                 </Heading>
                 <p className='text-sm text-[#E5E5E5]'>
-                  Over-collateralization requirements ensure system stability and
-                  protect all stakeholders.
+                  Over-collateralization requirements ensure system stability
+                  and protect all stakeholders.
                 </p>
               </Card>
             </motion.div>
@@ -162,8 +173,8 @@ export default function RWAStablecoinDocs() {
 
           <motion.div
             variants={staggerContainer}
-            initial="initial"
-            whileInView="animate"
+            initial='initial'
+            whileInView='animate'
             viewport={{ once: true }}
             className='grid grid-cols-1 md:grid-cols-2 gap-6'
           >
@@ -208,8 +219,8 @@ export default function RWAStablecoinDocs() {
 
           <motion.div
             variants={staggerContainer}
-            initial="initial"
-            whileInView="animate"
+            initial='initial'
+            whileInView='animate'
             viewport={{ once: true }}
             className='grid grid-cols-1 md:grid-cols-2 gap-6'
           >
@@ -265,7 +276,7 @@ export default function RWAStablecoinDocs() {
             liquidations, and asset validation scenarios.
           </p>
 
-          <div className="overflow-x-auto -mx-6 px-6 sm:mx-0 sm:px-0">
+          <div className='overflow-x-auto -mx-6 px-6 sm:mx-0 sm:px-0'>
             <Table>
               <THead>
                 <Tr isHeader={true}>
@@ -276,7 +287,9 @@ export default function RWAStablecoinDocs() {
               </THead>
               <TBody>
                 <Tr>
-                  <Td className='font-medium text-[#FFC36B]'>Collateral Logic</Td>
+                  <Td className='font-medium text-[#FFC36B]'>
+                    Collateral Logic
+                  </Td>
                   <Td>40+</Td>
                   <Td>Validation, minting, burning</Td>
                 </Tr>

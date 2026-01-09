@@ -2,9 +2,15 @@
 
 import { motion } from "framer-motion"
 import { useRouter } from "next/navigation"
-import { AnimatedHero } from "@/components/AnimatedHero"
+import dynamic from "next/dynamic"
 
-// Define the interface to satisfy TypeScript in page.tsx
+// Dynamically load AnimatedHero to avoid LCP / hydration cost
+const AnimatedHero = dynamic(
+  () => import("@/components/AnimatedHero").then((mod) => mod.AnimatedHero),
+  { ssr: false }
+)
+
+// Props
 interface HeroProps {
   label: string
   title: string
@@ -25,10 +31,21 @@ export const HeroSection = ({
   const router = useRouter()
 
   return (
-    <section className='relative flex items-center justify-center pt-32 sm:pt-40 pb-12 sm:pb-4 px-4 sm:px-6 lg:px-12 xl:px-24 overflow-hidden'>
+    <section
+      className='
+    relative flex items-center
+    min-h-[60vh]        /* mobile: smaller height */
+    lg:min-h-[calc(100vh-80px)]  /* desktop: taller height */
+    pt-4                 /* top padding on mobile */
+    lg:pt-28             /* top padding on desktop */
+    pb-12                /* bottom padding */
+    px-4 sm:px-6 lg:px-12 xl:px-24
+    overflow-hidden
+  '
+    >
       <div className='w-full max-w-400 mx-auto'>
         <div className='grid lg:grid-cols-[1fr_1.2fr] gap-6 lg:gap-8 items-start'>
-          {/* Left Content */}
+          {/* LEFT CONTENT */}
           <div className='relative z-20 space-y-4 sm:space-y-8'>
             {/* Label */}
             <motion.div
@@ -43,26 +60,20 @@ export const HeroSection = ({
               </span>
             </motion.div>
 
-            {/* Title */}
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.2, duration: 0.8 }}
-            >
-              <h1 className='text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-[1.1] sm:leading-[1.05] lg:leading-[0.95] text-[#E5E5E5]'>
-                <span className='font-light tracking-tight'>{title}</span>
-                <br />
-                <span className='font-serif italic font-light tracking-tight'>
-                  {titleItalic}
-                </span>
-              </h1>
-            </motion.div>
+            {/* TITLE — NON-ANIMATED for faster LCP */}
+            <h1 className='text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-[1.1] sm:leading-[1.05] lg:leading-[0.95] text-[#E5E5E5]'>
+              <span className='font-light tracking-tight'>{title}</span>
+              <br />
+              <span className='font-serif italic font-light tracking-tight'>
+                {titleItalic}
+              </span>
+            </h1>
 
             {/* Description */}
             <motion.p
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.3, duration: 0.8 }}
+              transition={{ delay: 0.25, duration: 0.8 }}
               className='text-[#8A8A8A] font-light leading-relaxed max-w-lg text-sm sm:text-base'
             >
               {description}
@@ -72,7 +83,7 @@ export const HeroSection = ({
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.4, duration: 0.8 }}
+              transition={{ delay: 0.35, duration: 0.8 }}
               className='flex flex-wrap gap-3 sm:gap-4'
             >
               <button
@@ -94,6 +105,7 @@ export const HeroSection = ({
                   />
                 </svg>
               </button>
+
               <button
                 onClick={() => router.push("/contact")}
                 className='px-6 sm:px-8 py-3 sm:py-3.5 rounded-sm bg-transparent text-[#E5E5E5] text-[9px] sm:text-[10px] uppercase tracking-[0.2em] font-medium hover:bg-white/5 transition-all duration-300 border border-white/10'
@@ -103,18 +115,10 @@ export const HeroSection = ({
             </motion.div>
           </div>
 
-          {/* Right Visualization - Hidden on mobile */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.3, duration: 1.2 }}
-            className='hidden lg:block relative w-full aspect-square overflow-hidden -mt-8'
-          >
-            {/* Main visualization container */}
-            <div className='w-full h-full relative'>
-              <AnimatedHero />
-            </div>
-          </motion.div>
+          {/* RIGHT VISUAL — DYNAMICALLY LOADED */}
+          <div className='hidden lg:block relative w-full aspect-square overflow-hidden -mt-8'>
+            <AnimatedHero />
+          </div>
         </div>
       </div>
     </section>

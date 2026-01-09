@@ -2,7 +2,14 @@
 
 import React from "react"
 import { Heading } from "@/components/atoms/Heading"
-import { Table, THead, TBody, Tr, Th, Td } from "@/components/molecules/DocsTable"
+import {
+  Table,
+  THead,
+  TBody,
+  Tr,
+  Th,
+  Td
+} from "@/components/molecules/DocsTable"
 import { DocsLayout } from "@/components/layout/DocsLayout"
 import { Navigation } from "@/components/navigation/Navigation"
 import { motion } from "framer-motion"
@@ -22,10 +29,10 @@ export default function TokenLaunchpadDocs() {
   return (
     <>
       <Navigation
-        variant="docs"
-        protocolName="Token Launchpad"
+        variant='docs'
+        protocolName='Token Launchpad'
         protocolIcon={<AuctionIcon />}
-        githubLink="https://github.com/Enricrypto"
+        githubLink='https://github.com/Enricrypto'
         navItems={[
           { label: "Overview", href: "#overview" },
           { label: "Pricing", href: "#pricing" },
@@ -35,9 +42,13 @@ export default function TokenLaunchpadDocs() {
       />
 
       <DocsLayout>
-        <header className='space-y-4 pb-16 border-t border-white/5'>
+        <header className='space-y-4 pt-6 pb-16 border-t border-white/5'>
           <div className='flex items-center gap-4 flex-wrap'>
-            <Heading level='display-lg' color='accent-blue' className='mb-0 text-3xl sm:text-4xl md:text-5xl lg:text-6xl'>
+            <Heading
+              level='display-lg'
+              color='accent-blue'
+              className='mb-0 text-3xl sm:text-4xl md:text-5xl lg:text-6xl'
+            >
               Token Launchpad
             </Heading>
             <span className='px-3 py-1 bg-[rgba(167,200,255,0.1)] border border-[rgba(167,200,255,0.3)] rounded-full text-sm text-[#A7C8FF]'>
@@ -105,8 +116,8 @@ export default function TokenLaunchpadDocs() {
 
           <motion.div
             variants={staggerContainer}
-            initial="initial"
-            whileInView="animate"
+            initial='initial'
+            whileInView='animate'
             viewport={{ once: true }}
             className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'
           >
@@ -128,8 +139,8 @@ export default function TokenLaunchpadDocs() {
                   Time Management
                 </Heading>
                 <p className='text-sm text-[#E5E5E5]'>
-                  Precise time-based mechanics with configurable auction duration
-                  and price schedules.
+                  Precise time-based mechanics with configurable auction
+                  duration and price schedules.
                 </p>
               </Card>
             </motion.div>
@@ -140,8 +151,8 @@ export default function TokenLaunchpadDocs() {
                   Instant Settlement
                 </Heading>
                 <p className='text-sm text-[#E5E5E5]'>
-                  Immediate execution and settlement upon purchase with automatic
-                  refunds.
+                  Immediate execution and settlement upon purchase with
+                  automatic refunds.
                 </p>
               </Card>
             </motion.div>
@@ -159,8 +170,8 @@ export default function TokenLaunchpadDocs() {
 
           <motion.div
             variants={staggerContainer}
-            initial="initial"
-            whileInView="animate"
+            initial='initial'
+            whileInView='animate'
             viewport={{ once: true }}
             className='grid grid-cols-1 md:grid-cols-2 gap-6'
           >
@@ -205,8 +216,8 @@ export default function TokenLaunchpadDocs() {
 
           <motion.div
             variants={staggerContainer}
-            initial="initial"
-            whileInView="animate"
+            initial='initial'
+            whileInView='animate'
             viewport={{ once: true }}
             className='grid grid-cols-1 md:grid-cols-2 gap-6'
           >
@@ -262,7 +273,7 @@ export default function TokenLaunchpadDocs() {
             settlements, and edge cases.
           </p>
 
-          <div className="overflow-x-auto -mx-6 px-6 sm:mx-0 sm:px-0">
+          <div className='overflow-x-auto -mx-6 px-6 sm:mx-0 sm:px-0'>
             <Table>
               <THead>
                 <Tr isHeader={true}>
@@ -280,12 +291,16 @@ export default function TokenLaunchpadDocs() {
                   <Td>Decay formulas, edge cases</Td>
                 </Tr>
                 <Tr>
-                  <Td className='font-medium text-[#A7C8FF]'>Time Management</Td>
+                  <Td className='font-medium text-[#A7C8FF]'>
+                    Time Management
+                  </Td>
                   <Td>25+</Td>
                   <Td>Duration handling, timestamps</Td>
                 </Tr>
                 <Tr>
-                  <Td className='font-medium text-[#6BFF95]'>Settlement Logic</Td>
+                  <Td className='font-medium text-[#6BFF95]'>
+                    Settlement Logic
+                  </Td>
                   <Td>20+</Td>
                   <Td>Execution, refunds, transfers</Td>
                 </Tr>
