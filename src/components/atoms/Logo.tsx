@@ -1,13 +1,23 @@
 "use client"
 import React from "react"
 
-export const Logo: React.FC = () => {
+interface LogoProps extends React.SVGProps<SVGSVGElement> {
+  size?: number
+}
+
+export const Logo: React.FC<LogoProps> = ({
+  size = 40,
+  className = "",
+  ...props
+}) => {
   return (
     <svg
       viewBox='0 0 280 280'
-      width='40'
-      height='40'
+      width={size}
+      height={size}
+      className={className}
       xmlns='http://www.w3.org/2000/svg'
+      {...props}
     >
       <defs>
         <linearGradient id='tf' x1='0%' y1='0%' x2='100%' y2='100%'>

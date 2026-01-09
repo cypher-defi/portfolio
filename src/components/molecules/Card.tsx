@@ -13,8 +13,8 @@ export const Card: React.FC<CardProps> = ({
   ...props
 }) => {
   const variantStyles = {
-    default: "bg-[#1A1B1E] border border-[#2A2A2E]",
-    outlined: "bg-transparent border border-[#2A2A2E]"
+    default: "bg-[var(--color-bg-card)] border border-[var(--color-border)]",
+    outlined: "bg-transparent border border-[var(--color-border)]"
   }
 
   const glowMap = {
@@ -30,8 +30,8 @@ export const Card: React.FC<CardProps> = ({
   return (
     <div
       className={`
-        rounded-xl p-6
-        transition-all duration-300
+        rounded-2xl p-6
+        transition-colors duration-(--transition-normal)
         ${variantStyles[variant]}
         ${glow ? glowMap[glow] : ""}
         ${className}

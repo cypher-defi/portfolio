@@ -13,7 +13,7 @@ export const Button: React.FC<ButtonProps> = ({
   ...props
 }) => {
   const baseStyles =
-    "font-sans font-medium transition-all duration-300 ease-out cursor-pointer border rounded-lg"
+    "font-sans font-medium transition-all duration-300 ease-out rounded-lg cursor-pointer border focus:outline-none focus:ring-2 focus:ring-offset-2"
 
   const sizeStyles = {
     sm: "px-3 py-1.5 text-sm",
@@ -22,14 +22,31 @@ export const Button: React.FC<ButtonProps> = ({
   }
 
   const variantStyles = {
-    primary:
-      "bg-[#A7C8FF] text-[#0C0C0E] border-[#A7C8FF] hover:shadow-[0_0_20px_rgba(167,200,255,0.3)] active:scale-95",
-    secondary:
-      "bg-[#1A1B1E] text-[#FFFFFF] border-[#2A2A2E] hover:border-[#A7C8FF]",
-    outline:
-      "bg-transparent text-[#FFFFFF] border-[#A7C8FF] hover:shadow-[0_0_20px_rgba(167,200,255,0.3)]",
-    ghost:
-      "bg-transparent text-[#8A8A8A] border-transparent hover:text-[#A7C8FF]"
+    primary: `
+      bg-[var(--color-accent-blue)]
+      text-[var(--color-bg-primary)]
+      border-[var(--color-accent-blue)]
+      hover:shadow-[0_0_20px_rgba(167,200,255,0.3)]
+      active:scale-95
+    `,
+    secondary: `
+      bg-[var(--color-bg-card)]
+      text-[var(--color-text-primary)]
+      border-[var(--color-border)]
+      hover:border-[var(--color-accent-blue)]
+    `,
+    outline: `
+      bg-transparent
+      text-[var(--color-text-primary)]
+      border-[var(--color-accent-blue)]
+      hover:shadow-[0_0_20px_rgba(167,200,255,0.3)]
+    `,
+    ghost: `
+      bg-transparent
+      text-[var(--color-text-secondary)]
+      border-transparent
+      hover:text-[var(--color-accent-blue)]
+    `
   }
 
   return (

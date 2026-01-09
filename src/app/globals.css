@@ -93,3 +93,37 @@ canvas {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* ===== Tailwind Utility Classes for CSS Variables ===== */
+@layer utilities {
+  .bg-primary {
+    background-color: var(--color-bg-primary);
+  }
+  .bg-card {
+    background-color: var(--color-bg-card);
+  }
+  .text-primary {
+    color: var(--color-text-primary);
+  }
+  .text-secondary {
+    color: var(--color-text-secondary);
+  }
+  .border-custom {
+    border-color: var(--color-border);
+  }
+  .border-hover:hover {
+    border-color: var(--color-border-hover);
+  }
+  .accent-blue {
+    color: var(--color-accent-blue);
+  }
+  .accent-green {
+    color: var(--color-accent-green);
+  }
+  .accent-red {
+    color: var(--color-accent-red);
+  }
+  .accent-purple {
+    color: var(--color-accent-purple);
+  }
+}

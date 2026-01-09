@@ -9,15 +9,13 @@ interface DocsLayoutProps {
 
 export const DocsLayout: React.FC<DocsLayoutProps> = ({ children }) => {
   return (
-    <main className='bg-[#121214] text-white min-h-screen relative'>
+    <main className='bg-[#121214] text-white min-h-screen relative scroll-smooth font-sans'>
       {/* Grain texture overlay */}
       <div className='fixed inset-0 opacity-[0.03] pointer-events-none z-0 bg-[url("/noise.svg")]' />
 
       {/* Content */}
       <div className='relative z-10'>
-        <div className='max-w-6xl mx-auto px-6 py-16 md:py-24'>
-          {children}
-        </div>
+        <div className='max-w-6xl mx-auto px-6 py-16 md:py-24'>{children}</div>
 
         {/* Footer */}
         <Footer />

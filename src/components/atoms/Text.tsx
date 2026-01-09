@@ -19,8 +19,8 @@ export const Text: React.FC<TextProps> = ({
   }
 
   const colorMap = {
-    primary: "text-[#FFFFFF]",
-    secondary: "text-[#8A8A8A]"
+    primary: "text-[var(--color-text-primary)]",
+    secondary: "text-[var(--color-text-secondary)]"
   }
 
   const baseClassName = [sizeMap[size], colorMap[color], className]
