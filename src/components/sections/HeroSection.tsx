@@ -37,6 +37,7 @@ export const HeroSection = ({
     min-h-[60vh]        /* mobile: smaller height */
     lg:min-h-[calc(100vh-80px)]  /* desktop: taller height */
     pt-4                 /* top padding on mobile */
+    m:pt-28              
     lg:pt-28             /* top padding on desktop */
     pb-12                /* bottom padding */
     px-4 sm:px-6 lg:px-12 xl:px-24
