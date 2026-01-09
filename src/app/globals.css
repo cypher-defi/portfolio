@@ -1,157 +1,90 @@
-/* 
-  ============================================================================
-  TAILWIND CSS V4+ - NEW FORMAT
-  
-  In Tailwind v4+, most configuration goes directly into CSS files.
-  No need for a separate config file for basic setup!
-  
-  This is your main CSS file where you define all customizations.
-  ============================================================================
-*/
-
+/* app/globals.css */
 @import "tailwindcss";
 
-@theme {
-  --color-dark-bg: #0c0c0e;
-  --color-dark-card: #1a1b1e;
-  --color-dark-border: #2a2a2e;
-  --color-text-primary: #ffffff;
-  --color-text-secondary: #8a8a8a;
+:root {
+  /* Color System */
+  --color-bg-primary: #121214;
+  --color-bg-card: #1A1B1E;
+  --color-text-primary: #E5E5E5;
+  --color-text-secondary: #8A8A8A;
+  --color-border: rgba(255, 255, 255, 0.05);
+  --color-border-hover: rgba(255, 255, 255, 0.10);
 
-  /* Accent colors */
-  --color-accent-blue: #a7c8ff;
-  --color-accent-green: #6bff95;
-  --color-accent-purple: #c3a6ff;
-  --color-accent-red: #ff6b6b;
+  /* Accent Colors */
+  --color-accent-blue: #A7C8FF;
+  --color-accent-green: #6BFF95;
+  --color-accent-red: #FF6B6B;
+  --color-accent-purple: #C3A6FF;
 
-  /* Typography */
-  --font-family-sans: "Inter", system-ui, sans-serif;
-  --font-family-mono: "Space Mono", "Courier New", monospace;
-
-  /* Font sizes with line height */
-  --font-size-display-lg: 3.5rem / 1.1;
-  --font-size-display-md: 2.5rem / 1.2;
-  --font-size-h1: 2rem / 1.2;
-  --font-size-h2: 1.5rem / 1.3;
-  --font-size-h3: 1.25rem / 1.4;
-  --font-size-body: 1rem / 1.5;
-  --font-size-body-sm: 0.875rem / 1.6;
-
-  /* Shadows */
-  --shadow-glow-blue: 0 0 20px rgb(167 200 255 / 0.3);
-  --shadow-glow-green: 0 0 20px rgb(107 255 149 / 0.3);
-  --shadow-glow-purple: 0 0 20px rgb(195 166 255 / 0.3);
-  --shadow-glow-red: 0 0 20px rgb(255 107 107 / 0.3);
-
-  /* Spacing, sizing, and other scales use Tailwind defaults */
+  /* Transition Timings */
+  --transition-fast: 0.3s;
+  --transition-normal: 0.6s;
+  --transition-slow: 0.9s;
 }
 
-@layer components {
-  /* Utility for glow effects */
-  .glow-blue {
-    @apply shadow-[0_0_20px_rgba(167,200,255,0.3)];
-  }
-
-  .glow-green {
-    @apply shadow-[0_0_20px_rgba(107,255,149,0.3)];
-  }
-
-  .glow-purple {
-    @apply shadow-[0_0_20px_rgba(195,166,255,0.3)];
-  }
-
-  .glow-red {
-    @apply shadow-[0_0_20px_rgba(255,107,107,0.3)];
-  }
-
-  /* Button reset */
-  button {
-    @apply focus:outline-none focus:ring-2 focus:ring-[#A7C8FF] focus:ring-offset-2 focus:ring-offset-[#0C0C0E];
-  }
-
-  /* Link styles */
-  a {
-    @apply transition-colors duration-300;
-  }
-}
-
-/* Global styles */
-html {
-  scroll-behavior: smooth;
+/* Performance optimizations */
+* {
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {
-  @apply bg-[#0C0C0E] text-[#FFFFFF];
-  font-family: "Inter", system-ui, sans-serif;
+  background: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  cursor: none; /* Hide system cursor */
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeSpeed;
 }
 
-::-webkit-scrollbar {
-  width: 8px;
+/* Ensure you still have a way to click things if the JS fails */
+a,
+button {
+  cursor: none;
 }
 
-::-webkit-scrollbar-track {
-  background: #0c0c0e;
+/* The Grain Layer */
+.noise-bg {
+  position: fixed;
+  inset: 0;
+  opacity: 0.03;
+  z-index: 50;
+  pointer-events: none;
+  background-image: url("https://grainy-gradients.vercel.app/noise.svg");
 }
 
-::-webkit-scrollbar-thumb {
-  background: #2a2a2e;
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #3a3a3e;
-}
-
-/* Selection color */
-::selection {
-  @apply bg-[#A7C8FF]/20 text-[#A7C8FF];
-}
-
-/* Smooth transitions */
-* {
-  @apply transition-colors duration-300;
-}
-
-/* Animation definitions */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
+/* Performance optimizations for animations */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
   }
 }
 
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* Force GPU acceleration for animated elements */
+.gpu-accelerated {
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
 }
 
-@keyframes glowPulse {
-  0%,
-  100% {
-    box-shadow: 0 0 20px rgb(167 200 255 / 0.3);
+/* Optimize blur performance */
+[class*="blur-"] {
+  will-change: filter;
+  transform: translate3d(0, 0, 0);
+}
+
+/* Prevent layout shifts */
+img, video, canvas {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Optimize motion animations */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
-  50% {
-    box-shadow: 0 0 30px rgb(167 200 255 / 0.5);
-  }
-}
-
-/* Animation utilities */
-.animate-fade-in {
-  animation: fadeIn 0.6s ease-out;
-}
-
-.animate-fade-in-up {
-  animation: fadeInUp 0.6s ease-out;
-}
-
-.animate-glow-pulse {
-  animation: glowPulse 2s ease-in-out infinite;
 }

@@ -1,6 +1,7 @@
 "use client"
 
 import { HeroSection } from "@/components/sections/HeroSection"
+import { TechStackSection } from "@/components/sections/TechStackSection"
 import { StatsSection } from "@/components/sections/StatsSection"
 import { ExpertiseSection } from "@/components/sections/ExpertiseSection"
 import { WorkSection } from "@/components/sections/WorkSection"
@@ -9,7 +10,9 @@ import { Navigation } from "@/components/navigation/Navigation"
 import { Footer } from "@/components/navigation/Footer"
 
 const HERO_DATA = {
-  title: "Protocol Engineer | Production DeFi Systems",
+  label: "BLOCKCHAIN ENGINEER",
+  title: "Protocol Engineer |",
+  titleItalic: "Production DeFi Systems",
   description: `I'm Enrique Ibarra, building institutional-grade DeFi infrastructure across lending markets, yield optimization, and liquidity systems. Five production protocols specializing in capital-efficient architecture with Solidity, Foundry, and EVM-based systems.`,
   primaryCTA: "View Work",
   secondaryCTA: "Get In Touch"
@@ -24,39 +27,89 @@ const STATS = [
 
 export default function Home() {
   return (
-    <main className='bg-[#0C0C0E] text-white min-h-screen'>
-      {/* Particle Background Effect */}
-      <div className='fixed inset-0 pointer-events-none'>
-        <div className='absolute inset-0 bg-gradient-to-b from-[#A7C8FF]/5 via-transparent to-transparent' />
+    // Changed to #121214 (Charcoal) and text to #E5E5E5 (Soft Silver)
+    <main className='bg-[#121214] text-[#E5E5E5] min-h-screen relative selection:bg-white/10 selection:text-white'>
+      {/* CALM WATER & MIST BACKGROUND
+          - Fixed position ensures it stays behind content
+          - Z-index 0 keeps it behind the UI (Navigation/Hero)
+          - GPU accelerated with transform3d for better performance
+      */}
+      <div className='fixed inset-0 pointer-events-none z-0 overflow-hidden' style={{ transform: 'translate3d(0,0,0)' }}>
+        {/* 1. The Grain Layer (Aura Texture) - GPU accelerated */}
+        <div
+          className='absolute inset-0 opacity-[0.03] contrast-150 brightness-100 z-50'
+          style={{
+            backgroundImage: `url("https://grainy-gradients.vercel.app/noise.svg")`,
+            willChange: 'opacity',
+            transform: 'translate3d(0,0,0)'
+          }}
+        />
+
+        {/* 2. Primary "Mist" Spotlight (Top Left) - GPU accelerated */}
+        <div
+          className='absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-slate-500/10 blur-[120px] animate-pulse-slow'
+          style={{
+            willChange: 'opacity, transform',
+            transform: 'translate3d(0,0,0)',
+            backfaceVisibility: 'hidden'
+          }}
+        />
+
+        {/* 3. Deep "Water" Glow (Bottom Right) - Static for performance */}
+        <div
+          className='absolute bottom-[-10%] right-[-10%] w-[60%] h-[60%] rounded-full bg-zinc-800/20 blur-[150px]'
+          style={{
+            transform: 'translate3d(0,0,0)',
+            backfaceVisibility: 'hidden'
+          }}
+        />
       </div>
 
-      {/* Navigation */}
-      <Navigation />
+      {/* CONTENT LAYER 
+          Wrapped in relative z-10 to sit above the background effects
+      */}
+      <div className='relative z-10'>
+        <Navigation />
 
-      {/* Hero Section */}
-      <HeroSection {...HERO_DATA} />
+        <HeroSection {...HERO_DATA} />
 
-      {/* Stats Section */}
-      <StatsSection stats={STATS} />
+        <TechStackSection />
 
-      {/* Expertise Section */}
-      <ExpertiseSection />
+        <StatsSection stats={STATS} />
 
-      {/* Work Section */}
-      <WorkSection />
+        <ExpertiseSection />
 
-      {/* Contact Section */}
-      <ContactSection />
+        <WorkSection />
 
-      {/* Footer */}
-      <Footer />
+        <ContactSection />
 
-      {/* Global Animations */}
+        <Footer />
+      </div>
+
+      {/* Global Animations - Optimized for smooth, performant experience */}
       <style jsx>{`
+        /* Smoother pulse animation using transform for GPU acceleration */
+        @keyframes pulseSlow {
+          0%,
+          100% {
+            opacity: 0.1;
+            transform: scale(1);
+          }
+          50% {
+            opacity: 0.15;
+            transform: scale(1.02);
+          }
+        }
+
+        .animate-pulse-slow {
+          animation: pulseSlow 15s ease-in-out infinite;
+          transform-origin: center;
+        }
+
         @keyframes fadeIn {
           from {
             opacity: 0;
-            transform: translateY(20px);
+            transform: translateY(15px);
           }
           to {
             opacity: 1;
@@ -67,7 +120,7 @@ export default function Home() {
         @keyframes fadeInUp {
           from {
             opacity: 0;
-            transform: translateY(30px);
+            transform: translateY(40px);
           }
           to {
             opacity: 1;
@@ -76,37 +129,31 @@ export default function Home() {
         }
 
         .animate-fade-in {
-          animation: fadeIn 0.6s ease-out;
+          animation: fadeIn 1s ease-out forwards;
         }
 
         .animate-fade-in-up {
-          animation: fadeInUp 0.6s ease-out;
+          animation: fadeInUp 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
         .delay-100 {
           animation-delay: 0.1s;
         }
-
         .delay-200 {
           animation-delay: 0.2s;
         }
-
         .delay-300 {
           animation-delay: 0.3s;
         }
-
         .delay-400 {
           animation-delay: 0.4s;
         }
-
         .delay-500 {
           animation-delay: 0.5s;
         }
-
         .delay-600 {
           animation-delay: 0.6s;
         }
-
         .delay-700 {
           animation-delay: 0.7s;
         }

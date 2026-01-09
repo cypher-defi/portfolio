@@ -1,108 +1,120 @@
 "use client"
 
-import { Heading } from "@/components/atoms/Heading"
-import { Text } from "@/components/atoms/Text"
-import { Button } from "@/components/atoms/Button"
-import { TechStackSection } from "@/components/sections/TeckStackSection"
-import { useParticleAnimation } from "@/hooks/useParticleAnimation"
+import { motion } from "framer-motion"
 import { useRouter } from "next/navigation"
+import { AnimatedHero } from "@/components/AnimatedHero"
 
-const TECH_STACK = [
-  "Solidity",
-  "Rust",
-  "TypeScript",
-  "React",
-  "Foundry",
-  "Anchor",
-  "Viem",
-  "Wagmi",
-  "Web3",
-  "Testing",
-  "Audits"
-]
-
+// Define the interface to satisfy TypeScript in page.tsx
 interface HeroProps {
+  label: string
   title: string
+  titleItalic: string
   description: string
   primaryCTA: string
   secondaryCTA: string
 }
 
 export const HeroSection = ({
+  label,
   title,
+  titleItalic,
   description,
   primaryCTA,
   secondaryCTA
 }: HeroProps) => {
-  useParticleAnimation("particleCanvas", {
-    particleCount: 60,
-    connectionDistance: 150
-  })
-
   const router = useRouter()
 
   return (
-    <section className='relative min-h-screen lg:h-screen flex items-stretch overflow-hidden bg-[#0C0C0E]'>
-      {/* Right-side particle animation canvas */}
-      <div className='absolute right-0 top-0 bottom-0 w-1/2 z-0 hidden lg:block'>
-        <canvas
-          id='particleCanvas'
-          className='w-full h-full block bg-[#0C0C0E]'
-        />
-      </div>
+    <section className='relative min-h-screen flex items-center justify-center pt-32 pb-20 px-6 lg:px-12 xl:px-24 overflow-hidden'>
+      <div className='w-full max-w-[1600px] mx-auto'>
+        <div className='grid lg:grid-cols-2 gap-16 items-center'>
+          {/* Left Content */}
+          <div className='relative z-20 space-y-8'>
+            {/* Label */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.1, duration: 0.8 }}
+              className='flex items-center gap-3'
+            >
+              <div className='w-8 h-[1px] bg-[#8A8A8A]' />
+              <span className='text-[10px] uppercase tracking-[0.3em] text-[#8A8A8A] font-light'>
+                {label}
+              </span>
+            </motion.div>
 
-      {/* Left-side content */}
-      <div className='w-full lg:w-1/2 relative z-10 flex flex-col justify-center lg:pt-0 pb-16 lg:pb-0'>
-        {/* CHANGED: Removed mx-auto from here */}
-        <div className='px-4 sm:px-6 w-full'>
-          {/* CHANGED: Added mx-auto here instead (only for the heading/description) */}
-          <div className='max-w-3xl mx-auto space-y-6'>
             {/* Title */}
-            <div className='animate-fade-in'>
-              <Heading
-                level='display-lg'
-                className='text-3xl sm:text-4xl lg:text-5xl xl:text-6xl'
-              >
-                {title}
-              </Heading>
-            </div>
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.2, duration: 0.8 }}
+            >
+              <h1 className='text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-[0.95] text-[#E5E5E5]'>
+                <span className='font-light tracking-tight'>{title}</span>
+                <br />
+                <span className='font-serif italic font-light tracking-tight'>
+                  {titleItalic}
+                </span>
+              </h1>
+            </motion.div>
 
             {/* Description */}
-            <div className='animate-fade-in-up delay-100'>
-              <Text
-                size='body'
-                color='secondary'
-                className='text-base sm:text-lg lg:text-lg leading-relaxed'
-              >
-                {description}
-              </Text>
-            </div>
+            <motion.p
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.3, duration: 0.8 }}
+              className='text-[#8A8A8A] font-light leading-relaxed max-w-lg text-sm md:text-base'
+            >
+              {description}
+            </motion.p>
 
             {/* CTA Buttons */}
-            <div className='flex flex-col sm:flex-row gap-3 sm:gap-4 pt-4 animate-fade-in-up delay-200'>
-              <Button
-                variant='primary'
-                size='lg'
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.4, duration: 0.8 }}
+              className='flex flex-wrap gap-4'
+            >
+              <button
                 onClick={() => router.push("/#work")}
-                className='w-full sm:w-auto'
+                className='group px-8 py-3.5 rounded-sm bg-[#1a1a1c] text-[#E5E5E5] text-[10px] uppercase tracking-[0.2em] font-medium hover:bg-[#252527] transition-all duration-300 border border-white/5 flex items-center gap-2'
               >
                 {primaryCTA}
-              </Button>
-              <Button
-                variant='outline'
-                size='lg'
+                <svg
+                  className='w-3 h-3 group-hover:translate-x-1 transition-transform'
+                  fill='none'
+                  viewBox='0 0 24 24'
+                  stroke='currentColor'
+                >
+                  <path
+                    strokeLinecap='round'
+                    strokeLinejoin='round'
+                    strokeWidth={2}
+                    d='M9 5l7 7-7 7'
+                  />
+                </svg>
+              </button>
+              <button
                 onClick={() => router.push("/contact")}
-                className='w-full sm:w-auto'
+                className='px-8 py-3.5 rounded-sm bg-transparent text-[#E5E5E5] text-[10px] uppercase tracking-[0.2em] font-medium hover:bg-white/5 transition-all duration-300 border border-white/10'
               >
                 {secondaryCTA}
-              </Button>
-            </div>
+              </button>
+            </motion.div>
           </div>
 
-          {/* Tech Stack - NOW LEFT ALIGNED */}
-          <div className='flex justify-start pt-12 sm:flex'>
-            <TechStackSection badges={TECH_STACK} />
-          </div>
+          {/* Right Visualization */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.3, duration: 1.2 }}
+            className='relative w-full aspect-square max-w-[600px] mx-auto lg:mx-0 lg:ml-auto overflow-hidden'
+          >
+            {/* Main visualization container */}
+            <div className='w-full h-full relative'>
+              <AnimatedHero />
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>

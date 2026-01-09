@@ -1,12 +1,13 @@
 /**
  * Centralized Icon Library for Protocol Documentation
  *
- * All SVG icons used across documentation pages are defined here
- * for consistency, maintainability, and code reuse.
+ * Using Iconify for consistent, elegant icons across all documentation pages
  *
  * Import usage:
  * import { DocsIcon, GitHubIcon, BankIcon, ... } from '@/components/icons'
  */
+
+import { Icon } from "@iconify/react"
 
 // --- UTILITY ICONS (Common across all docs) ---
 
@@ -73,395 +74,106 @@ export const TestIcon = () => (
 
 // --- PROTOCOL-SPECIFIC ICONS ---
 
-// Meridian Vault Icons
+// Meridian Vault / VaultForge Icons
 export const VaultIcon = () => (
-  <svg
-    viewBox='0 0 24 24'
-    width='32'
-    height='32'
-    fill='none'
-    stroke='currentColor'
-    strokeWidth='1.5'
-    strokeLinecap='round'
-    strokeLinejoin='round'
-  >
-    <rect x='3' y='11' width='18' height='11' rx='2' ry='2'></rect>
-    <path d='M7 11V7a2 2 0 012-2h6a2 2 0 012 2v4'></path>
-    <circle cx='12' cy='16' r='1'></circle>
-  </svg>
+  <Icon icon="mdi:safe" className="w-6 h-6" />
 )
 
 export const YieldIcon = () => (
-  <svg
-    viewBox='0 0 24 24'
-    width='32'
-    height='32'
-    fill='none'
-    stroke='currentColor'
-    strokeWidth='1.5'
-    strokeLinecap='round'
-    strokeLinejoin='round'
-  >
-    <polyline points='23 6 13.5 15.5 8.5 10.5 1 18'></polyline>
-    <polyline points='17 6 23 6 23 12'></polyline>
-  </svg>
+  <Icon icon="mdi:chart-line" className="w-8 h-8" />
 )
 
 // LendCore Icons
 export const BankIcon = () => (
-  <svg
-    viewBox='0 0 24 24'
-    width='32'
-    height='32'
-    fill='none'
-    stroke='currentColor'
-    strokeWidth='1.5'
-  >
-    <path d='M3 6l9-4 9 4v14H3V6z' />
-    <path d='M3 10h18M9 14h6M9 18h6' />
-  </svg>
+  <Icon icon="mdi:bank" className="w-6 h-6" />
 )
 
 export const LendingIcon = () => (
-  <svg
-    viewBox='0 0 24 24'
-    width='32'
-    height='32'
-    fill='none'
-    stroke='currentColor'
-    strokeWidth='1.5'
-    strokeLinecap='round'
-    strokeLinejoin='round'
-  >
-    <circle cx='12' cy='12' r='10'></circle>
-    <path d='M12 6v6l4 2'></path>
-  </svg>
+  <Icon icon="mdi:hand-coin" className="w-8 h-8" />
 )
 
 // NFT Marketplace Icons
 export const MarketplaceIcon = () => (
-  <svg
-    viewBox='0 0 24 24'
-    width='32'
-    height='32'
-    fill='none'
-    stroke='currentColor'
-    strokeWidth='1.5'
-    strokeLinecap='round'
-    strokeLinejoin='round'
-  >
-    <rect x='3' y='3' width='7' height='7'></rect>
-    <rect x='14' y='3' width='7' height='7'></rect>
-    <rect x='14' y='14' width='7' height='7'></rect>
-    <rect x='3' y='14' width='7' height='7'></rect>
-  </svg>
+  <Icon icon="mdi:grid" className="w-6 h-6" />
 )
 
 export const AuctionIcon = () => (
-  <svg
-    viewBox='0 0 24 24'
-    width='32'
-    height='32'
-    fill='none'
-    stroke='currentColor'
-    strokeWidth='1.5'
-    strokeLinecap='round'
-    strokeLinejoin='round'
-  >
-    <path d='M13 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V9z'></path>
-    <path d='M13 2v7h7'></path>
-    <path d='M17 14h-6'></path>
-    <path d='M17 18h-6'></path>
-  </svg>
+  <Icon icon="mdi:gavel" className="w-6 h-6" />
 )
 
 export const RoyaltyIcon = () => (
-  <svg
-    viewBox='0 0 24 24'
-    width='32'
-    height='32'
-    fill='none'
-    stroke='currentColor'
-    strokeWidth='1.5'
-    strokeLinecap='round'
-    strokeLinejoin='round'
-  >
-    <path d='M12 2L15 10H24L17 15L19 23L12 18L5 23L7 15L0 10H9L12 2Z'></path>
-  </svg>
+  <Icon icon="mdi:star" className="w-8 h-8" />
 )
 
 // RWA Stablecoin Icons
 export const PropertyIcon = () => (
-  <svg
-    viewBox='0 0 24 24'
-    width='32'
-    height='32'
-    fill='none'
-    stroke='currentColor'
-    strokeWidth='1.5'
-    strokeLinecap='round'
-    strokeLinejoin='round'
-  >
-    <path d='M12 2L3 8V21H21V8L12 2Z'></path>
-    <path d='M9 15H15V21H9V15Z'></path>
-    <path d='M12 11L12 15'></path>
-  </svg>
+  <Icon icon="mdi:home-city" className="w-6 h-6" />
 )
 
 export const CollateralIcon = () => (
-  <svg
-    viewBox='0 0 24 24'
-    width='32'
-    height='32'
-    fill='none'
-    stroke='currentColor'
-    strokeWidth='1.5'
-    strokeLinecap='round'
-    strokeLinejoin='round'
-  >
-    <rect x='2' y='7' width='20' height='14' rx='2' ry='2'></rect>
-    <path d='M16 4H8'></path>
-  </svg>
+  <Icon icon="mdi:wallet" className="w-8 h-8" />
 )
 
 export const IncomeIcon = () => (
-  <svg
-    viewBox='0 0 24 24'
-    width='32'
-    height='32'
-    fill='none'
-    stroke='currentColor'
-    strokeWidth='1.5'
-    strokeLinecap='round'
-    strokeLinejoin='round'
-  >
-    <circle cx='12' cy='12' r='10'></circle>
-    <path d='M12 6V12L16 16'></path>
-  </svg>
+  <Icon icon="mdi:trending-up" className="w-8 h-8" />
 )
 
 export const WhitelistIcon = () => (
-  <svg
-    viewBox='0 0 24 24'
-    width='32'
-    height='32'
-    fill='none'
-    stroke='currentColor'
-    strokeWidth='1.5'
-    strokeLinecap='round'
-    strokeLinejoin='round'
-  >
-    <path d='M6 9l3 3l6-6'></path>
-    <circle cx='12' cy='12' r='10'></circle>
-  </svg>
+  <Icon icon="mdi:check-circle" className="w-8 h-8" />
 )
 
 // SwapHub DEX Icons
 export const SwapIcon = () => (
-  <svg
-    viewBox='0 0 24 24'
-    width='32'
-    height='32'
-    fill='none'
-    stroke='currentColor'
-    strokeWidth='1.5'
-  >
-    <path d='M10 16l-6-6 6-6M4 10h16M14 8l6 6-6 6M20 14H4' />
-  </svg>
+  <Icon icon="mdi:swap-horizontal" className="w-6 h-6" />
 )
 
 export const PoolIcon = () => (
-  <svg
-    viewBox='0 0 24 24'
-    width='32'
-    height='32'
-    fill='none'
-    stroke='currentColor'
-    strokeWidth='1.5'
-    strokeLinecap='round'
-    strokeLinejoin='round'
-  >
-    <circle cx='9' cy='9' r='3' />
-    <circle cx='15' cy='15' r='3' />
-    <path d='M12 12l3-3M12 12l-3 3' />
-  </svg>
+  <Icon icon="mdi:water" className="w-8 h-8" />
 )
 
 export const LiquidityIcon = () => (
-  <svg
-    viewBox='0 0 24 24'
-    width='32'
-    height='32'
-    fill='none'
-    stroke='currentColor'
-    strokeWidth='1.5'
-    strokeLinecap='round'
-    strokeLinejoin='round'
-  >
-    <path d='M9 12l2 2 4-4M6 3h12a3 3 0 013 3v12a3 3 0 01-3 3H6a3 3 0 01-3-3V6a3 3 0 013-3z' />
-  </svg>
+  <Icon icon="mdi:water-check" className="w-8 h-8" />
 )
 
 export const RouterIcon = () => (
-  <svg
-    viewBox='0 0 24 24'
-    width='32'
-    height='32'
-    fill='none'
-    stroke='currentColor'
-    strokeWidth='1.5'
-    strokeLinecap='round'
-    strokeLinejoin='round'
-  >
-    <path d='M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z' />
-  </svg>
+  <Icon icon="mdi:routes" className="w-8 h-8" />
 )
 
-// Dutch Auction Icons
+// Token Launchpad Icons
 export const PriceIcon = () => (
-  <svg
-    viewBox='0 0 24 24'
-    width='32'
-    height='32'
-    fill='none'
-    stroke='currentColor'
-    strokeWidth='1.5'
-    strokeLinecap='round'
-    strokeLinejoin='round'
-  >
-    <path d='M12 1v22M17 5H7M17 19H7M5 12h14'></path>
-  </svg>
+  <Icon icon="mdi:currency-usd" className="w-8 h-8" />
 )
 
 export const ClockIcon = () => (
-  <svg
-    viewBox='0 0 24 24'
-    width='32'
-    height='32'
-    fill='none'
-    stroke='currentColor'
-    strokeWidth='1.5'
-    strokeLinecap='round'
-    strokeLinejoin='round'
-  >
-    <circle cx='12' cy='12' r='10'></circle>
-    <polyline points='12 6 12 12 16 14'></polyline>
-  </svg>
+  <Icon icon="mdi:clock-outline" className="w-8 h-8" />
 )
 
 export const RefundIcon = () => (
-  <svg
-    viewBox='0 0 24 24'
-    width='32'
-    height='32'
-    fill='none'
-    stroke='currentColor'
-    strokeWidth='1.5'
-    strokeLinecap='round'
-    strokeLinejoin='round'
-  >
-    <path d='M3 12a9 9 0 015-8.2M21 12a9 9 0 01-5 8.2' />
-    <polyline points='3 8 3 3 8 3'></polyline>
-    <polyline points='21 16 21 21 16 21'></polyline>
-  </svg>
+  <Icon icon="mdi:refresh" className="w-8 h-8" />
 )
 
 // VaultForge Icons
 export const TierIcon = () => (
-  <svg
-    viewBox='0 0 24 24'
-    width='32'
-    height='32'
-    fill='none'
-    stroke='currentColor'
-    strokeWidth='1.5'
-    strokeLinecap='round'
-    strokeLinejoin='round'
-  >
-    <rect x='3' y='15' width='18' height='6' rx='1'></rect>
-    <rect x='5' y='8' width='14' height='6' rx='1'></rect>
-    <rect x='7' y='1' width='10' height='6' rx='1'></rect>
-  </svg>
+  <Icon icon="mdi:layers" className="w-8 h-8" />
 )
 
 export const GasIcon = () => (
-  <svg
-    viewBox='0 0 24 24'
-    width='32'
-    height='32'
-    fill='none'
-    stroke='currentColor'
-    strokeWidth='1.5'
-    strokeLinecap='round'
-    strokeLinejoin='round'
-  >
-    <path d='M9 2v7a4 4 0 004 4h3v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-9a2 2 0 012-2h4z'></path>
-    <circle cx='15' cy='6' r='1'></circle>
-  </svg>
+  <Icon icon="mdi:gas-station" className="w-8 h-8" />
 )
 
 // ArbWave Icons
 export const WaveIcon = () => (
-  <svg
-    viewBox='0 0 24 24'
-    width='32'
-    height='32'
-    fill='none'
-    stroke='currentColor'
-    strokeWidth='1.5'
-    strokeLinecap='round'
-    strokeLinejoin='round'
-  >
-    <path d='M2 15s1.5-2 4-2 3.5 2 6 2 4-2 6-2 2 2 2 2M2 9s1.5-2 4-2 3.5 2 6 2 4-2 6-2 2 2 2 2' />
-  </svg>
+  <Icon icon="mdi:wave" className="w-6 h-6" />
 )
 
 export const FlashIcon = () => (
-  <svg
-    viewBox='0 0 24 24'
-    width='32'
-    height='32'
-    fill='none'
-    stroke='currentColor'
-    strokeWidth='1.5'
-    strokeLinecap='round'
-    strokeLinejoin='round'
-  >
-    <path d='M13 2L3 14h9l-1 8 10-12h-9l1-8z'></path>
-  </svg>
+  <Icon icon="mdi:lightning-bolt" className="w-8 h-8" />
 )
 
 export const ArchitectureIcon = () => (
-  <svg
-    viewBox='0 0 24 24'
-    width='32'
-    height='32'
-    fill='none'
-    stroke='currentColor'
-    strokeWidth='1.5'
-    strokeLinecap='round'
-    strokeLinejoin='round'
-  >
-    <rect x='3' y='3' width='7' height='7'></rect>
-    <rect x='14' y='3' width='7' height='7'></rect>
-    <rect x='14' y='14' width='7' height='7'></rect>
-    <rect x='3' y='14' width='7' height='7'></rect>
-    <path d='M10 6.5h4M10 17.5h4M6.5 10v4M17.5 10v4'></path>
-  </svg>
+  <Icon icon="mdi:sitemap" className="w-8 h-8" />
 )
 
 export const StrategyIcon = () => (
-  <svg
-    viewBox='0 0 24 24'
-    width='32'
-    height='32'
-    fill='none'
-    stroke='currentColor'
-    strokeWidth='1.5'
-    strokeLinecap='round'
-    strokeLinejoin='round'
-  >
-    <polyline points='23 6 13.5 15.5 8.5 10.5 1 18'></polyline>
-    <polyline points='17 6 23 6 23 12'></polyline>
-  </svg>
+  <Icon icon="mdi:strategy" className="w-8 h-8" />
 )

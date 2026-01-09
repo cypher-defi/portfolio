@@ -1,9 +1,12 @@
+"use client"
+
 import { Heading } from "@/components/atoms/Heading"
 import { Text } from "@/components/atoms/Text"
 import { Card } from "@/components/molecules/Card"
 import { useState } from "react"
+import { motion, AnimatePresence } from "framer-motion"
 
-// Icons
+// --- ICONS ---
 const GitHubIcon = () => (
   <svg viewBox='0 0 24 24' width='18' height='18' fill='currentColor'>
     <path d='M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v 3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z' />
@@ -23,6 +26,7 @@ const DocsIcon = () => (
   </svg>
 )
 
+// --- INTERFACES ---
 interface ProjectMetadata {
   status: "PRODUCTION" | "DEVELOPMENT"
   label1: string
@@ -50,47 +54,7 @@ interface ProjectProps {
   glow: "blue" | "purple" | "green" | "red"
 }
 
-const getTagStyles = (color: string) => {
-  const styles: Record<string, { bg: string; border: string; text: string }> = {
-    blue: {
-      bg: "rgba(167,200,255,0.1)",
-      border: "rgba(167,200,255,0.3)",
-      text: "#A7C8FF"
-    },
-    purple: {
-      bg: "rgba(195,166,255,0.1)",
-      border: "rgba(195,166,255,0.3)",
-      text: "#C3A6FF"
-    },
-    green: {
-      bg: "rgba(107,255,149,0.1)",
-      border: "rgba(107,255,149,0.3)",
-      text: "#6BFF95"
-    },
-    red: {
-      bg: "rgba(255,107,107,0.1)",
-      border: "rgba(255,107,107,0.3)",
-      text: "#FF6B6B"
-    }
-  }
-  return styles[color] || styles.blue
-}
-
-const getStatusColor = (status: string) => {
-  if (status === "PRODUCTION") {
-    return {
-      bg: "rgba(107,255,149,0.1)",
-      border: "rgba(107,255,149,0.3)",
-      text: "#6BFF95"
-    }
-  }
-  return {
-    bg: "rgba(195,166,255,0.1)",
-    border: "rgba(195,166,255,0.3)",
-    text: "#C3A6FF"
-  }
-}
-
+// --- PROJECT CARD COMPONENT ---
 const ProjectCard = ({
   title,
   description,
@@ -100,136 +64,79 @@ const ProjectCard = ({
   tags,
   glow
 }: ProjectProps) => {
-  const statusColor = getStatusColor(metadata.status)
-
   return (
-    <Card glow={glow}>
-      <div className='flex justify-between items-start mb-6'>
-        <div className='flex-1'>
-          <Heading level='h3' className='mb-2'>
-            {title}
-          </Heading>
-          <Text color='secondary' size='body-sm'>
-            {description}
-          </Text>
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      className='group relative'
+    >
+      {/* We keep your original glow color logic but the styling will be 'Calm' via globals.css */}
+      <Card glow={glow}>
+        <div className='flex flex-col sm:flex-row sm:justify-between sm:items-start mb-6 gap-4'>
+          <div className='flex-1'>
+            <Heading
+              level='h3'
+              className='mb-2 font-light tracking-widest uppercase text-[#E5E5E5]'
+            >
+              {title}
+            </Heading>
+            <Text className='text-[#8A8A8A] font-light leading-relaxed max-w-2xl'>
+              {description}
+            </Text>
+          </div>
+          <div className='flex gap-3 flex-shrink-0'>
+            <a
+              href={github}
+              target='_blank'
+              rel='noopener noreferrer'
+              className='p-3 sm:p-2.5 rounded-full border border-white/5 bg-white/[0.02] text-[#8A8A8A] hover:text-white transition-all duration-500'
+            >
+              <GitHubIcon />
+            </a>
+            <a
+              href={docs}
+              className='p-3 sm:p-2.5 rounded-full border border-white/5 bg-white/[0.02] text-[#8A8A8A] hover:text-white transition-all duration-500'
+            >
+              <DocsIcon />
+            </a>
+          </div>
         </div>
-        <div className='flex gap-2 ml-4 flex-shrink-0'>
-          <a
-            href={github}
-            target='_blank'
-            rel='noopener noreferrer'
-            className='p-2 rounded-lg border hover:opacity-80 transition'
-            style={{
-              backgroundColor: getTagStyles(glow).bg,
-              borderColor: getTagStyles(glow).border,
-              color: getTagStyles(glow).text
-            }}
-            title='GitHub'
-          >
-            <GitHubIcon />
-          </a>
-          <a
-            href={docs}
-            className='p-2 rounded-lg border hover:opacity-80 transition'
-            style={{
-              backgroundColor: getTagStyles(glow).bg,
-              borderColor: getTagStyles(glow).border,
-              color: getTagStyles(glow).text
-            }}
-            title='Documentation'
-          >
-            <DocsIcon />
-          </a>
-        </div>
-      </div>
 
-      {/* Metadata Grid */}
-      <div className='grid grid-cols-2 gap-4 mb-6 pb-6 border-b border-[#2A2A2E]'>
-        <div>
-          <Text size='body-sm' color='secondary' className='text-xs mb-1'>
-            {metadata.label1}
-          </Text>
-          <span
-            className='px-3 py-1 rounded-xl text-xs font-medium inline-block'
-            style={{
-              backgroundColor: statusColor.bg,
-              borderColor: statusColor.border,
-              color: statusColor.text,
-              border: `1px solid ${statusColor.border}`
-            }}
-          >
-            {metadata.value1}
-          </span>
+        <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 mb-8 py-6 border-y border-white/[0.03]'>
+          {[1, 2, 3, 4].map((num) => (
+            <div key={num}>
+              <p className='text-[10px] tracking-[0.2em] text-[#4A4A4A] uppercase mb-1'>
+                {(metadata as any)[`label${num}`]}
+              </p>
+              <p className='text-xs font-light text-[#A0A0A0] tracking-wider'>
+                {(metadata as any)[`value${num}`]}
+              </p>
+            </div>
+          ))}
         </div>
-        <div>
-          <Text size='body-sm' color='secondary' className='text-xs mb-1'>
-            {metadata.label2}
-          </Text>
-          <span
-            className='px-3 py-1 rounded-xl text-xs font-medium inline-block'
-            style={{
-              ...getTagStyles(glow),
-              border: `1px solid ${getTagStyles(glow).border}`
-            }}
-          >
-            {metadata.value2}
-          </span>
-        </div>
-        <div>
-          <Text size='body-sm' color='secondary' className='text-xs mb-1'>
-            {metadata.label3}
-          </Text>
-          <span
-            className='px-3 py-1 rounded-xl text-xs font-medium inline-block'
-            style={{
-              ...getTagStyles(glow),
-              border: `1px solid ${getTagStyles(glow).border}`
-            }}
-          >
-            {metadata.value3}
-          </span>
-        </div>
-        <div>
-          <Text size='body-sm' color='secondary' className='text-xs mb-1'>
-            {metadata.label4}
-          </Text>
-          <span
-            className='px-3 py-1 rounded-xl text-xs font-medium inline-block'
-            style={{
-              ...getTagStyles(glow),
-              border: `1px solid ${getTagStyles(glow).border}`
-            }}
-          >
-            {metadata.value4}
-          </span>
-        </div>
-      </div>
 
-      {/* Tags */}
-      <div className='flex flex-wrap gap-2'>
-        {tags.map((tag) => (
-          <span
-            key={tag.label}
-            className='px-3 py-1 rounded-full text-xs min-w-fit font-medium'
-            style={{
-              ...getTagStyles(tag.color),
-              border: `1px solid ${getTagStyles(tag.color).border}`
-            }}
-          >
-            {tag.label}
-          </span>
-        ))}
-      </div>
-    </Card>
+        <div className='flex flex-wrap gap-2'>
+          {tags.map((tag) => (
+            <span
+              key={tag.label}
+              className='px-3 py-1 rounded-full text-[10px] font-light uppercase tracking-widest border border-white/5 bg-white/[0.02] text-[#666]'
+            >
+              {tag.label}
+            </span>
+          ))}
+        </div>
+      </Card>
+    </motion.div>
   )
 }
 
-// Production Projects Data
+// --- DATA ---
 const PRODUCTION_PROJECTS: ProjectProps[] = [
   {
     title: "Meridian Finance",
     description:
-      "Institutional-grade yield automation for DeFi treasury management. ERC-4626 compliant vaults with auto-compounding strategies and governance-weighted rewards distribution (MRD), providing institutions a standardized interface for yield-bearing asset allocation.",
+      "Institutional-grade yield automation for DeFi treasury management. ERC-4626 compliant vaults with auto-compounding strategies.",
     github: "https://github.com/Enricrypto/meridian-finance-yield-farming",
     docs: "/meridian-finance-docs",
     metadata: {
@@ -254,7 +161,7 @@ const PRODUCTION_PROJECTS: ProjectProps[] = [
   {
     title: "LendCore Protocol",
     description:
-      "Multi-collateral lending with institutional risk controls and capital efficiency. Jump rate model dynamically optimizes interest rates based on utilization, while health factor-based liquidations and ERC-4626 vault integration ensure robust risk management and treasury composability.",
+      "Multi-collateral lending with institutional risk controls and capital efficiency. Jump rate model dynamically optimizes interest rates based on utilization.",
     github: "https://github.com/Enricrypto/defi-lending-platform",
     docs: "/lendcore-protocol-docs",
     metadata: {
@@ -279,7 +186,7 @@ const PRODUCTION_PROJECTS: ProjectProps[] = [
   {
     title: "SwapHub DEX",
     description:
-      "Battle-tested DEX infrastructure for institutional swap execution and liquidity provision. Multi-hop routing optimizes trade paths across liquidity pools using the constant product AMM formula, enabling predictable pricing and composable treasury operations.",
+      "Battle-tested DEX infrastructure for institutional swap execution and liquidity provision. Multi-hop routing optimizes trade paths across liquidity pools.",
     github: "https://github.com",
     docs: "/swaphub-dex-docs",
     metadata: {
@@ -304,7 +211,7 @@ const PRODUCTION_PROJECTS: ProjectProps[] = [
   {
     title: "VaultForge",
     description:
-      "Time-locked yield optimization for institutional liquidity planning. Tiered lock periods (0-180 days) provide dynamic APY rates up to 8%, with penalty redistribution rewarding capital commitment and EIP-4626 compliance enabling composable treasury integration.",
+      "Time-locked yield optimization for institutional liquidity planning. Tiered lock periods provide dynamic APY rates up to 8% with penalty redistribution.",
     github: "https://github.com/Enricrypto/vault-forge-crypto-bank",
     docs: "/vault-forge-docs",
     metadata: {
@@ -329,7 +236,7 @@ const PRODUCTION_PROJECTS: ProjectProps[] = [
   {
     title: "NFT Marketplace",
     description:
-      "Institutional-grade NFT trading infrastructure with comprehensive order types and automated settlement. Supports fixed-price listings, English auctions, and buy offers with escrow mechanisms and ERC-2981 royalty compliance across any ERC-721 collection.",
+      "Institutional-grade NFT trading infrastructure with comprehensive order types and automated settlement. Supports fixed-price listings, English auctions, and buy offers.",
     github: "https://github.com/Enricrypto/nft-marketplace",
     docs: "/nft-marketplace-docs",
     metadata: {
@@ -353,12 +260,11 @@ const PRODUCTION_PROJECTS: ProjectProps[] = [
   }
 ]
 
-// Development Projects Data
 const DEVELOPMENT_PROJECTS: ProjectProps[] = [
   {
     title: "ArbWave",
     description:
-      "Institutional-grade flash loan arbitrage system with atomic execution across multiple DEXes. Zero capital requirements with pluggable adapter architecture for protocol integration.",
+      "Institutional-grade flash loan arbitrage system with atomic execution across multiple DEXes.",
     github: "https://github.com/Enricrypto/arb-wave-flashloans-arbitrage",
     docs: "/arbwave-docs",
     metadata: {
@@ -383,7 +289,7 @@ const DEVELOPMENT_PROJECTS: ProjectProps[] = [
   {
     title: "Token Launchpad",
     description:
-      "Dutch auction launchpad for token sales with linear price discovery, automatic refunds, and seller-friendly settlement mechanics. Used for fair token distribution.",
+      "Dutch auction launchpad for token sales with linear price discovery, automatic refunds, and seller-friendly settlement mechanics.",
     github: "https://github.com",
     docs: "/token-launchpad-docs",
     metadata: {
@@ -408,7 +314,7 @@ const DEVELOPMENT_PROJECTS: ProjectProps[] = [
   {
     title: "RWA Stablecoin",
     description:
-      "Real World Asset backed stablecoin collateralized by tokenized real estate properties. Automatic rental yield distribution with 70% LTV and KYC/AML compliance.",
+      "Real World Asset backed stablecoin collateralized by tokenized real estate properties. Automatic rental yield distribution with 70% LTV.",
     github: "https://github.com",
     docs: "/rwa-stablecoin-docs",
     metadata: {
@@ -432,69 +338,59 @@ const DEVELOPMENT_PROJECTS: ProjectProps[] = [
   }
 ]
 
+// --- MAIN SECTION ---
 export const WorkSection = () => {
   const [activeTab, setActiveTab] = useState<"PRODUCTION" | "DEVELOPMENT">(
     "PRODUCTION"
   )
-
   const projects =
     activeTab === "PRODUCTION" ? PRODUCTION_PROJECTS : DEVELOPMENT_PROJECTS
 
   return (
-    <section
-      id='work'
-      className='max-w-6xl mx-auto px-6 py-24 border-t border-[#2A2A2E]'
-    >
-      {/* Section Header */}
-      <div className='mb-12'>
-        <Text
-          size='body-sm'
-          color='secondary'
-          className='text-[#A7C8FF] uppercase tracking-wider mb-2'
+    <section id='work' className='max-w-6xl mx-auto px-6 py-32 relative'>
+      <div className='mb-20'>
+        <span className='text-[10px] text-white/30 uppercase tracking-[0.5em] mb-4 block'>
+          / Selected Protocols
+        </span>
+        <Heading
+          level='h2'
+          className='text-4xl md:text-5xl font-extralight tracking-tighter text-[#E5E5E5] mb-6'
         >
-          / PORTFOLIO
-        </Text>
-        <Heading level='h2' className='mb-8'>
-          Production & Development
+          {activeTab === "PRODUCTION"
+            ? "Institutional Deployment"
+            : "Experimental Research"}
         </Heading>
 
-        {/* Toggle Buttons */}
-        <div className='flex gap-4 mb-8'>
-          <button
-            onClick={() => setActiveTab("PRODUCTION")}
-            className={`px-6 py-3 rounded-lg font-medium text-base transition-all duration-300 ${
-              activeTab === "PRODUCTION"
-                ? "bg-[#6BFF95] text-[#0C0C0E]"
-                : "bg-[rgba(107,255,149,0.1)] border border-[rgba(107,255,149,0.3)] text-[#6BFF95] hover:bg-[rgba(107,255,149,0.2)]"
-            }`}
-          >
-            Production
-          </button>
-          <button
-            onClick={() => setActiveTab("DEVELOPMENT")}
-            className={`px-6 py-3 rounded-lg font-medium text-base transition-all duration-300 ${
-              activeTab === "DEVELOPMENT"
-                ? "bg-[#C3A6FF] text-[#0C0C0E]"
-                : "bg-[rgba(195,166,255,0.1)] border border-[rgba(195,166,255,0.3)] text-[#C3A6FF] hover:bg-[rgba(195,166,255,0.2)]"
-            }`}
-          >
-            Development
-          </button>
+        <div className='inline-flex p-1 bg-white/[0.02] border border-white/5 rounded-full mb-8'>
+          {["PRODUCTION", "DEVELOPMENT"].map((tab) => (
+            <button
+              key={tab}
+              onClick={() => setActiveTab(tab as any)}
+              className={`px-8 py-2 rounded-full text-[10px] uppercase tracking-[0.2em] transition-all duration-500 ${
+                activeTab === tab
+                  ? "bg-white/10 text-white"
+                  : "text-white/30 hover:text-white/60"
+              }`}
+            >
+              {tab}
+            </button>
+          ))}
         </div>
-
-        <Text color='secondary'>
-          {activeTab === "PRODUCTION"
-            ? "DeFi protocols, yield systems, trading platforms, and tokenized assets ready for production."
-            : "Advanced protocols and systems currently in development with cutting-edge features."}
-        </Text>
       </div>
 
-      {/* Dynamic Projects Section */}
-      <div className='space-y-8 animate-fade-in'>
-        {projects.map((project) => (
-          <ProjectCard key={project.title} {...project} />
-        ))}
-      </div>
+      <AnimatePresence mode='wait'>
+        <motion.div
+          key={activeTab}
+          initial={{ opacity: 0, x: 10 }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0, x: -10 }}
+          className='space-y-6'
+        >
+          {projects.map((project) => (
+            <ProjectCard key={project.title} {...project} />
+          ))}
+        </motion.div>
+      </AnimatePresence>
     </section>
   )
 }

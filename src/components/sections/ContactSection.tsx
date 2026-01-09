@@ -34,36 +34,6 @@ export const ContactSection = () => {
           Send
         </Button>
       </form>
-
-      {/* Social Links */}
-      <div className='border-t border-[#2A2A2E] pt-8'>
-        <div className='flex justify-center gap-6'>
-          <a
-            href='https://github.com/Enricrypto'
-            target='_blank'
-            rel='noopener noreferrer'
-            className='text-[#8A8A8A] hover:text-[#A7C8FF] transition font-medium'
-          >
-            GitHub
-          </a>
-          <a
-            href='https://x.com/Enricrypto'
-            target='_blank'
-            rel='noopener noreferrer'
-            className='text-[#8A8A8A] hover:text-[#A7C8FF] transition font-medium'
-          >
-            X
-          </a>
-          <a
-            href='https://linkedin.com/in/enrique-ibarra'
-            target='_blank'
-            rel='noopener noreferrer'
-            className='text-[#8A8A8A] hover:text-[#A7C8FF] transition font-medium'
-          >
-            LinkedIn
-          </a>
-        </div>
-      </div>
     </section>
   )
 }
