@@ -101,6 +101,17 @@ export const Navigation: React.FC<NavigationProps> = ({
             <Link
               key={item.label}
               href={item.href}
+              onClick={(e) => {
+                // Handle same-page anchor scrolling
+                if (item.href.startsWith('/#') && window.location.pathname === '/') {
+                  e.preventDefault()
+                  const id = item.href.substring(2) // Remove '/#'
+                  const element = document.getElementById(id)
+                  if (element) {
+                    element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+                  }
+                }
+              }}
               className='text-[10px] uppercase tracking-[0.2em] text-[#E5E5E5]/50 hover:text-white transition-all duration-300'
             >
               {item.label}
@@ -170,7 +181,18 @@ export const Navigation: React.FC<NavigationProps> = ({
                 <Link
                   key={item.label}
                   href={item.href}
-                  onClick={() => setIsMenuOpen(false)}
+                  onClick={(e) => {
+                    setIsMenuOpen(false)
+                    // Handle same-page anchor scrolling
+                    if (item.href.startsWith('/#') && window.location.pathname === '/') {
+                      e.preventDefault()
+                      const id = item.href.substring(2) // Remove '/#'
+                      const element = document.getElementById(id)
+                      if (element) {
+                        element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+                      }
+                    }
+                  }}
                   className='text-sm uppercase tracking-[0.3em] text-[#E5E5E5]/70 hover:text-white transition'
                 >
                   {item.label}
