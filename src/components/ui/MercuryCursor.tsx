@@ -10,8 +10,8 @@ export const MercuryCursor = () => {
   const mouseX = useMotionValue(0)
   const mouseY = useMotionValue(0)
 
-  // Highly responsive spring config - follows cursor closely
-  const springConfig = { damping: 25, stiffness: 500, mass: 0.2 }
+  // Ultra-responsive: nearly instant tracking with minimal spring delay
+  const springConfig = { damping: 20, stiffness: 800, mass: 0.1 }
   const cursorX = useSpring(mouseX, springConfig)
   const cursorY = useSpring(mouseY, springConfig)
 
