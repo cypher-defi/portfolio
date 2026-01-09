@@ -11,7 +11,7 @@ export const DocsLayout: React.FC<DocsLayoutProps> = ({ children }) => {
   return (
     <main className='bg-[#121214] text-white min-h-screen relative'>
       {/* Grain texture overlay */}
-      <div className='fixed inset-0 opacity-[0.03] pointer-events-none z-0 bg-[url("/noise.png")]' />
+      <div className='fixed inset-0 opacity-[0.03] pointer-events-none z-0 bg-[url("/noise.svg")]' />
 
       {/* Content */}
       <div className='relative z-10'>
