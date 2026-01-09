@@ -6,6 +6,7 @@ import { Menu, X, ArrowLeft } from "lucide-react"
 import { GitHubIcon } from "@/components/icons"
 import { motion, AnimatePresence } from "framer-motion"
 import Link from "next/link"
+import { usePathname } from "next/navigation"
 
 interface NavItem {
   label: string
@@ -29,6 +30,7 @@ export const Navigation: React.FC<NavigationProps> = ({
 }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
+  const pathname = usePathname()
 
   // Track scroll position to adjust the "floating" intensity
   useEffect(() => {
@@ -103,7 +105,7 @@ export const Navigation: React.FC<NavigationProps> = ({
               href={item.href}
               onClick={(e) => {
                 // Handle same-page anchor scrolling
-                if (item.href.startsWith('/#') && window.location.pathname === '/') {
+                if (item.href.startsWith('/#') && pathname === '/') {
                   e.preventDefault()
                   const id = item.href.substring(2) // Remove '/#'
                   const element = document.getElementById(id)
@@ -184,7 +186,7 @@ export const Navigation: React.FC<NavigationProps> = ({
                   onClick={(e) => {
                     setIsMenuOpen(false)
                     // Handle same-page anchor scrolling
-                    if (item.href.startsWith('/#') && window.location.pathname === '/') {
+                    if (item.href.startsWith('/#') && pathname === '/') {
                       e.preventDefault()
                       const id = item.href.substring(2) // Remove '/#'
                       const element = document.getElementById(id)

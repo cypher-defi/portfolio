@@ -94,10 +94,10 @@ const techStack: TechItem[] = [
 
 export const TechStackSection = () => {
   return (
-    <section className='relative py-8 sm:py-20 px-4 sm:px-6 border-t border-white/5'>
+    <section className='relative py-16 sm:py-20 px-4 sm:px-6 border-t border-white/5'>
       <div className='max-w-6xl mx-auto'>
         {/* Section Header */}
-        <div className='text-center mb-6 sm:mb-16'>
+        <div className='text-center mb-10 sm:mb-16'>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
