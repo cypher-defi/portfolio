@@ -43,7 +43,7 @@ export default function ContactPage() {
         <div
           className='absolute inset-0 opacity-[0.03] contrast-150 brightness-100 z-50'
           style={{
-            backgroundImage: `url("https://grainy-gradients.vercel.app/noise.svg")`,
+            backgroundImage: `url("/noise.svg")`,
             willChange: 'opacity',
             transform: 'translate3d(0,0,0)'
           }}

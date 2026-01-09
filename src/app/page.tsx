@@ -35,11 +35,11 @@ export default function Home() {
           - GPU accelerated with transform3d for better performance
       */}
       <div className='fixed inset-0 pointer-events-none z-0 overflow-hidden' style={{ transform: 'translate3d(0,0,0)' }}>
-        {/* 1. The Grain Layer (Aura Texture) - GPU accelerated */}
+        {/* 1. The Grain Layer (Aura Texture) - GPU accelerated with local asset */}
         <div
           className='absolute inset-0 opacity-[0.03] contrast-150 brightness-100 z-50'
           style={{
-            backgroundImage: `url("https://grainy-gradients.vercel.app/noise.svg")`,
+            backgroundImage: `url("/noise.svg")`,
             willChange: 'opacity',
             transform: 'translate3d(0,0,0)'
           }}

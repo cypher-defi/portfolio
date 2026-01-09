@@ -30,6 +30,9 @@ export default function RootLayout({
           href='https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700&display=swap'
           rel='stylesheet'
         />
+
+        {/* Preload critical assets for LCP optimization */}
+        <link rel="preload" href="/noise.svg" as="image" type="image/svg+xml" />
       </head>
       {/* 1. MercuryCursor is placed here to stay on top of all pages.
           2. Updated body bg to match our new charcoal grey.

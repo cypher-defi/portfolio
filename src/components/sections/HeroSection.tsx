@@ -54,8 +54,8 @@ export const HeroSection = ({
               transition={{ delay: 0.1, duration: 0.8 }}
               className='flex items-center gap-3'
             >
-              <div className='w-6 sm:w-8 h-px bg-[#8A8A8A]' />
-              <span className='text-[9px] sm:text-[10px] uppercase tracking-[0.3em] text-[#8A8A8A] font-light'>
+              <div className='w-6 sm:w-8 h-px bg-[#A8A8A8]' />
+              <span className='text-[9px] sm:text-[10px] uppercase tracking-[0.3em] text-[#A8A8A8] font-light'>
                 {label}
               </span>
             </motion.div>
@@ -74,7 +74,7 @@ export const HeroSection = ({
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.25, duration: 0.8 }}
-              className='text-[#8A8A8A] font-light leading-relaxed max-w-lg text-sm sm:text-base'
+              className='text-[#A8A8A8] font-light leading-relaxed max-w-lg text-sm sm:text-base'
             >
               {description}
             </motion.p>

@@ -6,7 +6,7 @@
   --color-bg-primary: #121214;
   --color-bg-card: #1a1b1e;
   --color-text-primary: #e5e5e5;
-  --color-text-secondary: #8a8a8a;
+  --color-text-secondary: #a8a8a8; /* Improved from #8a8a8a for WCAG AA contrast (4.5:1) */
   --color-border: rgba(255, 255, 255, 0.05);
   --color-border-hover: rgba(255, 255, 255, 0.1);
 

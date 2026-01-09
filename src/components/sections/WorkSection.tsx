@@ -81,7 +81,7 @@ const ProjectCard = ({
             >
               {title}
             </Heading>
-            <Text className='text-[#8A8A8A] font-light leading-relaxed max-w-2xl'>
+            <Text className='text-[#A8A8A8] font-light leading-relaxed max-w-2xl'>
               {description}
             </Text>
           </div>
@@ -90,13 +90,15 @@ const ProjectCard = ({
               href={github}
               target='_blank'
               rel='noopener noreferrer'
-              className='p-3 sm:p-2.5 rounded-full border border-white/5 bg-white/2 text-[#8A8A8A] hover:text-white transition-all duration-500'
+              className='p-3 sm:p-2.5 rounded-full border border-white/5 bg-white/2 text-[#A8A8A8] hover:text-white transition-all duration-500'
+              aria-label={`View ${title} on GitHub`}
             >
               <GitHubIcon />
             </a>
             <a
               href={docs}
-              className='p-3 sm:p-2.5 rounded-full border border-white/5 bg-white/2 text-[#8A8A8A] hover:text-white transition-all duration-500'
+              className='p-3 sm:p-2.5 rounded-full border border-white/5 bg-white/2 text-[#A8A8A8] hover:text-white transition-all duration-500'
+              aria-label={`View ${title} documentation`}
             >
               <DocsIcon />
             </a>
@@ -106,10 +108,10 @@ const ProjectCard = ({
         <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 mb-8 py-6 border-y border-white/3'>
           {[1, 2, 3, 4].map((num) => (
             <div key={num}>
-              <p className='text-[10px] tracking-[0.2em] text-[#4A4A4A] uppercase mb-1'>
+              <p className='text-[10px] tracking-[0.2em] text-[#757575] uppercase mb-1'>
                 {(metadata as any)[`label${num}`]}
               </p>
-              <p className='text-xs font-light text-[#A0A0A0] tracking-wider'>
+              <p className='text-xs font-light text-[#B0B0B0] tracking-wider'>
                 {(metadata as any)[`value${num}`]}
               </p>
             </div>
@@ -120,7 +122,7 @@ const ProjectCard = ({
           {tags.map((tag) => (
             <span
               key={tag.label}
-              className='px-3 py-1 rounded-full text-[10px] font-light uppercase tracking-widest border border-white/5 bg-white/2 text-[#666]'
+              className='px-3 py-1 rounded-full text-[10px] font-light uppercase tracking-widest border border-white/5 bg-white/2 text-[#909090]'
             >
               {tag.label}
             </span>
