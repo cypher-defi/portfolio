@@ -94,7 +94,7 @@ const techStack: TechItem[] = [
 
 export const TechStackSection = () => {
   return (
-    <section className='relative py-16 sm:py-20 px-4 sm:px-6 border-t border-white/5'>
+    <section className='relative py-16 sm:py-12 px-4 sm:px-6 border-t border-white/5'>
       <div className='max-w-6xl mx-auto'>
         {/* Section Header */}
         <div className='text-center mb-10 sm:mb-16'>
