@@ -4,17 +4,17 @@
 :root {
   /* Color System */
   --color-bg-primary: #121214;
-  --color-bg-card: #1A1B1E;
-  --color-text-primary: #E5E5E5;
-  --color-text-secondary: #8A8A8A;
+  --color-bg-card: #1a1b1e;
+  --color-text-primary: #e5e5e5;
+  --color-text-secondary: #8a8a8a;
   --color-border: rgba(255, 255, 255, 0.05);
-  --color-border-hover: rgba(255, 255, 255, 0.10);
+  --color-border-hover: rgba(255, 255, 255, 0.1);
 
   /* Accent Colors */
-  --color-accent-blue: #A7C8FF;
-  --color-accent-green: #6BFF95;
-  --color-accent-red: #FF6B6B;
-  --color-accent-purple: #C3A6FF;
+  --color-accent-blue: #a7c8ff;
+  --color-accent-green: #6bff95;
+  --color-accent-red: #ff6b6b;
+  --color-accent-purple: #c3a6ff;
 
   /* Transition Timings */
   --transition-fast: 0.3s;
@@ -50,7 +50,8 @@ button {
   opacity: 0.03;
   z-index: 50;
   pointer-events: none;
-  background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+  background-image: url("/noise.svg"); /* <-- root-relative */
+  background-repeat: repeat;
 }
 
 /* Performance optimizations for animations */
@@ -74,7 +75,9 @@ button {
 }
 
 /* Prevent layout shifts */
-img, video, canvas {
+img,
+video,
+canvas {
   display: block;
   max-width: 100%;
   height: auto;
@@ -82,7 +85,9 @@ img, video, canvas {
 
 /* Optimize motion animations */
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
+  *,
+  *::before,
+  *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
