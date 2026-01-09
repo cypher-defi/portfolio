@@ -25,7 +25,7 @@ export const HeroSection = ({
   const router = useRouter()
 
   return (
-    <section className='relative min-h-screen flex items-center justify-center pt-24 sm:pt-32 pb-12 sm:pb-20 px-4 sm:px-6 lg:px-12 xl:px-24 overflow-hidden'>
+    <section className='relative min-h-screen flex items-center justify-center pt-20 sm:pt-32 pb-8 sm:pb-20 px-4 sm:px-6 lg:px-12 xl:px-24 overflow-hidden'>
       <div className='w-full max-w-400 mx-auto'>
         <div className='grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center'>
           {/* Left Content */}

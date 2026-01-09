@@ -94,10 +94,10 @@ const techStack: TechItem[] = [
 
 export const TechStackSection = () => {
   return (
-    <section className='relative py-20 px-6 border-t border-white/5'>
+    <section className='relative py-12 sm:py-20 px-4 sm:px-6 border-t border-white/5'>
       <div className='max-w-6xl mx-auto'>
         {/* Section Header */}
-        <div className='text-center mb-16'>
+        <div className='text-center mb-10 sm:mb-16'>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -133,7 +133,7 @@ export const TechStackSection = () => {
         </div>
 
         {/* Tech Grid */}
-        <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 md:gap-12'>
+        <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8 lg:gap-12'>
           {techStack.map((tech, index) => (
             <motion.div
               key={tech.name}
