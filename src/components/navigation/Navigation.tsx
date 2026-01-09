@@ -6,7 +6,7 @@ import { Menu, X, ArrowLeft } from "lucide-react"
 import { GitHubIcon } from "@/components/icons"
 import { motion, AnimatePresence } from "framer-motion"
 import Link from "next/link"
-import { usePathname } from "next/navigation"
+import { usePathname, useRouter } from "next/navigation"
 
 interface NavItem {
   label: string
@@ -31,6 +31,31 @@ export const Navigation: React.FC<NavigationProps> = ({
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
   const pathname = usePathname()
+  const router = useRouter()
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (href.startsWith('/#')) {
+      e.preventDefault()
+      const id = href.substring(2)
+
+      if (pathname === '/') {
+        // Same page - just scroll
+        const element = document.getElementById(id)
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        }
+      } else {
+        // Different page - navigate then scroll
+        router.push('/')
+        setTimeout(() => {
+          const element = document.getElementById(id)
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+          }
+        }, 100)
+      }
+    }
+  }
 
   // Track scroll position to adjust the "floating" intensity
   useEffect(() => {
@@ -103,17 +128,7 @@ export const Navigation: React.FC<NavigationProps> = ({
             <Link
               key={item.label}
               href={item.href}
-              onClick={(e) => {
-                // Handle same-page anchor scrolling
-                if (item.href.startsWith('/#') && pathname === '/') {
-                  e.preventDefault()
-                  const id = item.href.substring(2) // Remove '/#'
-                  const element = document.getElementById(id)
-                  if (element) {
-                    element.scrollIntoView({ behavior: 'smooth', block: 'start' })
-                  }
-                }
-              }}
+              onClick={(e) => handleNavClick(e, item.href)}
               className='text-[10px] uppercase tracking-[0.2em] text-[#E5E5E5]/50 hover:text-white transition-all duration-300'
             >
               {item.label}
@@ -185,15 +200,7 @@ export const Navigation: React.FC<NavigationProps> = ({
                   href={item.href}
                   onClick={(e) => {
                     setIsMenuOpen(false)
-                    // Handle same-page anchor scrolling
-                    if (item.href.startsWith('/#') && pathname === '/') {
-                      e.preventDefault()
-                      const id = item.href.substring(2) // Remove '/#'
-                      const element = document.getElementById(id)
-                      if (element) {
-                        element.scrollIntoView({ behavior: 'smooth', block: 'start' })
-                      }
-                    }
+                    handleNavClick(e, item.href)
                   }}
                   className='text-sm uppercase tracking-[0.3em] text-[#E5E5E5]/70 hover:text-white transition'
                 >
