@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useEffect, useState } from "react"
-import { motion, useSpring, useMotionValue } from "framer-motion"
+import { motion, useMotionValue } from "framer-motion"
 
 export const MercuryCursor = () => {
   const [isVisible, setIsVisible] = useState(false)
@@ -10,10 +10,9 @@ export const MercuryCursor = () => {
   const mouseX = useMotionValue(0)
   const mouseY = useMotionValue(0)
 
-  // Ultra-responsive: nearly instant tracking with minimal spring delay
-  const springConfig = { damping: 20, stiffness: 800, mass: 0.1 }
-  const cursorX = useSpring(mouseX, springConfig)
-  const cursorY = useSpring(mouseY, springConfig)
+  // Direct tracking - no spring physics for instant response
+  const cursorX = mouseX
+  const cursorY = mouseY
 
   useEffect(() => {
     const moveMouse = (e: MouseEvent) => {
