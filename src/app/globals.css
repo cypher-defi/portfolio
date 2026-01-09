@@ -50,7 +50,7 @@ button {
   opacity: 0.03;
   z-index: 50;
   pointer-events: none;
-  background-image: url("/noise.svg"); /* <-- root-relative */
+  background-image: url(/noise.svg); /* <-- root-relative */
   background-repeat: repeat;
 }
 
