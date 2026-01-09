@@ -101,6 +101,16 @@ export const Navigation: React.FC<NavigationProps> = ({
             <a
               key={item.label}
               href={item.href}
+              onClick={(e) => {
+                // Smooth scroll for anchor links
+                if (item.href.startsWith('#')) {
+                  e.preventDefault()
+                  const element = document.querySelector(item.href)
+                  if (element) {
+                    element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+                  }
+                }
+              }}
               className='text-[10px] uppercase tracking-[0.2em] text-[#E5E5E5]/50 hover:text-white transition-all duration-300'
             >
               {item.label}
@@ -109,6 +119,13 @@ export const Navigation: React.FC<NavigationProps> = ({
           {variant === "home" && (
             <a
               href='#contact'
+              onClick={(e) => {
+                e.preventDefault()
+                const element = document.querySelector('#contact')
+                if (element) {
+                  element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+                }
+              }}
               className='px-5 py-1.5 rounded-full border border-white/10 text-[10px] uppercase tracking-[0.2em] bg-white/5 hover:bg-white/10 transition-all text-white'
             >
               Connect
@@ -163,7 +180,17 @@ export const Navigation: React.FC<NavigationProps> = ({
                 <a
                   key={item.label}
                   href={item.href}
-                  onClick={() => setIsMenuOpen(false)}
+                  onClick={(e) => {
+                    setIsMenuOpen(false)
+                    // Smooth scroll for anchor links
+                    if (item.href.startsWith('#')) {
+                      e.preventDefault()
+                      const element = document.querySelector(item.href)
+                      if (element) {
+                        element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+                      }
+                    }
+                  }}
                   className='text-sm uppercase tracking-[0.3em] text-[#E5E5E5]/70 hover:text-white transition'
                 >
                   {item.label}
