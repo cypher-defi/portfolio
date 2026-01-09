@@ -41,9 +41,9 @@ export const Navigation: React.FC<NavigationProps> = ({
 
   // Default nav items for home variant
   const homeNavItems: NavItem[] = [
-    { label: "Work", href: "#work" },
-    { label: "Expertise", href: "#expertise" },
-    { label: "Contact", href: "#contact" }
+    { label: "Work", href: "/#work" },
+    { label: "Expertise", href: "/#expertise" },
+    { label: "Contact", href: "/#contact" }
   ]
 
   const displayNavItems = variant === "docs" ? navItems : homeNavItems
@@ -98,23 +98,13 @@ export const Navigation: React.FC<NavigationProps> = ({
         {/* Desktop Navigation */}
         <div className='hidden md:flex items-center gap-8'>
           {displayNavItems.map((item) => (
-            <a
+            <Link
               key={item.label}
               href={item.href}
-              onClick={(e) => {
-                // Smooth scroll for anchor links
-                if (item.href.startsWith('#')) {
-                  e.preventDefault()
-                  const element = document.querySelector(item.href)
-                  if (element) {
-                    element.scrollIntoView({ behavior: 'smooth', block: 'start' })
-                  }
-                }
-              }}
               className='text-[10px] uppercase tracking-[0.2em] text-[#E5E5E5]/50 hover:text-white transition-all duration-300'
             >
               {item.label}
-            </a>
+            </Link>
           ))}
           {variant === "home" && (
             <a
@@ -177,24 +167,14 @@ export const Navigation: React.FC<NavigationProps> = ({
                 </Link>
               )}
               {displayNavItems.map((item) => (
-                <a
+                <Link
                   key={item.label}
                   href={item.href}
-                  onClick={(e) => {
-                    setIsMenuOpen(false)
-                    // Smooth scroll for anchor links
-                    if (item.href.startsWith('#')) {
-                      e.preventDefault()
-                      const element = document.querySelector(item.href)
-                      if (element) {
-                        element.scrollIntoView({ behavior: 'smooth', block: 'start' })
-                      }
-                    }
-                  }}
+                  onClick={() => setIsMenuOpen(false)}
                   className='text-sm uppercase tracking-[0.3em] text-[#E5E5E5]/70 hover:text-white transition'
                 >
                   {item.label}
-                </a>
+                </Link>
               ))}
               {variant === "docs" && githubLink && (
                 <a
