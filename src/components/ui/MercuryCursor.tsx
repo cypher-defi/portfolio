@@ -32,7 +32,7 @@ export const MercuryCursor = () => {
 
   return (
     <motion.div
-      className='fixed top-0 left-0 w-8 h-8 pointer-events-none z-[9999] rounded-full mix-blend-difference flex items-center justify-center'
+      className='fixed top-0 left-0 w-8 h-8 pointer-events-none z-9999 rounded-full mix-blend-difference flex items-center justify-center'
       style={{
         x: cursorX,
         y: cursorY,
@@ -50,7 +50,7 @@ export const MercuryCursor = () => {
 
       {/* The Outer Ring (Becomes more visible on hover) */}
       <motion.div
-        className='absolute inset-[-4px] border border-white/20 rounded-full'
+        className='absolute -inset-1 border border-white/20 rounded-full'
         animate={{
           opacity: isHovered ? 0.5 : 0.2,
           scale: isHovered ? 1.2 : 1.1

@@ -105,11 +105,11 @@ export const TechStackSection = () => {
             transition={{ duration: 0.6 }}
             className='inline-flex items-center gap-3 mb-4'
           >
-            <div className='w-8 h-[1px] bg-[#8A8A8A]' />
+            <div className='w-8 h-px bg-[#8A8A8A]' />
             <span className='text-[10px] uppercase tracking-[0.3em] text-[#8A8A8A] font-light'>
               TECHNOLOGY STACK
             </span>
-            <div className='w-8 h-[1px] bg-[#8A8A8A]' />
+            <div className='w-8 h-px bg-[#8A8A8A]' />
           </motion.div>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -146,7 +146,7 @@ export const TechStackSection = () => {
                 ease: "easeOut"
               }}
               whileHover={{ scale: 1.05, y: -5 }}
-              className='group relative flex flex-col items-center justify-center p-4 sm:p-6 rounded-lg bg-white/[0.01] border border-white/5 hover:border-white/10 transition-all duration-300'
+              className='group relative flex flex-col items-center justify-center p-4 sm:p-6 rounded-lg bg-white/1 border border-white/5 hover:border-white/10 transition-all duration-300'
             >
               {/* Icon with grayscale filter */}
               <div className='mb-3 sm:mb-4 transition-all duration-300 group-hover:scale-110 grayscale group-hover:grayscale-0 opacity-60 group-hover:opacity-100'>
@@ -170,7 +170,7 @@ export const TechStackSection = () => {
               </span>
 
               {/* Hover glow effect */}
-              <div className='absolute inset-0 rounded-lg bg-gradient-to-t from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none' />
+              <div className='absolute inset-0 rounded-lg bg-linear-to-t from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none' />
             </motion.div>
           ))}
         </div>

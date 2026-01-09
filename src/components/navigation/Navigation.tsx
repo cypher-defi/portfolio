@@ -49,7 +49,7 @@ export const Navigation: React.FC<NavigationProps> = ({
   const displayNavItems = variant === "docs" ? navItems : homeNavItems
 
   return (
-    <nav className='fixed top-0 left-0 right-0 z-[100] flex justify-center p-6 pointer-events-none'>
+    <nav className='fixed top-0 left-0 right-0 z-100 flex justify-center p-6 pointer-events-none'>
       <motion.div
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
@@ -66,7 +66,7 @@ export const Navigation: React.FC<NavigationProps> = ({
         `}
       >
         {/* Left Side */}
-        <div className='flex items-center gap-3 flex-shrink-0'>
+        <div className='flex items-center gap-3 shrink-0'>
           {variant === "docs" ? (
             <>
               {/* Back button for docs */}
@@ -146,7 +146,7 @@ export const Navigation: React.FC<NavigationProps> = ({
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-            className='fixed top-[100px] inset-x-6 md:hidden bg-[#121214]/90 backdrop-blur-2xl border border-white/10 rounded-3xl overflow-hidden z-[101] pointer-events-auto'
+            className='fixed top-25 inset-x-6 md:hidden bg-[#121214]/90 backdrop-blur-2xl border border-white/10 rounded-3xl overflow-hidden z-101 pointer-events-auto'
           >
             <div className='flex flex-col p-8 space-y-6 items-center'>
               {variant === "docs" && (

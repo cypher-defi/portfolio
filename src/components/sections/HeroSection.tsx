@@ -26,7 +26,7 @@ export const HeroSection = ({
 
   return (
     <section className='relative min-h-screen flex items-center justify-center pt-32 pb-20 px-6 lg:px-12 xl:px-24 overflow-hidden'>
-      <div className='w-full max-w-[1600px] mx-auto'>
+      <div className='w-full max-w-400 mx-auto'>
         <div className='grid lg:grid-cols-2 gap-16 items-center'>
           {/* Left Content */}
           <div className='relative z-20 space-y-8'>
@@ -37,7 +37,7 @@ export const HeroSection = ({
               transition={{ delay: 0.1, duration: 0.8 }}
               className='flex items-center gap-3'
             >
-              <div className='w-8 h-[1px] bg-[#8A8A8A]' />
+              <div className='w-8 h-px bg-[#8A8A8A]' />
               <span className='text-[10px] uppercase tracking-[0.3em] text-[#8A8A8A] font-light'>
                 {label}
               </span>
@@ -108,7 +108,7 @@ export const HeroSection = ({
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.3, duration: 1.2 }}
-            className='relative w-full aspect-square max-w-[600px] mx-auto lg:mx-0 lg:ml-auto overflow-hidden'
+            className='relative w-full aspect-square max-w-150 mx-auto lg:mx-0 lg:ml-auto overflow-hidden'
           >
             {/* Main visualization container */}
             <div className='w-full h-full relative'>

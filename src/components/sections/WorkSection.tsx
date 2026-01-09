@@ -85,25 +85,25 @@ const ProjectCard = ({
               {description}
             </Text>
           </div>
-          <div className='flex gap-3 flex-shrink-0'>
+          <div className='flex gap-3 shrink-0'>
             <a
               href={github}
               target='_blank'
               rel='noopener noreferrer'
-              className='p-3 sm:p-2.5 rounded-full border border-white/5 bg-white/[0.02] text-[#8A8A8A] hover:text-white transition-all duration-500'
+              className='p-3 sm:p-2.5 rounded-full border border-white/5 bg-white/2 text-[#8A8A8A] hover:text-white transition-all duration-500'
             >
               <GitHubIcon />
             </a>
             <a
               href={docs}
-              className='p-3 sm:p-2.5 rounded-full border border-white/5 bg-white/[0.02] text-[#8A8A8A] hover:text-white transition-all duration-500'
+              className='p-3 sm:p-2.5 rounded-full border border-white/5 bg-white/2 text-[#8A8A8A] hover:text-white transition-all duration-500'
             >
               <DocsIcon />
             </a>
           </div>
         </div>
 
-        <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 mb-8 py-6 border-y border-white/[0.03]'>
+        <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 mb-8 py-6 border-y border-white/3'>
           {[1, 2, 3, 4].map((num) => (
             <div key={num}>
               <p className='text-[10px] tracking-[0.2em] text-[#4A4A4A] uppercase mb-1'>
@@ -120,7 +120,7 @@ const ProjectCard = ({
           {tags.map((tag) => (
             <span
               key={tag.label}
-              className='px-3 py-1 rounded-full text-[10px] font-light uppercase tracking-widest border border-white/5 bg-white/[0.02] text-[#666]'
+              className='px-3 py-1 rounded-full text-[10px] font-light uppercase tracking-widest border border-white/5 bg-white/2 text-[#666]'
             >
               {tag.label}
             </span>
@@ -361,7 +361,7 @@ export const WorkSection = () => {
             : "Experimental Research"}
         </Heading>
 
-        <div className='inline-flex p-1 bg-white/[0.02] border border-white/5 rounded-full mb-8'>
+        <div className='inline-flex p-1 bg-white/2 border border-white/5 rounded-full mb-8'>
           {["PRODUCTION", "DEVELOPMENT"].map((tab) => (
             <button
               key={tab}

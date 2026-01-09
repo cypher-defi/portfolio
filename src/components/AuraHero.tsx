@@ -21,7 +21,7 @@ export default function AuraHero() {
       </motion.div>
 
       {/* 2. The "Calm Water" Background Effect */}
-      <div className='absolute inset-0 bg-gradient-to-b from-transparent via-[#1a1a1a] to-[#121212] opacity-50' />
+      <div className='absolute inset-0 bg-linear-to-b from-transparent via-[#1a1a1a] to-[#121212] opacity-50' />
     </section>
   )
 }
