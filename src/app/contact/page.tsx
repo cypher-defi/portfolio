@@ -1,10 +1,11 @@
 "use client"
 
 import { Heading } from "@/components/atoms/Heading"
-import { Text } from "@/components/atoms/Text"
-import { Button } from "@/components/atoms/Button"
+import { Navigation } from "@/components/navigation/Navigation"
+import { Footer } from "@/components/navigation/Footer"
 import { useState } from "react"
-import Link from "next/link"
+import { motion } from "framer-motion"
+import { fadeInUp, staggerContainer } from "@/components/animations/variants"
 
 export default function ContactPage() {
   const [email, setEmail] = useState("")
@@ -16,13 +17,18 @@ export default function ContactPage() {
     e.preventDefault()
     setIsLoading(true)
 
-    // Add your email service integration here (SendGrid, Resend, etc.)
     try {
-      // Simulate API call
-      await new Promise((resolve) => setTimeout(resolve, 1000))
-      setSubmitted(true)
-      setEmail("")
-      setMessage("")
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, message })
+      })
+
+      if (response.ok) {
+        setSubmitted(true)
+        setEmail("")
+        setMessage("")
+      }
     } catch (error) {
       console.error("Error submitting form:", error)
     } finally {
@@ -31,82 +37,102 @@ export default function ContactPage() {
   }
 
   return (
-    <main className='bg-[#0C0C0E] text-white min-h-screen'>
-      {/* Navigation Back Link */}
-      <nav className='sticky top-0 z-50 backdrop-blur-md bg-[#0C0C0E]/80 border-b border-[#2A2A2E]'>
-        <div className='max-w-6xl mx-auto px-6 py-4'>
-          <Link
-            href='/'
-            className='text-[#A7C8FF] hover:text-[#6BFF95] transition font-medium'
+    <main className='bg-[#121214] text-[#E5E5E5] min-h-screen relative'>
+      {/* Background effects matching homepage */}
+      <div className='fixed inset-0 pointer-events-none z-0 overflow-hidden' style={{ transform: 'translate3d(0,0,0)' }}>
+        <div
+          className='absolute inset-0 opacity-[0.03] contrast-150 brightness-100 z-50'
+          style={{
+            backgroundImage: `url("https://grainy-gradients.vercel.app/noise.svg")`,
+            willChange: 'opacity',
+            transform: 'translate3d(0,0,0)'
+          }}
+        />
+      </div>
+
+      {/* Content Layer */}
+      <div className='relative z-10'>
+        <Navigation />
+
+        {/* Contact Form Section */}
+        <section className='max-w-2xl mx-auto px-6 py-32 min-h-[80vh]'>
+          <motion.div
+            variants={staggerContainer}
+            initial="initial"
+            animate="animate"
+            className='space-y-12'
           >
-            ← Back
-          </Link>
-        </div>
-      </nav>
+            {/* Header */}
+            <motion.div variants={fadeInUp} className='space-y-4 border-b border-white/5 pb-8'>
+              <Heading level='display-lg' color='primary' className='text-3xl sm:text-4xl md:text-5xl lg:text-6xl'>
+                Get In Touch
+              </Heading>
+              <p className='text-[#8A8A8A] text-lg font-light leading-relaxed'>
+                Have a project in mind? Let's discuss how we can build something exceptional together.
+              </p>
+            </motion.div>
 
-      {/* Contact Form */}
-      <section className='max-w-2xl mx-auto px-6 py-24'>
-        <div className='mb-12'>
-          <Heading level='h1' className='mb-4'>
-            Get In Touch
-          </Heading>
-          <Text color='secondary' className='text-lg'>
-            Have a project in mind? Let's talk about building something great
-            together.
-          </Text>
-        </div>
+            {/* Form or Success Message */}
+            {submitted ? (
+              <motion.div
+                variants={fadeInUp}
+                className='p-6 bg-[rgba(107,255,149,0.05)] border border-[rgba(107,255,149,0.2)] rounded-lg'
+              >
+                <p className='text-[#6BFF95] font-light text-lg'>
+                  ✓ Thanks for reaching out! I'll get back to you soon.
+                </p>
+              </motion.div>
+            ) : (
+              <motion.form
+                variants={fadeInUp}
+                onSubmit={handleSubmit}
+                className='space-y-6'
+              >
+                {/* Email Field */}
+                <div>
+                  <label className='block text-sm font-light text-[#E5E5E5] mb-2 uppercase tracking-wider'>
+                    Email Address
+                  </label>
+                  <input
+                    type='email'
+                    required
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder='your@email.com'
+                    className='w-full px-4 py-3 bg-[#1A1B1E] border border-white/5 rounded-sm text-[#E5E5E5] placeholder-[#8A8A8A] focus:outline-none focus:border-white/10 transition font-light'
+                  />
+                </div>
 
-        {submitted ? (
-          <div className='p-6 bg-[rgba(107,255,149,0.1)] border border-[rgba(107,255,149,0.3)] rounded-lg'>
-            <Text className='text-[#6BFF95] font-medium text-lg'>
-              ✓ Thanks for reaching out! I'll get back to you soon.
-            </Text>
-          </div>
-        ) : (
-          <form onSubmit={handleSubmit} className='space-y-6'>
-            {/* Email Field */}
-            <div>
-              <label className='block text-sm font-medium text-[#A7C8FF] mb-2'>
-                Email Address
-              </label>
-              <input
-                type='email'
-                required
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder='your@email.com'
-                className='w-full px-4 py-3 bg-[#1A1B1E] border border-[#2A2A2E] rounded-lg text-white placeholder-[#8A8A8A] focus:outline-none focus:border-[#A7C8FF] focus:shadow-[0_0_20px_rgba(167,200,255,0.3)] transition'
-              />
-            </div>
+                {/* Message Field */}
+                <div>
+                  <label className='block text-sm font-light text-[#E5E5E5] mb-2 uppercase tracking-wider'>
+                    Message
+                  </label>
+                  <textarea
+                    required
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
+                    placeholder='Tell me about your project...'
+                    rows={8}
+                    className='w-full px-4 py-3 bg-[#1A1B1E] border border-white/5 rounded-sm text-[#E5E5E5] placeholder-[#8A8A8A] focus:outline-none focus:border-white/10 transition resize-none font-light'
+                  />
+                </div>
 
-            {/* Message Field */}
-            <div>
-              <label className='block text-sm font-medium text-[#A7C8FF] mb-2'>
-                Message
-              </label>
-              <textarea
-                required
-                value={message}
-                onChange={(e) => setMessage(e.target.value)}
-                placeholder='Tell me about your project...'
-                rows={6}
-                className='w-full px-4 py-3 bg-[#1A1B1E] border border-[#2A2A2E] rounded-lg text-white placeholder-[#8A8A8A] focus:outline-none focus:border-[#A7C8FF] focus:shadow-[0_0_20px_rgba(167,200,255,0.3)] transition resize-none'
-              />
-            </div>
+                {/* Submit Button */}
+                <button
+                  type='submit'
+                  disabled={isLoading}
+                  className='w-full px-8 py-3.5 rounded-sm bg-[#1a1a1c] text-[#E5E5E5] text-[10px] uppercase tracking-[0.2em] font-medium hover:bg-[#252527] transition-all duration-300 border border-white/5 disabled:opacity-50 disabled:cursor-not-allowed'
+                >
+                  {isLoading ? "Sending..." : "Send Message"}
+                </button>
+              </motion.form>
+            )}
+          </motion.div>
+        </section>
 
-            {/* Submit Button */}
-            <Button
-              variant='primary'
-              size='lg'
-              type='submit'
-              disabled={isLoading}
-              className='w-full'
-            >
-              {isLoading ? "Sending..." : "Send Message"}
-            </Button>
-          </form>
-        )}
-      </section>
+        <Footer />
+      </div>
     </main>
   )
 }
