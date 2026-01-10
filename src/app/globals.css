@@ -30,17 +30,10 @@
 body {
   background: var(--color-bg-primary);
   color: var(--color-text-primary);
-  cursor: none; /* Hide system cursor */
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeSpeed;
-}
-
-/* Ensure you still have a way to click things if the JS fails */
-a,
-button {
-  cursor: none;
 }
 
 /* The Grain Layer */
