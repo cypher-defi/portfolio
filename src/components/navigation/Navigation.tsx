@@ -42,7 +42,7 @@ export const Navigation: React.FC<NavigationProps> = ({
         // Same page - just scroll
         const element = document.getElementById(id)
         if (element) {
-          element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+          element.scrollIntoView({ block: 'start' })
         }
       } else {
         // Different page - navigate then scroll
@@ -87,7 +87,7 @@ export const Navigation: React.FC<NavigationProps> = ({
           rounded-full border
           ${
             isScrolled
-              ? "bg-[#121214]/40 backdrop-blur-xl border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.3)]"
+              ? "bg-[#121214]/90 border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.3)]"
               : "bg-transparent border-transparent"
           }
         `}
@@ -181,7 +181,7 @@ export const Navigation: React.FC<NavigationProps> = ({
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-            className='fixed top-25 inset-x-6 md:hidden bg-[#121214]/90 backdrop-blur-2xl border border-white/10 rounded-3xl overflow-hidden z-101 pointer-events-auto'
+            className='fixed top-25 inset-x-6 md:hidden bg-[#121214]/95 border border-white/10 rounded-3xl overflow-hidden z-101 pointer-events-auto'
           >
             <div className='flex flex-col p-8 space-y-6 items-center'>
               {variant === "docs" && (
