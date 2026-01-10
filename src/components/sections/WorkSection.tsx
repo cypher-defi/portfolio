@@ -4,7 +4,6 @@ import { Heading } from "@/components/atoms/Heading"
 import { Text } from "@/components/atoms/Text"
 import { Card } from "@/components/molecules/Card"
 import { useState } from "react"
-import { motion, AnimatePresence } from "framer-motion"
 
 // --- ICONS ---
 const GitHubIcon = () => (
@@ -65,12 +64,7 @@ const ProjectCard = ({
   glow
 }: ProjectProps) => {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      className='group relative'
-    >
+    <div className='group relative'>
       {/* We keep your original glow color logic but the styling will be 'Calm' via globals.css */}
       <Card glow={glow}>
         <div className='flex flex-col sm:flex-row sm:justify-between sm:items-start mb-6 gap-4'>
@@ -129,7 +123,7 @@ const ProjectCard = ({
           ))}
         </div>
       </Card>
-    </motion.div>
+    </div>
   )
 }
 
@@ -380,19 +374,11 @@ export const WorkSection = () => {
         </div>
       </div>
 
-      <AnimatePresence mode='wait'>
-        <motion.div
-          key={activeTab}
-          initial={{ opacity: 0, x: 10 }}
-          animate={{ opacity: 1, x: 0 }}
-          exit={{ opacity: 0, x: -10 }}
-          className='space-y-6'
-        >
-          {projects.map((project) => (
-            <ProjectCard key={project.title} {...project} />
-          ))}
-        </motion.div>
-      </AnimatePresence>
+      <div className='space-y-6'>
+        {projects.map((project) => (
+          <ProjectCard key={project.title} {...project} />
+        ))}
+      </div>
     </section>
   )
 }
