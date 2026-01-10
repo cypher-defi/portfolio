@@ -36,6 +36,15 @@ body {
   text-rendering: optimizeSpeed;
 }
 
+/* Interactive elements */
+a,
+button,
+[role="button"],
+input[type="submit"],
+input[type="button"] {
+  cursor: pointer;
+}
+
 /* The Grain Layer */
 .noise-bg {
   position: fixed;
