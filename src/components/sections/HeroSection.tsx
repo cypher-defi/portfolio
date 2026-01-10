@@ -36,10 +36,10 @@ export const HeroSection = ({
     relative flex items-center
     min-h-[60vh]        /* mobile: smaller height */
     lg:min-h-[calc(100vh-80px)]  /* desktop: taller height */
-    pt-12                 /* top padding on mobile */    
+    pt-12                 /* top padding on mobile */
     lg:pt-32             /* top padding on desktop */
     xl:pt-40
-    pb-12                /* bottom padding */
+    pb-0                 /* no bottom padding - let next section handle spacing */
     px-4 sm:px-6 lg:px-12 xl:px-24
     overflow-hidden
   '

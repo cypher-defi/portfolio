@@ -155,21 +155,17 @@ export const ExpertiseSection = () => {
     >
       {/* Section Header */}
       <div className='mb-12'>
-        <Text
-          size='body-sm'
-          color='secondary'
-          className='text-[#A7C8FF] uppercase tracking-wider mb-2'
-        >
-          / CAPABILITIES
-        </Text>
-        <Heading level='h2' className='mb-4'>
+        <span className='text-[10px] text-white/30 uppercase tracking-[0.5em] mb-4 block'>
+          / Capabilities
+        </span>
+        <h2 className='text-4xl md:text-5xl font-extralight tracking-tighter text-[#E5E5E5] mb-6'>
           Specialised Expertise
-        </Heading>
-        <Text color='secondary' className='max-w-2xl'>
+        </h2>
+        <p className='text-[#A8A8A8] max-w-2xl'>
           Focusing on building production-grade DeFi infrastructure with
           emphasis on security, atomic execution, composability for integration
           and institutional-grade risk management.
-        </Text>
+        </p>
       </div>
 
       {/* Expertise Cards Grid */}

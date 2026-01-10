@@ -1,7 +1,5 @@
 "use client"
 
-import { Heading } from "@/components/atoms/Heading"
-import { Text } from "@/components/atoms/Text"
 import { Button } from "@/components/atoms/Button"
 
 export const ContactSection = () => {
@@ -10,12 +8,15 @@ export const ContactSection = () => {
       id='contact'
       className='max-w-2xl mx-auto px-6 py-24 border-t border-[#2A2A2E] text-center'
     >
-      <Heading level='h2' className='mb-4'>
+      <span className='text-[10px] text-white/30 uppercase tracking-[0.5em] mb-4 block'>
+        / Contact
+      </span>
+      <h2 className='text-4xl md:text-5xl font-extralight tracking-tighter text-[#E5E5E5] mb-6'>
         Let's build something together.
-      </Heading>
-      <Text color='secondary' className='mb-8'>
+      </h2>
+      <p className='text-[#A8A8A8] mb-8'>
         Interested in DeFi infrastructure? Have a protocol in mind? Let's talk.
-      </Text>
+      </p>
 
       {/* Email Form */}
       <form

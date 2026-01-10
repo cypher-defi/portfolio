@@ -94,42 +94,20 @@ const techStack: TechItem[] = [
 
 export const TechStackSection = () => {
   return (
-    <section className='relative py-16 sm:py-12 px-4 sm:px-6 border-t border-white/5'>
+    <section className='relative pt-12 pb-16 px-4 sm:px-6 border-t border-white/5'>
       <div className='max-w-6xl mx-auto'>
         {/* Section Header */}
         <div className='text-center mb-10 sm:mb-16'>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className='inline-flex items-center gap-3 mb-4'
-          >
-            <div className='w-8 h-px bg-[#8A8A8A]' />
-            <span className='text-[10px] uppercase tracking-[0.3em] text-[#8A8A8A] font-light'>
-              TECHNOLOGY STACK
-            </span>
-            <div className='w-8 h-px bg-[#8A8A8A]' />
-          </motion.div>
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className='text-3xl md:text-4xl font-light text-[#E5E5E5] mb-3'
-          >
+          <span className='text-[10px] text-white/30 uppercase tracking-[0.5em] mb-4 block'>
+            / Technology Stack
+          </span>
+          <h2 className='text-4xl md:text-5xl font-extralight tracking-tighter text-[#E5E5E5] mb-6'>
             Built with Modern Tools
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className='text-[#8A8A8A] text-sm max-w-2xl mx-auto'
-          >
+          </h2>
+          <p className='text-[#A8A8A8] text-sm max-w-2xl mx-auto'>
             Production-grade development with industry-standard frameworks and
             tools
-          </motion.p>
+          </p>
         </div>
 
         {/* Tech Grid */}
