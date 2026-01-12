@@ -334,13 +334,47 @@ const DEVELOPMENT_PROJECTS: ProjectProps[] = [
   }
 ]
 
+const BOT_PROJECTS: ProjectProps[] = [
+  {
+    title: "Yield Guard Bot",
+    description:
+      "Modular Python bot for DeFi treasury strategy simulation. Fetches protocol metrics from Aave and Morpho, calculates financial performance with automated daily simulations at 2:00 AM UTC.",
+    github: "https://github.com/Enricrypto/yield-guard-bot",
+    docs: "https://yield-guard-bot.streamlit.app/",
+    metadata: {
+      status: "PRODUCTION",
+      label1: "STATUS",
+      value1: "PRODUCTION",
+      label2: "LANGUAGE",
+      value2: "PYTHON",
+      label3: "DASHBOARD",
+      value3: "STREAMLIT",
+      label4: "PROTOCOLS",
+      value4: "AAVE + MORPHO"
+    },
+    tags: [
+      { label: "Python", color: "purple" },
+      { label: "Streamlit", color: "purple" },
+      { label: "Treasury Strategy", color: "purple" },
+      { label: "Aave", color: "purple" },
+      { label: "Morpho", color: "purple" },
+      { label: "CI/CD", color: "purple" }
+    ],
+    glow: "purple"
+  }
+]
+
 // --- MAIN SECTION ---
 export const WorkSection = () => {
-  const [activeTab, setActiveTab] = useState<"PRODUCTION" | "DEVELOPMENT">(
+  const [activeTab, setActiveTab] = useState<"PRODUCTION" | "DEVELOPMENT" | "BOTS">(
     "PRODUCTION"
   )
   const projects =
-    activeTab === "PRODUCTION" ? PRODUCTION_PROJECTS : DEVELOPMENT_PROJECTS
+    activeTab === "PRODUCTION"
+      ? PRODUCTION_PROJECTS
+      : activeTab === "DEVELOPMENT"
+      ? DEVELOPMENT_PROJECTS
+      : BOT_PROJECTS
 
   return (
     <section id='work' className='max-w-6xl mx-auto px-6 py-32 relative'>
@@ -354,11 +388,13 @@ export const WorkSection = () => {
         >
           {activeTab === "PRODUCTION"
             ? "Institutional Deployment"
-            : "Experimental Research"}
+            : activeTab === "DEVELOPMENT"
+            ? "Experimental Research"
+            : "Automation & Analytics"}
         </Heading>
 
         <div className='inline-flex p-1 bg-white/2 border border-white/5 rounded-full mb-8'>
-          {["PRODUCTION", "DEVELOPMENT"].map((tab) => (
+          {["PRODUCTION", "DEVELOPMENT", "BOTS"].map((tab) => (
             <button
               key={tab}
               onClick={() => setActiveTab(tab as any)}
