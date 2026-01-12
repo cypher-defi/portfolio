@@ -21,7 +21,7 @@ const HERO_DATA = {
 const STATS = [
   { value: "8", label: "DeFi Protocols" },
   { value: "50+", label: "Smart Contracts" },
-  { value: "8+", label: "Deployed Contracts" },
+  { value: "5+", label: "Deployed Contracts" },
   { value: "600+", label: "Comprehensive Tests" }
 ]
 
@@ -34,14 +34,17 @@ export default function Home() {
           - Z-index 0 keeps it behind the UI (Navigation/Hero)
           - GPU accelerated with transform3d for better performance
       */}
-      <div className='fixed inset-0 pointer-events-none z-0 overflow-hidden' style={{ transform: 'translate3d(0,0,0)' }}>
+      <div
+        className='fixed inset-0 pointer-events-none z-0 overflow-hidden'
+        style={{ transform: "translate3d(0,0,0)" }}
+      >
         {/* 1. The Grain Layer (Aura Texture) - GPU accelerated with local asset */}
         <div
           className='absolute inset-0 opacity-[0.03] contrast-150 brightness-100 z-50'
           style={{
             backgroundImage: `url("/noise.svg")`,
-            willChange: 'opacity',
-            transform: 'translate3d(0,0,0)'
+            willChange: "opacity",
+            transform: "translate3d(0,0,0)"
           }}
         />
 
@@ -49,9 +52,10 @@ export default function Home() {
         <div
           className='absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full opacity-10'
           style={{
-            background: 'radial-gradient(circle, rgba(148, 163, 184, 0.15) 0%, rgba(148, 163, 184, 0) 70%)',
-            transform: 'translate3d(0,0,0)',
-            backfaceVisibility: 'hidden'
+            background:
+              "radial-gradient(circle, rgba(148, 163, 184, 0.15) 0%, rgba(148, 163, 184, 0) 70%)",
+            transform: "translate3d(0,0,0)",
+            backfaceVisibility: "hidden"
           }}
         />
 
@@ -59,9 +63,10 @@ export default function Home() {
         <div
           className='absolute bottom-[-10%] right-[-10%] w-[60%] h-[60%] rounded-full opacity-20'
           style={{
-            background: 'radial-gradient(circle, rgba(63, 63, 70, 0.3) 0%, rgba(63, 63, 70, 0) 70%)',
-            transform: 'translate3d(0,0,0)',
-            backfaceVisibility: 'hidden'
+            background:
+              "radial-gradient(circle, rgba(63, 63, 70, 0.3) 0%, rgba(63, 63, 70, 0) 70%)",
+            transform: "translate3d(0,0,0)",
+            backfaceVisibility: "hidden"
           }}
         />
       </div>
