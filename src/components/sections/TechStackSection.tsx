@@ -5,7 +5,7 @@ import { Icon } from "@iconify/react"
 
 interface TechItem {
   name: string
-  category: "Frontend" | "Blockchain" | "Tools" | "Testing"
+  category: "Frontend" | "Blockchain" | "Tools" | "Testing" | "Backend"
   iconifyIcon?: string
   customSvg?: React.ReactNode
 }
@@ -42,6 +42,22 @@ const techStack: TechItem[] = [
     name: "Tailwind CSS",
     category: "Frontend",
     iconifyIcon: "simple-icons:tailwindcss"
+  },
+  // Backend
+  {
+    name: "Python",
+    category: "Backend",
+    iconifyIcon: "simple-icons:python"
+  },
+  {
+    name: "Node.js",
+    category: "Backend",
+    iconifyIcon: "simple-icons:nodedotjs"
+  },
+  {
+    name: "Streamlit",
+    category: "Backend",
+    iconifyIcon: "simple-icons:streamlit"
   },
   // Tools
   {
