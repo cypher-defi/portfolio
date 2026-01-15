@@ -177,3 +177,28 @@ export const ArchitectureIcon = () => (
 export const StrategyIcon = () => (
   <Icon icon="mdi:strategy" className="w-8 h-8" />
 )
+
+// MEV Liquidation Engine Icons
+export const MEVIcon = () => (
+  <Icon icon="mdi:robot" className="w-6 h-6" />
+)
+
+export const SimulationIcon = () => (
+  <Icon icon="mdi:chart-scatter-plot" className="w-8 h-8" />
+)
+
+export const BotIcon = () => (
+  <Icon icon="mdi:robot-outline" className="w-8 h-8" />
+)
+
+export const ResearchIcon = () => (
+  <Icon icon="mdi:flask" className="w-8 h-8" />
+)
+
+export const NetworkIcon = () => (
+  <Icon icon="mdi:lan" className="w-8 h-8" />
+)
+
+export const SafetyIcon = () => (
+  <Icon icon="mdi:shield-check" className="w-8 h-8" />
+)

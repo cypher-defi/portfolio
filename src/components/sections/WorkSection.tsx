@@ -367,7 +367,7 @@ const BOT_PROJECTS: ProjectProps[] = [
     description:
       "Production-grade research system for validating liquidation MEV hypotheses on Aave v3 Arbitrum. Monte Carlo simulation with 10 bot archetypes, rolling-window backtesting, and safety-first design with hash-chained logging.",
     github: "https://github.com/Enricrypto/mev-liquidation-phase-a",
-    docs: "https://github.com/Enricrypto/mev-liquidation-phase-a#readme",
+    docs: "/mev-liquidation-docs",
     metadata: {
       status: "DEVELOPMENT",
       label1: "STATUS",
