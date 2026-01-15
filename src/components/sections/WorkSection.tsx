@@ -25,6 +25,19 @@ const DocsIcon = () => (
   </svg>
 )
 
+const DashboardIcon = () => (
+  <svg
+    viewBox='0 0 24 24'
+    width='18'
+    height='18'
+    fill='none'
+    stroke='currentColor'
+    strokeWidth='1.5'
+  >
+    <path d='M4 5a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM14 5a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1h-4a1 1 0 01-1-1V5zM4 15a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1H5a1 1 0 01-1-1v-4zM14 15a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1h-4a1 1 0 01-1-1v-4z' />
+  </svg>
+)
+
 // --- INTERFACES ---
 interface ProjectMetadata {
   status: "PRODUCTION" | "DEVELOPMENT"
@@ -48,6 +61,7 @@ interface ProjectProps {
   description: string
   github: string
   docs: string
+  docsIcon?: "docs" | "dashboard"
   metadata: ProjectMetadata
   tags: ProjectTag[]
   glow: "blue" | "purple" | "green" | "red"
@@ -59,6 +73,7 @@ const ProjectCard = ({
   description,
   github,
   docs,
+  docsIcon = "docs",
   metadata,
   tags,
   glow
@@ -91,10 +106,12 @@ const ProjectCard = ({
             </a>
             <a
               href={docs}
+              target={docs.startsWith("http") ? "_blank" : undefined}
+              rel={docs.startsWith("http") ? "noopener noreferrer" : undefined}
               className='p-3 sm:p-2.5 rounded-full border border-white/5 bg-white/2 text-[#A8A8A8] hover:text-white transition-all duration-500'
-              aria-label={`View ${title} documentation`}
+              aria-label={`View ${title} ${docsIcon === "dashboard" ? "dashboard" : "documentation"}`}
             >
-              <DocsIcon />
+              {docsIcon === "dashboard" ? <DashboardIcon /> : <DocsIcon />}
             </a>
           </div>
         </div>
@@ -341,6 +358,7 @@ const BOT_PROJECTS: ProjectProps[] = [
       "Modular Python bot for DeFi treasury strategy simulation. Fetches protocol metrics from Aave and Morpho, calculates financial performance with automated daily simulations at 2:00 AM UTC.",
     github: "https://github.com/Enricrypto/yield-guard-bot",
     docs: "https://yield-guard-bot.streamlit.app/",
+    docsIcon: "dashboard",
     metadata: {
       status: "PRODUCTION",
       label1: "STATUS",
