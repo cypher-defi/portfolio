@@ -361,6 +361,33 @@ const BOT_PROJECTS: ProjectProps[] = [
       { label: "CI/CD", color: "purple" }
     ],
     glow: "purple"
+  },
+  {
+    title: "MEV Liquidation Engine",
+    description:
+      "Production-grade research system for validating liquidation MEV hypotheses on Aave v3 Arbitrum. Monte Carlo simulation with 10 bot archetypes, rolling-window backtesting, and safety-first design with hash-chained logging.",
+    github: "https://github.com/Enricrypto/mev-liquidation-phase-a",
+    docs: "https://github.com/Enricrypto/mev-liquidation-phase-a#readme",
+    metadata: {
+      status: "DEVELOPMENT",
+      label1: "STATUS",
+      value1: "RESEARCH",
+      label2: "NETWORK",
+      value2: "ARBITRUM",
+      label3: "TESTS",
+      value3: "157",
+      label4: "BOT TYPES",
+      value4: "10"
+    },
+    tags: [
+      { label: "MEV", color: "purple" },
+      { label: "Liquidations", color: "purple" },
+      { label: "Monte Carlo", color: "purple" },
+      { label: "Aave V3", color: "purple" },
+      { label: "Python", color: "purple" },
+      { label: "Research", color: "purple" }
+    ],
+    glow: "purple"
   }
 ]
 
