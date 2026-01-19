@@ -123,8 +123,8 @@ export default function LendCoreDocs() {
             viewport={{ once: true }}
             className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'
           >
-            <motion.div variants={fadeInUp} whileHover={{ scale: 1.05, y: -5 }}>
-              <Card glow='blue'>
+            <motion.div variants={fadeInUp} whileHover={{ scale: 1.05, y: -5 }} className='h-full'>
+              <Card glow='blue' className='h-full'>
                 <Heading level='h4' color='accent-blue' className='mb-3'>
                   Multi-Collateral Support
                 </Heading>
@@ -135,8 +135,8 @@ export default function LendCoreDocs() {
               </Card>
             </motion.div>
 
-            <motion.div variants={fadeInUp} whileHover={{ scale: 1.05, y: -5 }}>
-              <Card glow='green'>
+            <motion.div variants={fadeInUp} whileHover={{ scale: 1.05, y: -5 }} className='h-full'>
+              <Card glow='green' className='h-full'>
                 <Heading level='h4' color='accent-green' className='mb-3'>
                   Jump Rate Model
                 </Heading>
@@ -147,8 +147,8 @@ export default function LendCoreDocs() {
               </Card>
             </motion.div>
 
-            <motion.div variants={fadeInUp} whileHover={{ scale: 1.05, y: -5 }}>
-              <Card glow='purple'>
+            <motion.div variants={fadeInUp} whileHover={{ scale: 1.05, y: -5 }} className='h-full'>
+              <Card glow='purple' className='h-full'>
                 <Heading level='h4' color='accent-purple' className='mb-3'>
                   Automated Liquidations
                 </Heading>
@@ -159,8 +159,8 @@ export default function LendCoreDocs() {
               </Card>
             </motion.div>
 
-            <motion.div variants={fadeInUp} whileHover={{ scale: 1.05, y: -5 }}>
-              <Card glow='blue'>
+            <motion.div variants={fadeInUp} whileHover={{ scale: 1.05, y: -5 }} className='h-full'>
+              <Card glow='blue' className='h-full'>
                 <Heading level='h4' color='accent-blue' className='mb-3'>
                   ERC-4626 Vaults
                 </Heading>
@@ -171,8 +171,8 @@ export default function LendCoreDocs() {
               </Card>
             </motion.div>
 
-            <motion.div variants={fadeInUp} whileHover={{ scale: 1.05, y: -5 }}>
-              <Card glow='green'>
+            <motion.div variants={fadeInUp} whileHover={{ scale: 1.05, y: -5 }} className='h-full'>
+              <Card glow='green' className='h-full'>
                 <Heading level='h4' color='accent-green' className='mb-3'>
                   Chainlink Oracles
                 </Heading>
@@ -183,8 +183,8 @@ export default function LendCoreDocs() {
               </Card>
             </motion.div>
 
-            <motion.div variants={fadeInUp} whileHover={{ scale: 1.05, y: -5 }}>
-              <Card glow='purple'>
+            <motion.div variants={fadeInUp} whileHover={{ scale: 1.05, y: -5 }} className='h-full'>
+              <Card glow='purple' className='h-full'>
                 <Heading level='h4' color='accent-purple' className='mb-3'>
                   Gas Optimized
                 </Heading>
