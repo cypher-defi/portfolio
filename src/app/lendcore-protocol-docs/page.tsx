@@ -267,20 +267,28 @@ export default function LendCoreDocs() {
               </THead>
               <TBody>
                 <Tr>
-                  <Td className='font-medium text-[#A7C8FF]'>Market</Td>
-                  <Td className='font-mono text-xs'>0xB44dA96f11c429A89EA75BF820255d8698b86daF</Td>
+                  <Td className='font-medium text-[#A7C8FF]'>Market Proxy (ERC1967)</Td>
+                  <Td className='font-mono text-xs'>0xbe4fd219b17c3e55562c9bd9254bc3f3519d4bb6</Td>
                 </Tr>
                 <Tr>
-                  <Td className='font-medium text-[#6BFF95]'>Vault</Td>
-                  <Td className='font-mono text-xs'>0x61048f410a148cfd999C078315e430925D45D27F</Td>
+                  <Td className='font-medium text-[#6BFF95]'>MarketV1 (Implementation)</Td>
+                  <Td className='font-mono text-xs'>0x383bbcd792d6c60f6b87ae7522cfccfac9b68266</Td>
                 </Tr>
                 <Tr>
-                  <Td className='font-medium text-[#FFC36B]'>PriceOracle</Td>
-                  <Td className='font-mono text-xs'>0x931C0e524c51518fC0B46B0c941996f6E612Ce76</Td>
+                  <Td className='font-medium text-[#C3A6FF]'>MarketTimelock</Td>
+                  <Td className='font-mono text-xs'>0xc3a57b3b0df30312ce7b1db08b652c6216e22ac0</Td>
                 </Tr>
                 <Tr>
-                  <Td className='font-medium text-[#C3A6FF]'>InterestRateModel</Td>
-                  <Td className='font-mono text-xs'>0xaD00C98eEDfb769e1ae4c41c55a8B06178F2D650</Td>
+                  <Td className='font-medium text-[#FFC36B]'>Vault</Td>
+                  <Td className='font-mono text-xs'>0x17a11c0da8951765effd58fa236053c14f779d03</Td>
+                </Tr>
+                <Tr>
+                  <Td className='font-medium text-[#A7C8FF]'>PriceOracle</Td>
+                  <Td className='font-mono text-xs'>0xdeae17840f1111d032f16a6dec4126bd22b03af8</Td>
+                </Tr>
+                <Tr>
+                  <Td className='font-medium text-[#6BFF95]'>InterestRateModel</Td>
+                  <Td className='font-mono text-xs'>0x48205953f4ef7b432d0a4f3d0880b21a9bc97a44</Td>
                 </Tr>
               </TBody>
             </Table>
