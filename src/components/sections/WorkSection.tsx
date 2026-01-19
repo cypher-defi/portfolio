@@ -174,25 +174,25 @@ const PRODUCTION_PROJECTS: ProjectProps[] = [
   {
     title: "LendCore Protocol",
     description:
-      "Multi-collateral lending with institutional risk controls and capital efficiency. Jump rate model dynamically optimizes interest rates based on utilization.",
-    github: "https://github.com/Enricrypto/defi-lending-platform",
+      "Production-ready DeFi lending protocol with UUPS upgradeable contracts, multi-sig governance with Timelock, and ERC-4626 compliant vaults. Features Jump Rate Model (2%-60% APR) and health factor-based liquidations.",
+    github: "https://github.com/Enricrypto/Isolated-Lending-Market",
     docs: "/lendcore-protocol-docs",
     metadata: {
       status: "PRODUCTION",
       label1: "STATUS",
-      value1: "PRODUCTION",
-      label2: "ARCHITECTURE",
-      value2: "MULTI-COLLATERAL",
+      value1: "SEPOLIA LIVE",
+      label2: "STANDARD",
+      value2: "ERC-4626",
       label3: "CONTRACTS",
       value3: "4",
       label4: "TESTS",
-      value4: "58"
+      value4: "91"
     },
     tags: [
       { label: "Lending", color: "blue" },
+      { label: "UUPS Upgradeable", color: "blue" },
       { label: "Chainlink", color: "blue" },
-      { label: "Jump Rate", color: "blue" },
-      { label: "Sepolia Live", color: "blue" }
+      { label: "Timelock Governance", color: "blue" }
     ],
     glow: "blue"
   },
