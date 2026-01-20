@@ -4,6 +4,7 @@ import { Logo } from "@/components/atoms/Logo"
 import { useState, useEffect } from "react"
 import { Menu, X, ArrowLeft } from "lucide-react"
 import { GitHubIcon } from "@/components/icons"
+import { Icon } from "@iconify/react"
 import { motion, AnimatePresence } from "framer-motion"
 import Link from "next/link"
 import { usePathname, useRouter } from "next/navigation"
@@ -33,24 +34,27 @@ export const Navigation: React.FC<NavigationProps> = ({
   const pathname = usePathname()
   const router = useRouter()
 
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    if (href.startsWith('/#')) {
+  const handleNavClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string
+  ) => {
+    if (href.startsWith("/#")) {
       e.preventDefault()
       const id = href.substring(2)
 
-      if (pathname === '/') {
+      if (pathname === "/") {
         // Same page - just scroll
         const element = document.getElementById(id)
         if (element) {
-          element.scrollIntoView({ block: 'start' })
+          element.scrollIntoView({ block: "start" })
         }
       } else {
         // Different page - navigate then scroll
-        router.push('/')
+        router.push("/")
         setTimeout(() => {
           const element = document.getElementById(id)
           if (element) {
-            element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+            element.scrollIntoView({ behavior: "smooth", block: "start" })
           }
         }, 100)
       }
@@ -74,6 +78,24 @@ export const Navigation: React.FC<NavigationProps> = ({
   ]
 
   const displayNavItems = variant === "docs" ? navItems : homeNavItems
+
+  const socialLinks = [
+    {
+      href: "https://github.com/Enricrypto",
+      label: "GitHub",
+      icon: <Icon icon='simple-icons:github' className='w-4 h-4' />
+    },
+    {
+      href: "https://x.com/Enricrypto",
+      label: "X",
+      icon: <Icon icon='simple-icons:x' className='w-4 h-4' />
+    },
+    {
+      href: "https://linkedin.com/in/enrique-ibarra",
+      label: "LinkedIn",
+      icon: <Icon icon='simple-icons:linkedin' className='w-4 h-4' />
+    }
+  ]
 
   return (
     <nav className='fixed top-0 left-0 right-0 z-100 flex justify-center p-6 pointer-events-none'>
@@ -139,9 +161,9 @@ export const Navigation: React.FC<NavigationProps> = ({
               href='#contact'
               onClick={(e) => {
                 e.preventDefault()
-                const element = document.querySelector('#contact')
+                const element = document.querySelector("#contact")
                 if (element) {
-                  element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+                  element.scrollIntoView({ behavior: "smooth", block: "start" })
                 }
               }}
               className='px-5 py-1.5 rounded-full border border-white/10 text-[10px] uppercase tracking-[0.2em] bg-white/5 hover:bg-white/10 transition-all text-white'
@@ -149,6 +171,20 @@ export const Navigation: React.FC<NavigationProps> = ({
               Connect
             </a>
           )}
+          {/* Social Links */}
+          {socialLinks.map((social) => (
+            <a
+              key={social.label}
+              href={social.href}
+              target='_blank'
+              rel='noopener noreferrer'
+              aria-label={social.label}
+              className='flex items-center justify-center w-8 h-8 text-[#A8A8A8] hover:text-[#A7C8FF] transition-all duration-300'
+            >
+              {social.icon}
+            </a>
+          ))}
+
           {variant === "docs" && githubLink && (
             <a
               href={githubLink}
@@ -156,7 +192,7 @@ export const Navigation: React.FC<NavigationProps> = ({
               rel='noopener noreferrer'
               className='flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 text-[10px] uppercase tracking-[0.2em] bg-white/5 hover:bg-white/10 transition-all text-white'
             >
-              <div className="w-3.5 h-3.5">
+              <div className='w-3.5 h-3.5'>
                 <GitHubIcon />
               </div>
               <span>Code</span>
@@ -215,7 +251,7 @@ export const Navigation: React.FC<NavigationProps> = ({
                   onClick={() => setIsMenuOpen(false)}
                   className='flex items-center gap-2 text-sm uppercase tracking-[0.3em] text-[#E5E5E5]/70 hover:text-white transition'
                 >
-                  <div className="w-4 h-4">
+                  <div className='w-4 h-4'>
                     <GitHubIcon />
                   </div>
                   <span>Code</span>
