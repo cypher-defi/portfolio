@@ -19,6 +19,7 @@ interface NavigationProps {
   protocolName?: string
   protocolIcon?: React.ReactNode
   githubLink?: string
+  liveUrl?: string
   navItems?: NavItem[]
 }
 
@@ -27,6 +28,7 @@ export const Navigation: React.FC<NavigationProps> = ({
   protocolName,
   protocolIcon,
   githubLink,
+  liveUrl,
   navItems = []
 }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -198,6 +200,17 @@ export const Navigation: React.FC<NavigationProps> = ({
               <span>Code</span>
             </a>
           )}
+          {variant === "docs" && liveUrl && (
+            <a
+              href={liveUrl}
+              target='_blank'
+              rel='noopener noreferrer'
+              className='flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 text-[10px] uppercase tracking-[0.2em] bg-white/5 hover:bg-white/10 transition-all text-white'
+            >
+              <Icon icon='solar:monitor-smartphone-bold' className='w-3.5 h-3.5' />
+              <span>Live App</span>
+            </a>
+          )}
         </div>
 
         {/* Mobile Burger Menu */}
@@ -255,6 +268,18 @@ export const Navigation: React.FC<NavigationProps> = ({
                     <GitHubIcon />
                   </div>
                   <span>Code</span>
+                </a>
+              )}
+              {variant === "docs" && liveUrl && (
+                <a
+                  href={liveUrl}
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  onClick={() => setIsMenuOpen(false)}
+                  className='flex items-center gap-2 text-sm uppercase tracking-[0.3em] text-[#E5E5E5]/70 hover:text-white transition'
+                >
+                  <Icon icon='solar:monitor-smartphone-bold' className='w-4 h-4' />
+                  <span>Live App</span>
                 </a>
               )}
             </div>

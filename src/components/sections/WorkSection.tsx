@@ -38,6 +38,19 @@ const DashboardIcon = () => (
   </svg>
 )
 
+const ExternalLinkIcon = () => (
+  <svg
+    viewBox='0 0 24 24'
+    width='18'
+    height='18'
+    fill='none'
+    stroke='currentColor'
+    strokeWidth='1.5'
+  >
+    <path d='M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6m0 0v6m0-6L10 14' />
+  </svg>
+)
+
 // --- INTERFACES ---
 interface ProjectMetadata {
   status: "PRODUCTION" | "DEVELOPMENT"
@@ -62,6 +75,7 @@ interface ProjectProps {
   github: string
   docs: string
   docsIcon?: "docs" | "dashboard"
+  liveUrl?: string
   metadata: ProjectMetadata
   tags: ProjectTag[]
   glow: "blue" | "purple" | "green" | "red"
@@ -74,6 +88,7 @@ const ProjectCard = ({
   github,
   docs,
   docsIcon = "docs",
+  liveUrl,
   metadata,
   tags,
   glow
@@ -113,6 +128,17 @@ const ProjectCard = ({
             >
               {docsIcon === "dashboard" ? <DashboardIcon /> : <DocsIcon />}
             </a>
+            {liveUrl && (
+              <a
+                href={liveUrl}
+                target='_blank'
+                rel='noopener noreferrer'
+                className='p-3 sm:p-2.5 rounded-full border border-white/5 bg-white/2 text-[#A8A8A8] hover:text-white transition-all duration-500'
+                aria-label={`Open ${title} live app`}
+              >
+                <ExternalLinkIcon />
+              </a>
+            )}
           </div>
         </div>
 
@@ -174,9 +200,10 @@ const PRODUCTION_PROJECTS: ProjectProps[] = [
   {
     title: "LendCore Protocol",
     description:
-      "Production-ready DeFi lending protocol with UUPS upgradeable contracts, multi-sig governance with Timelock, and ERC-4626 compliant vaults. Features Jump Rate Model (2%-60% APR) and health factor-based liquidations.",
+      "Isolated lending protocol with UUPS upgradeable contracts, multi-sig Timelock governance, ERC-4626 vaults, and a Next.js monitoring dashboard backed by an event-driven indexer (viem + Supabase).",
     github: "https://github.com/Enricrypto/Isolated-Lending-Market",
     docs: "/lendcore-protocol-docs",
+    liveUrl: "https://frontend-ashen-omega-89.vercel.app/",
     metadata: {
       status: "PRODUCTION",
       label1: "STATUS",
@@ -184,15 +211,17 @@ const PRODUCTION_PROJECTS: ProjectProps[] = [
       label2: "STANDARD",
       value2: "ERC-4626",
       label3: "CONTRACTS",
-      value3: "4",
+      value3: "5",
       label4: "TESTS",
-      value4: "91"
+      value4: "91+"
     },
     tags: [
       { label: "Lending", color: "blue" },
       { label: "UUPS Upgradeable", color: "blue" },
-      { label: "Chainlink", color: "blue" },
-      { label: "Timelock Governance", color: "blue" }
+      { label: "Timelock Governance", color: "blue" },
+      { label: "Event-Driven Indexer", color: "blue" },
+      { label: "Supabase", color: "blue" },
+      { label: "Next.js", color: "blue" }
     ],
     glow: "blue"
   },
@@ -351,11 +380,42 @@ const DEVELOPMENT_PROJECTS: ProjectProps[] = [
   }
 ]
 
+const FULLSTACK_PROJECTS: ProjectProps[] = [
+  {
+    title: "Lenda Finance",
+    description:
+      "Full-stack lending platform where users deposit real-world collateral (property, crypto, vehicles), borrow credit against it, and track their financial position in real time.",
+    github: "https://github.com/Enricrypto/lenda_finance",
+    docs: "/lenda-finance-docs",
+    liveUrl: "https://lenda-finance.vercel.app/",
+    metadata: {
+      status: "PRODUCTION",
+      label1: "STATUS",
+      value1: "LIVE",
+      label2: "STACK",
+      value2: "FastAPI + Next.js 16",
+      label3: "DATABASE",
+      value3: "PostgreSQL / AWS RDS",
+      label4: "AUTH",
+      value4: "NextAuth.js"
+    },
+    tags: [
+      { label: "FastAPI", color: "green" },
+      { label: "Next.js 16", color: "green" },
+      { label: "TypeScript", color: "green" },
+      { label: "TanStack Query", color: "green" },
+      { label: "PostgreSQL", color: "green" },
+      { label: "AWS RDS", color: "green" }
+    ],
+    glow: "green"
+  }
+]
+
 const BOT_PROJECTS: ProjectProps[] = [
   {
     title: "Yield Guard Bot",
     description:
-      "Modular Python bot for DeFi treasury strategy simulation. Fetches protocol metrics from Aave and Morpho, calculates financial performance with automated daily simulations at 2:00 AM UTC.",
+      "Modular Python bot for DeFi treasury strategy simulation. Fetches protocol metrics from Aave and Morpho, calculates financial performance with automated daily simulations.",
     github: "https://github.com/Enricrypto/yield-guard-bot",
     docs: "https://yield-guard-bot.streamlit.app/",
     docsIcon: "dashboard",
@@ -411,35 +471,41 @@ const BOT_PROJECTS: ProjectProps[] = [
 
 // --- MAIN SECTION ---
 export const WorkSection = () => {
-  const [activeTab, setActiveTab] = useState<"PRODUCTION" | "DEVELOPMENT" | "BOTS">(
-    "PRODUCTION"
-  )
+  const [activeTab, setActiveTab] = useState<
+    "PRODUCTION" | "DEVELOPMENT" | "BOTS" | "FULLSTACK"
+  >("PRODUCTION")
   const projects =
     activeTab === "PRODUCTION"
       ? PRODUCTION_PROJECTS
       : activeTab === "DEVELOPMENT"
-      ? DEVELOPMENT_PROJECTS
-      : BOT_PROJECTS
+        ? DEVELOPMENT_PROJECTS
+        : activeTab === "FULLSTACK"
+          ? FULLSTACK_PROJECTS
+          : BOT_PROJECTS
 
   return (
     <section id='work' className='max-w-6xl mx-auto px-6 py-32 relative'>
       <div className='mb-20'>
         <span className='text-[10px] text-white/30 uppercase tracking-[0.5em] mb-4 block'>
-          / Selected Protocols
+          {activeTab === "FULLSTACK"
+            ? "/ Selected Projects"
+            : "/ Selected Protocols"}
         </span>
         <Heading
           level='h2'
           className='text-4xl md:text-5xl font-extralight tracking-tighter text-[#E5E5E5] mb-6'
         >
           {activeTab === "PRODUCTION"
-            ? "Institutional Deployment"
+            ? "Blockchain Projects"
             : activeTab === "DEVELOPMENT"
-            ? "Experimental Research"
-            : "Automation & Analytics"}
+              ? "Experimental Research"
+              : activeTab === "FULLSTACK"
+                ? "Full Stack Projects"
+                : "Automation & Analytics"}
         </Heading>
 
         <div className='inline-flex p-1 bg-white/2 border border-white/5 rounded-full mb-8'>
-          {["PRODUCTION", "DEVELOPMENT", "BOTS"].map((tab) => (
+          {["PRODUCTION", "DEVELOPMENT", "FULLSTACK", "BOTS"].map((tab) => (
             <button
               key={tab}
               onClick={() => setActiveTab(tab as any)}
