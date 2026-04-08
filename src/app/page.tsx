@@ -29,7 +29,7 @@ const STATS = [
 export default function Home() {
   return (
     // Changed to #121214 (Charcoal) and text to #E5E5E5 (Soft Silver)
-    <main className='bg-[#121214] text-[#E5E5E5] min-h-screen relative selection:bg-white/10 selection:text-white'>
+    <main className='bg-[#121214] text-[#E5E5E5] min-h-screen relative selection:bg-white/10 selection:text-white overflow-x-clip'>
       {/* CALM WATER & MIST BACKGROUND
           - Fixed position ensures it stays behind content
           - Z-index 0 keeps it behind the UI (Navigation/Hero)
