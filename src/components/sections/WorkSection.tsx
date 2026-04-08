@@ -652,20 +652,20 @@ const FULLSTACK_PROJECTS: ProjectProps[] = [
 // --- MAIN SECTION ---
 export const WorkSection = () => {
   const [activeTab, setActiveTab] = useState<
-    "BLOCKCHAIN" | "AI & AGENTS" | "FULL STACK"
-  >("BLOCKCHAIN")
+    "FULL STACK" | "AI & AGENTS" | "BLOCKCHAIN"
+  >("FULL STACK")
 
   const projects =
-    activeTab === "BLOCKCHAIN"
-      ? BLOCKCHAIN_PROJECTS
+    activeTab === "FULL STACK"
+      ? FULLSTACK_PROJECTS
       : activeTab === "AI & AGENTS"
         ? AI_AGENT_PROJECTS
-        : FULLSTACK_PROJECTS
+        : BLOCKCHAIN_PROJECTS
 
   const headings: Record<typeof activeTab, string> = {
-    "BLOCKCHAIN": "Protocols & Smart Contracts",
+    "FULL STACK": "Full Stack Projects",
     "AI & AGENTS": "AI Agent Systems",
-    "FULL STACK": "Full Stack Projects"
+    "BLOCKCHAIN": "Protocols & Smart Contracts"
   }
 
   return (
@@ -682,7 +682,7 @@ export const WorkSection = () => {
         </Heading>
 
         <div className='inline-flex p-1 bg-white/2 border border-white/5 rounded-full mb-8'>
-          {(["BLOCKCHAIN", "AI & AGENTS", "FULL STACK"] as const).map((tab) => (
+          {(["FULL STACK", "AI & AGENTS", "BLOCKCHAIN"] as const).map((tab) => (
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
