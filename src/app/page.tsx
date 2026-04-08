@@ -1,6 +1,5 @@
 "use client"
 
-import dynamic from "next/dynamic"
 import { HeroSection } from "@/components/sections/HeroSection"
 import { TechStackSection } from "@/components/sections/TechStackSection"
 import { StatsSection } from "@/components/sections/StatsSection"
@@ -10,11 +9,6 @@ import { ContactSection } from "@/components/sections/ContactSection"
 import { Navigation } from "@/components/navigation/Navigation"
 import { Footer } from "@/components/navigation/Footer"
 import { Reveal } from "@/components/Reveal"
-
-const PixelReveal = dynamic(
-  () => import("@/components/PixelReveal").then((mod) => mod.PixelReveal),
-  { ssr: false }
-)
 
 const HERO_DATA = {
   label: "FULL STACK ENGINEER",
@@ -82,8 +76,6 @@ export default function Home() {
           Wrapped in relative z-10 to sit above the background effects
       */}
       <div className='relative z-10'>
-        <PixelReveal />
-
         <Navigation />
 
         <HeroSection {...HERO_DATA} />
@@ -96,11 +88,11 @@ export default function Home() {
 
         <WorkSection />
 
-        <Reveal direction="up" delay={0.1}>
+        <Reveal direction='up' delay={0.1}>
           <ContactSection />
         </Reveal>
 
-        <Reveal direction="up" delay={0.05}>
+        <Reveal direction='up' delay={0.05}>
           <Footer />
         </Reveal>
       </div>
