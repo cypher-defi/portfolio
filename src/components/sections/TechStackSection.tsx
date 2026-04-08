@@ -55,17 +55,17 @@ const ROW_TWO: TechItem[] = [
 
 const TechItem = ({ item }: { item: TechItem }) => (
   <div className="flex items-center gap-3 px-6 select-none">
-    <div className="w-5 h-5 opacity-50 shrink-0 text-[#E5E5E5]">
+    <div className="w-5 h-5 opacity-40 shrink-0 text-[#111111]">
       {item.customSvg ? (
         <div className="w-5 h-5">{item.customSvg}</div>
       ) : item.iconifyIcon ? (
         <Icon icon={item.iconifyIcon} className="w-5 h-5" />
       ) : null}
     </div>
-    <span className="text-[11px] uppercase tracking-[0.18em] text-[#A8A8A8] whitespace-nowrap font-light">
+    <span className="text-[11px] uppercase tracking-[0.18em] text-[#555555] whitespace-nowrap font-light">
       {item.name}
     </span>
-    <span className="text-white/10 ml-4">·</span>
+    <span className="text-black/10 ml-4">·</span>
   </div>
 )
 
@@ -105,7 +105,7 @@ const MarqueeRow = ({
 
 export const TechStackSection = () => {
   return (
-    <section className="relative py-16 border-t border-white/5 overflow-hidden">
+    <section className="relative py-16 bg-[#F7F7F8] border-t border-black/6 overflow-hidden">
       <style>{`
         @keyframes marquee-left {
           0%   { transform: translateX(0); }
@@ -123,10 +123,10 @@ export const TechStackSection = () => {
 
       {/* Section Header */}
       <div className="text-center mb-10 px-4">
-        <span className="font-mono text-[10px] text-white/30 uppercase tracking-[0.5em] mb-4 block">
+        <span className="font-mono text-[10px] text-black/30 uppercase tracking-[0.5em] mb-4 block">
           / Technology Stack
         </span>
-        <h2 className="text-4xl md:text-5xl font-extralight tracking-tighter text-[#E5E5E5]">
+        <h2 className="text-4xl md:text-5xl font-extralight tracking-tighter text-[#111111]">
           Built with Modern Tools
         </h2>
       </div>

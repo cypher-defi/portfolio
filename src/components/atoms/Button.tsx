@@ -23,10 +23,11 @@ export const Button: React.FC<ButtonProps> = ({
 
   const variantStyles = {
     primary: `
-      bg-[var(--color-accent-blue)]
-      text-[var(--color-bg-primary)]
-      border-[var(--color-accent-blue)]
-      hover:shadow-[0_0_20px_rgba(167,200,255,0.3)]
+      bg-[var(--color-accent-primary)]
+      text-white
+      border-[var(--color-accent-primary)]
+      hover:bg-[var(--color-accent-primary-hover)]
+      hover:border-[var(--color-accent-primary-hover)]
       active:scale-95
     `,
     secondary: `

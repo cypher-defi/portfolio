@@ -48,17 +48,17 @@ function CountUp({ value, suffix, duration = 1.6 }: { value: number; suffix: str
 
 export const StatsSection = ({ stats }: StatsSectionProps) => {
   return (
-    <section className='w-full bg-[#0C0C0E]'>
+    <section className='w-full bg-[#F7F7F8] border-b border-black/6'>
       <div className='max-w-6xl mx-auto px-6 py-16'>
         <div className='grid grid-cols-2 md:grid-cols-4 gap-8'>
           {stats.map((stat) => {
             const { number, suffix } = parseStat(stat.value)
             return (
               <div key={stat.label} className='text-center'>
-                <div className='font-mono text-4xl md:text-5xl font-bold text-[#E5E5E5]'>
+                <div className='font-mono text-4xl md:text-5xl font-bold text-[#4353ff]'>
                   <CountUp value={number} suffix={suffix} />
                 </div>
-                <p className='text-sm text-[#A8A8A8] mt-2'>
+                <p className='text-sm text-[#555555] mt-2'>
                   {stat.label}
                 </p>
               </div>
