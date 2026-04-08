@@ -1,5 +1,6 @@
 "use client"
 
+import dynamic from "next/dynamic"
 import { HeroSection } from "@/components/sections/HeroSection"
 import { TechStackSection } from "@/components/sections/TechStackSection"
 import { StatsSection } from "@/components/sections/StatsSection"
@@ -8,21 +9,27 @@ import { WorkSection } from "@/components/sections/WorkSection"
 import { ContactSection } from "@/components/sections/ContactSection"
 import { Navigation } from "@/components/navigation/Navigation"
 import { Footer } from "@/components/navigation/Footer"
+import { Reveal } from "@/components/Reveal"
+
+const PixelReveal = dynamic(
+  () => import("@/components/PixelReveal").then((mod) => mod.PixelReveal),
+  { ssr: false }
+)
 
 const HERO_DATA = {
-  label: "BLOCKCHAIN ENGINEER",
-  title: "Protocol Engineer |",
-  titleItalic: "Production DeFi Systems",
-  description: `I'm Enrique Ibarra, building institutional-grade DeFi infrastructure across lending markets, yield optimization, and liquidity systems. Five production protocols specializing in capital-efficient architecture with Solidity, Foundry, and EVM-based systems.`,
+  label: "FULL STACK ENGINEER",
+  title: "Building at the Intersection of",
+  titleItalic: "Blockchain, AI & Cloud",
+  description: `I'm Enrique Ibarra. I build production systems across three domains: DeFi protocols and smart contracts, AI agent infrastructure, and full-stack web applications. From ERC-4626 vaults to autonomous agent marketplaces to cloud-backed lending platforms.`,
   primaryCTA: "View Work",
   secondaryCTA: "Get In Touch"
 }
 
 const STATS = [
-  { value: "8", label: "DeFi Protocols" },
   { value: "50+", label: "Smart Contracts" },
-  { value: "5+", label: "Deployed Contracts" },
-  { value: "600+", label: "Comprehensive Tests" }
+  { value: "600+", label: "Tests Written" },
+  { value: "3", label: "Chains — EVM · Solana · Base" },
+  { value: "15+", label: "Production Projects" }
 ]
 
 export default function Home() {
@@ -75,6 +82,8 @@ export default function Home() {
           Wrapped in relative z-10 to sit above the background effects
       */}
       <div className='relative z-10'>
+        <PixelReveal />
+
         <Navigation />
 
         <HeroSection {...HERO_DATA} />
@@ -87,9 +96,13 @@ export default function Home() {
 
         <WorkSection />
 
-        <ContactSection />
+        <Reveal direction="up" delay={0.1}>
+          <ContactSection />
+        </Reveal>
 
-        <Footer />
+        <Reveal direction="up" delay={0.05}>
+          <Footer />
+        </Reveal>
       </div>
 
       {/* Global Animations - Optimized for smooth, performant experience */}

@@ -168,7 +168,7 @@ export const Navigation: React.FC<NavigationProps> = ({
                   element.scrollIntoView({ behavior: "smooth", block: "start" })
                 }
               }}
-              className='px-5 py-1.5 rounded-full border border-white/10 text-[10px] uppercase tracking-[0.2em] bg-white/5 hover:bg-white/10 transition-all text-white'
+              className='px-5 py-1.5 rounded-full text-[10px] uppercase tracking-[0.2em] bg-[#4353ff] hover:bg-[#5a6aff] transition-all duration-300 text-white'
             >
               Connect
             </a>

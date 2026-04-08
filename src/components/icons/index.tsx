@@ -202,3 +202,66 @@ export const NetworkIcon = () => (
 export const SafetyIcon = () => (
   <Icon icon="mdi:shield-check" className="w-8 h-8" />
 )
+
+// AI Agents Icons
+export const AgentIcon = () => (
+  <Icon icon="mdi:robot-excited" className="w-6 h-6" />
+)
+
+export const VPNIcon = () => (
+  <Icon icon="mdi:vpn" className="w-6 h-6" />
+)
+
+export const GatewayIcon = () => (
+  <Icon icon="mdi:gate" className="w-8 h-8" />
+)
+
+export const MicropaymentIcon = () => (
+  <Icon icon="mdi:cash-fast" className="w-6 h-6" />
+)
+
+export const OrchestrationIcon = () => (
+  <Icon icon="mdi:source-branch" className="w-8 h-8" />
+)
+
+export const AtomicIcon = () => (
+  <Icon icon="mdi:atom" className="w-8 h-8" />
+)
+
+export const PredictionIcon = () => (
+  <Icon icon="mdi:chart-bell-curve" className="w-6 h-6" />
+)
+
+export const OrderBookIcon = () => (
+  <Icon icon="mdi:book-open-variant" className="w-8 h-8" />
+)
+
+export const MarketMakerIcon = () => (
+  <Icon icon="mdi:chart-line-variant" className="w-8 h-8" />
+)
+
+// Onchain Risk Monitor Icons
+export const AlertIcon = () => (
+  <Icon icon="mdi:bell-alert" className="w-8 h-8" />
+)
+
+export const MonitoringIcon = () => (
+  <Icon icon="mdi:monitor-eye" className="w-6 h-6" />
+)
+
+export const GrafanaIcon = () => (
+  <Icon icon="mdi:chart-bar" className="w-8 h-8" />
+)
+
+// Frontend / Full Stack Icons
+export const UIIcon = () => (
+  <Icon icon="mdi:monitor-dashboard" className="w-6 h-6" />
+)
+
+export const RocketIcon = () => (
+  <Icon icon="mdi:rocket-launch" className="w-8 h-8" />
+)
+
+export const AIIcon = () => (
+  <Icon icon="mdi:brain" className="w-6 h-6" />
+)

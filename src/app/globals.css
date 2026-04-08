@@ -10,11 +10,23 @@
   --color-border: rgba(255, 255, 255, 0.05);
   --color-border-hover: rgba(255, 255, 255, 0.1);
 
-  /* Accent Colors */
+  /* Primary interactive accent — one confident blue */
+  --color-accent-primary: #4353ff;
+  --color-accent-primary-hover: #5a6aff;
+
+  /* Accent Colors — kept only for work card category differentiation */
   --color-accent-blue: #a7c8ff;
   --color-accent-green: #6bff95;
   --color-accent-red: #ff6b6b;
   --color-accent-purple: #c3a6ff;
+
+  /* Light Section Colors */
+  --color-bg-light: #f7f7f8;
+  --color-bg-light-card: #ffffff;
+  --color-text-light-primary: #111111;
+  --color-text-light-secondary: #555555;
+  --color-border-light: rgba(0, 0, 0, 0.07);
+  --color-border-light-hover: rgba(0, 0, 0, 0.15);
 
   /* Transition Timings */
   --transition-fast: 0.3s;
@@ -127,5 +139,8 @@ canvas {
   }
   .accent-purple {
     color: var(--color-accent-purple);
+  }
+  .font-mono {
+    font-family: var(--font-mono), ui-monospace, monospace;
   }
 }

@@ -4,6 +4,7 @@ import { Heading } from "@/components/atoms/Heading"
 import { Text } from "@/components/atoms/Text"
 import { Card } from "@/components/molecules/Card"
 import { useState } from "react"
+import { motion, AnimatePresence } from "framer-motion"
 
 // --- ICONS ---
 const GitHubIcon = () => (
@@ -145,10 +146,10 @@ const ProjectCard = ({
         <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 mb-8 py-6 border-y border-white/3'>
           {[1, 2, 3, 4].map((num) => (
             <div key={num}>
-              <p className='text-[10px] tracking-[0.2em] text-[#757575] uppercase mb-1'>
+              <p className='font-mono text-[10px] tracking-[0.2em] text-[#757575] uppercase mb-1'>
                 {(metadata as any)[`label${num}`]}
               </p>
-              <p className='text-xs font-light text-[#B0B0B0] tracking-wider'>
+              <p className='font-mono text-xs font-light text-[#B0B0B0] tracking-wider'>
                 {(metadata as any)[`value${num}`]}
               </p>
             </div>
@@ -171,11 +172,11 @@ const ProjectCard = ({
 }
 
 // --- DATA ---
-const PRODUCTION_PROJECTS: ProjectProps[] = [
+const BLOCKCHAIN_PROJECTS: ProjectProps[] = [
   {
     title: "Meridian Finance",
     description:
-      "Institutional-grade yield automation for DeFi treasury management. ERC-4626 compliant vaults with auto-compounding strategies.",
+      "ERC-4626 compliant vaults with auto-compounding strategies and on-chain governance for DeFi treasury management.",
     github: "https://github.com/Enricrypto/meridian-finance-yield-farming",
     docs: "/meridian-finance-docs",
     metadata: {
@@ -228,8 +229,8 @@ const PRODUCTION_PROJECTS: ProjectProps[] = [
   {
     title: "SwapHub DEX",
     description:
-      "Battle-tested DEX infrastructure for institutional swap execution and liquidity provision. Multi-hop routing optimizes trade paths across liquidity pools.",
-    github: "https://github.com",
+      "Multi-hop DEX with constant-product AMM, liquidity provision, and optimized trade routing across pools.",
+    github: "https://github.com/Enricrypto/Decentralised-Exchange",
     docs: "/swaphub-dex-docs",
     metadata: {
       status: "PRODUCTION",
@@ -253,7 +254,7 @@ const PRODUCTION_PROJECTS: ProjectProps[] = [
   {
     title: "VaultForge",
     description:
-      "Time-locked yield optimization for institutional liquidity planning. Tiered lock periods provide dynamic APY rates up to 8% with penalty redistribution.",
+      "Time-locked yield optimization with tiered lock periods, dynamic APY rates up to 8%, and penalty redistribution mechanics.",
     github: "https://github.com/Enricrypto/vault-forge-crypto-bank",
     docs: "/vault-forge-docs",
     metadata: {
@@ -278,7 +279,7 @@ const PRODUCTION_PROJECTS: ProjectProps[] = [
   {
     title: "NFT Marketplace",
     description:
-      "Institutional-grade NFT trading infrastructure with comprehensive order types and automated settlement. Supports fixed-price listings, English auctions, and buy offers.",
+      "NFT trading infrastructure supporting fixed-price listings, English auctions, and buy offers with ERC-2981 royalty enforcement.",
     github: "https://github.com/Enricrypto/nft-marketplace",
     docs: "/nft-marketplace-docs",
     metadata: {
@@ -299,14 +300,11 @@ const PRODUCTION_PROJECTS: ProjectProps[] = [
       { label: "Sepolia Live", color: "purple" }
     ],
     glow: "purple"
-  }
-]
-
-const DEVELOPMENT_PROJECTS: ProjectProps[] = [
+  },
   {
     title: "ArbWave",
     description:
-      "Institutional-grade flash loan arbitrage system with atomic execution across multiple DEXes.",
+      "Flash loan arbitrage system with atomic cross-DEX execution, a custom risk engine, and 168 Foundry tests.",
     github: "https://github.com/Enricrypto/arb-wave-flashloans-arbitrage",
     docs: "/arbwave-docs",
     metadata: {
@@ -356,7 +354,7 @@ const DEVELOPMENT_PROJECTS: ProjectProps[] = [
   {
     title: "RWA Stablecoin",
     description:
-      "Real World Asset backed stablecoin collateralized by tokenized real estate properties. Automatic rental yield distribution with 70% LTV.",
+      "Real-estate-backed stablecoin with tokenized property collateral, automatic rental yield distribution, and 70% LTV.",
     github: "https://github.com",
     docs: "/rwa-stablecoin-docs",
     metadata: {
@@ -377,41 +375,7 @@ const DEVELOPMENT_PROJECTS: ProjectProps[] = [
       { label: "Yield Distribution", color: "green" }
     ],
     glow: "green"
-  }
-]
-
-const FULLSTACK_PROJECTS: ProjectProps[] = [
-  {
-    title: "Lenda Finance",
-    description:
-      "Full-stack lending platform where users deposit real-world collateral (property, crypto, vehicles), borrow credit against it, and track their financial position in real time.",
-    github: "https://github.com/Enricrypto/lenda_finance",
-    docs: "/lenda-finance-docs",
-    liveUrl: "https://lenda-finance.vercel.app/",
-    metadata: {
-      status: "PRODUCTION",
-      label1: "STATUS",
-      value1: "LIVE",
-      label2: "STACK",
-      value2: "FastAPI + Next.js 16",
-      label3: "DATABASE",
-      value3: "PostgreSQL / AWS RDS",
-      label4: "AUTH",
-      value4: "NextAuth.js"
-    },
-    tags: [
-      { label: "FastAPI", color: "green" },
-      { label: "Next.js 16", color: "green" },
-      { label: "TypeScript", color: "green" },
-      { label: "TanStack Query", color: "green" },
-      { label: "PostgreSQL", color: "green" },
-      { label: "AWS RDS", color: "green" }
-    ],
-    glow: "green"
-  }
-]
-
-const BOT_PROJECTS: ProjectProps[] = [
+  },
   {
     title: "Yield Guard Bot",
     description:
@@ -443,7 +407,7 @@ const BOT_PROJECTS: ProjectProps[] = [
   {
     title: "MEV Liquidation Engine",
     description:
-      "Production-grade research system for validating liquidation MEV hypotheses on Aave v3 Arbitrum. Monte Carlo simulation with 10 bot archetypes, rolling-window backtesting, and safety-first design with hash-chained logging.",
+      "Research system for validating liquidation MEV hypotheses on Aave v3 Arbitrum. Monte Carlo simulation with 10 bot archetypes, rolling-window backtesting, and hash-chained logging.",
     github: "https://github.com/Enricrypto/mev-liquidation-phase-a",
     docs: "/mev-liquidation-docs",
     metadata: {
@@ -466,52 +430,265 @@ const BOT_PROJECTS: ProjectProps[] = [
       { label: "Research", color: "purple" }
     ],
     glow: "purple"
+  },
+  {
+    title: "Onchain Risk Monitor",
+    description:
+      "On-chain risk monitoring system for Aave. Collects blockchain metrics, visualizes them in Grafana, and generates alerts via email and Telegram with full auditability.",
+    github: "https://github.com/Enricrypto/onchain-risk-monitor",
+    docs: "/onchain-risk-monitor-docs",
+    metadata: {
+      status: "PRODUCTION",
+      label1: "STATUS",
+      value1: "TESTNET",
+      label2: "PROTOCOL",
+      value2: "AAVE V3",
+      label3: "DASHBOARD",
+      value3: "GRAFANA",
+      label4: "ALERTS",
+      value4: "EMAIL + TELEGRAM"
+    },
+    tags: [
+      { label: "TypeScript", color: "green" },
+      { label: "Grafana", color: "green" },
+      { label: "Aave V3", color: "green" },
+      { label: "Monitoring", color: "green" },
+      { label: "Alerts", color: "green" }
+    ],
+    glow: "green"
+  }
+]
+
+const AI_AGENT_PROJECTS: ProjectProps[] = [
+  {
+    title: "Tollgate",
+    description:
+      "Pay-per-use WireGuard VPN gateway for autonomous agents. No subscriptions, no pre-auth — each access is gated by a USDC micropayment verified on Base.",
+    github: "https://github.com/Enricrypto/tollgate",
+    docs: "/tollgate-docs",
+    metadata: {
+      status: "PRODUCTION",
+      label1: "STATUS",
+      value1: "PRODUCTION",
+      label2: "NETWORK",
+      value2: "BASE",
+      label3: "PAYMENT",
+      value3: "USDC / x402",
+      label4: "TYPE",
+      value4: "VPN GATEWAY"
+    },
+    tags: [
+      { label: "AI Agents", color: "blue" },
+      { label: "x402 Payments", color: "blue" },
+      { label: "WireGuard", color: "blue" },
+      { label: "Base", color: "blue" },
+      { label: "TypeScript", color: "blue" }
+    ],
+    glow: "blue"
+  },
+  {
+    title: "Solana Predictions SDK",
+    description:
+      "TypeScript SDK for AI agents acting as market makers on a hybrid predictions market built on Solana — off-chain CLOB order matching, on-chain SPL token settlement.",
+    github: "https://github.com/Enricrypto/solana-predictions-sdk",
+    docs: "/solana-predictions-docs",
+    metadata: {
+      status: "DEVELOPMENT",
+      label1: "STATUS",
+      value1: "DEVELOPMENT",
+      label2: "CHAIN",
+      value2: "SOLANA",
+      label3: "MATCHING",
+      value3: "OFF-CHAIN CLOB",
+      label4: "SETTLEMENT",
+      value4: "ON-CHAIN SPL"
+    },
+    tags: [
+      { label: "Solana", color: "purple" },
+      { label: "AI Agents", color: "purple" },
+      { label: "Market Making", color: "purple" },
+      { label: "CLOB", color: "purple" },
+      { label: "TypeScript", color: "purple" }
+    ],
+    glow: "purple"
+  },
+  {
+    title: "Claw Market",
+    description:
+      "Decentralized ecosystem where autonomous agents create, buy, and sell digital products, compute resources, and services — earning, reinvesting, and scaling without human intervention.",
+    github: "https://github.com/Enricrypto/claw-market",
+    docs: "/claw-market-docs",
+    metadata: {
+      status: "DEVELOPMENT",
+      label1: "STATUS",
+      value1: "DEVELOPMENT",
+      label2: "STANDARD",
+      value2: "ERC-4337",
+      label3: "PAYMENT",
+      value3: "x402",
+      label4: "TYPE",
+      value4: "AGENT MARKETPLACE"
+    },
+    tags: [
+      { label: "AI Agents", color: "green" },
+      { label: "ERC-4337", color: "green" },
+      { label: "Smart Wallets", color: "green" },
+      { label: "x402", color: "green" },
+      { label: "TypeScript", color: "green" }
+    ],
+    glow: "green"
+  },
+  {
+    title: "Ledgerling",
+    description:
+      "Orchestration engine for x402 micropayments. Classifies natural-language requests into paid service calls, estimates costs before charging, and executes them atomically — users are never silently charged for partial work.",
+    github: "https://github.com/Enricrypto/ledgerling",
+    docs: "/ledgerling-docs",
+    metadata: {
+      status: "DEVELOPMENT",
+      label1: "STATUS",
+      value1: "DEVELOPMENT",
+      label2: "PROTOCOL",
+      value2: "x402",
+      label3: "TYPE",
+      value3: "ORCHESTRATION",
+      label4: "PATTERN",
+      value4: "ATOMIC"
+    },
+    tags: [
+      { label: "x402", color: "purple" },
+      { label: "Micropayments", color: "purple" },
+      { label: "NLP", color: "purple" },
+      { label: "TypeScript", color: "purple" },
+      { label: "Orchestration", color: "purple" }
+    ],
+    glow: "purple"
+  }
+]
+
+const FULLSTACK_PROJECTS: ProjectProps[] = [
+  {
+    title: "Lenda Finance",
+    description:
+      "Full-stack lending platform where users deposit real-world collateral (property, crypto, vehicles), borrow credit against it, and track their financial position in real time.",
+    github: "https://github.com/Enricrypto/lenda_finance",
+    docs: "/lenda-finance-docs",
+    liveUrl: "https://lenda-finance.vercel.app/",
+    metadata: {
+      status: "PRODUCTION",
+      label1: "STATUS",
+      value1: "LIVE",
+      label2: "STACK",
+      value2: "FastAPI + Next.js 16",
+      label3: "DATABASE",
+      value3: "PostgreSQL / AWS RDS",
+      label4: "AUTH",
+      value4: "NextAuth.js"
+    },
+    tags: [
+      { label: "FastAPI", color: "green" },
+      { label: "Next.js 16", color: "green" },
+      { label: "TypeScript", color: "green" },
+      { label: "TanStack Query", color: "green" },
+      { label: "PostgreSQL", color: "green" },
+      { label: "AWS RDS", color: "green" }
+    ],
+    glow: "green"
+  },
+  {
+    title: "SwitchFi",
+    description:
+      "Decentralized exchange frontend with token swaps, liquidity management, and real-time on-chain interactions. Built with Next.js, TailwindCSS, wagmi, and viem.",
+    github: "https://github.com/Enricrypto/SwitchFi",
+    docs: "/switchfi-docs",
+    metadata: {
+      status: "PRODUCTION",
+      label1: "STATUS",
+      value1: "PRODUCTION",
+      label2: "STACK",
+      value2: "Next.js + Tailwind",
+      label3: "LIBRARY",
+      value3: "wagmi + viem",
+      label4: "TYPE",
+      value4: "DEX FRONTEND"
+    },
+    tags: [
+      { label: "Next.js", color: "blue" },
+      { label: "TailwindCSS", color: "blue" },
+      { label: "wagmi", color: "blue" },
+      { label: "viem", color: "blue" },
+      { label: "TypeScript", color: "blue" }
+    ],
+    glow: "blue"
+  },
+  {
+    title: "River Labs",
+    description:
+      "AI-powered platform for autonomous agent infrastructure and tooling. Full-stack Next.js application with a production-grade interface.",
+    github: "https://github.com/Enricrypto/river-labs",
+    docs: "/river-labs-docs",
+    liveUrl: "https://www.riverlabs-ai.com/",
+    metadata: {
+      status: "PRODUCTION",
+      label1: "STATUS",
+      value1: "LIVE",
+      label2: "STACK",
+      value2: "Next.js + Tailwind",
+      label3: "TYPE",
+      value3: "AI PLATFORM",
+      label4: "LANGUAGE",
+      value4: "TypeScript"
+    },
+    tags: [
+      { label: "Next.js", color: "purple" },
+      { label: "AI Agents", color: "purple" },
+      { label: "TypeScript", color: "purple" },
+      { label: "TailwindCSS", color: "purple" }
+    ],
+    glow: "purple"
   }
 ]
 
 // --- MAIN SECTION ---
 export const WorkSection = () => {
   const [activeTab, setActiveTab] = useState<
-    "PRODUCTION" | "DEVELOPMENT" | "BOTS" | "FULLSTACK"
-  >("PRODUCTION")
+    "BLOCKCHAIN" | "AI & AGENTS" | "FULL STACK"
+  >("BLOCKCHAIN")
+
   const projects =
-    activeTab === "PRODUCTION"
-      ? PRODUCTION_PROJECTS
-      : activeTab === "DEVELOPMENT"
-        ? DEVELOPMENT_PROJECTS
-        : activeTab === "FULLSTACK"
-          ? FULLSTACK_PROJECTS
-          : BOT_PROJECTS
+    activeTab === "BLOCKCHAIN"
+      ? BLOCKCHAIN_PROJECTS
+      : activeTab === "AI & AGENTS"
+        ? AI_AGENT_PROJECTS
+        : FULLSTACK_PROJECTS
+
+  const headings: Record<typeof activeTab, string> = {
+    "BLOCKCHAIN": "Protocols & Smart Contracts",
+    "AI & AGENTS": "AI Agent Systems",
+    "FULL STACK": "Full Stack Projects"
+  }
 
   return (
     <section id='work' className='max-w-6xl mx-auto px-6 py-32 relative'>
       <div className='mb-20'>
-        <span className='text-[10px] text-white/30 uppercase tracking-[0.5em] mb-4 block'>
-          {activeTab === "FULLSTACK"
-            ? "/ Selected Projects"
-            : "/ Selected Protocols"}
+        <span className='font-mono text-[10px] text-white/30 uppercase tracking-[0.5em] mb-4 block'>
+          / Selected Work
         </span>
         <Heading
           level='h2'
           className='text-4xl md:text-5xl font-extralight tracking-tighter text-[#E5E5E5] mb-6'
         >
-          {activeTab === "PRODUCTION"
-            ? "Blockchain Projects"
-            : activeTab === "DEVELOPMENT"
-              ? "Experimental Research"
-              : activeTab === "FULLSTACK"
-                ? "Full Stack Projects"
-                : "Automation & Analytics"}
+          {headings[activeTab]}
         </Heading>
 
         <div className='inline-flex p-1 bg-white/2 border border-white/5 rounded-full mb-8'>
-          {["PRODUCTION", "DEVELOPMENT", "FULLSTACK", "BOTS"].map((tab) => (
+          {(["BLOCKCHAIN", "AI & AGENTS", "FULL STACK"] as const).map((tab) => (
             <button
               key={tab}
-              onClick={() => setActiveTab(tab as any)}
+              onClick={() => setActiveTab(tab)}
               className={`px-8 py-2 rounded-full text-[10px] uppercase tracking-[0.2em] transition-all duration-500 ${
                 activeTab === tab
-                  ? "bg-white/10 text-white"
+                  ? "bg-[#4353ff] text-white"
                   : "text-white/30 hover:text-white/60"
               }`}
             >
@@ -521,11 +698,35 @@ export const WorkSection = () => {
         </div>
       </div>
 
-      <div className='space-y-6'>
-        {projects.map((project) => (
-          <ProjectCard key={project.title} {...project} />
-        ))}
-      </div>
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={activeTab}
+          className='space-y-6'
+          initial="hidden"
+          animate="visible"
+          exit={{ opacity: 0, transition: { duration: 0.15 } }}
+          variants={{
+            hidden: {},
+            visible: { transition: { staggerChildren: 0.08 } }
+          }}
+        >
+          {projects.map((project: ProjectProps) => (
+            <motion.div
+              key={project.title}
+              variants={{
+                hidden: { opacity: 0, y: 24 },
+                visible: {
+                  opacity: 1,
+                  y: 0,
+                  transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] }
+                }
+              }}
+            >
+              <ProjectCard {...project} />
+            </motion.div>
+          ))}
+        </motion.div>
+      </AnimatePresence>
     </section>
   )
 }

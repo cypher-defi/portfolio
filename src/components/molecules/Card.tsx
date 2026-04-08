@@ -1,7 +1,7 @@
 import React from "react"
 
 interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
-  variant?: "default" | "outlined"
+  variant?: "default" | "outlined" | "light"
   glow?: "blue" | "green" | "purple" | "red" | false
   children: React.ReactNode
 }
@@ -14,7 +14,8 @@ export const Card: React.FC<CardProps> = ({
 }) => {
   const variantStyles = {
     default: "bg-[var(--color-bg-card)] border border-[var(--color-border)]",
-    outlined: "bg-transparent border border-[var(--color-border)]"
+    outlined: "bg-transparent border border-[var(--color-border)]",
+    light: "bg-[var(--color-bg-light-card)] border border-[var(--color-border-light)]"
   }
 
   const glowMap = {

@@ -1,176 +1,140 @@
 "use client"
 
-import { motion } from "framer-motion"
 import { Icon } from "@iconify/react"
 
 interface TechItem {
   name: string
-  category: "Frontend" | "Blockchain" | "Tools" | "Testing" | "Backend"
   iconifyIcon?: string
   customSvg?: React.ReactNode
 }
 
-const techStack: TechItem[] = [
-  // Blockchain
-  {
-    name: "Solidity",
-    category: "Blockchain",
-    iconifyIcon: "simple-icons:solidity"
-  },
-  {
-    name: "Rust",
-    category: "Blockchain",
-    iconifyIcon: "simple-icons:rust"
-  },
-  // Frontend
-  {
-    name: "TypeScript",
-    category: "Frontend",
-    iconifyIcon: "simple-icons:typescript"
-  },
-  {
-    name: "React",
-    category: "Frontend",
-    iconifyIcon: "simple-icons:react"
-  },
-  {
-    name: "Next.js",
-    category: "Frontend",
-    iconifyIcon: "simple-icons:nextdotjs"
-  },
-  {
-    name: "Tailwind CSS",
-    category: "Frontend",
-    iconifyIcon: "simple-icons:tailwindcss"
-  },
-  // Backend
-  {
-    name: "Python",
-    category: "Backend",
-    iconifyIcon: "simple-icons:python"
-  },
-  {
-    name: "Node.js",
-    category: "Backend",
-    iconifyIcon: "simple-icons:nodedotjs"
-  },
-  {
-    name: "Streamlit",
-    category: "Backend",
-    iconifyIcon: "simple-icons:streamlit"
-  },
-  // Tools
+const ROW_ONE: TechItem[] = [
+  { name: "Solidity", iconifyIcon: "simple-icons:solidity" },
+  { name: "Rust", iconifyIcon: "simple-icons:rust" },
+  { name: "TypeScript", iconifyIcon: "simple-icons:typescript" },
+  { name: "React", iconifyIcon: "simple-icons:react" },
+  { name: "Next.js", iconifyIcon: "simple-icons:nextdotjs" },
+  { name: "Tailwind CSS", iconifyIcon: "simple-icons:tailwindcss" },
+  { name: "Python", iconifyIcon: "simple-icons:python" },
+  { name: "Node.js", iconifyIcon: "simple-icons:nodedotjs" },
+  { name: "FastAPI", iconifyIcon: "simple-icons:fastapi" },
+]
+
+const ROW_TWO: TechItem[] = [
+  { name: "PostgreSQL", iconifyIcon: "simple-icons:postgresql" },
+  { name: "AWS", iconifyIcon: "simple-icons:amazonwebservices" },
+  { name: "Supabase", iconifyIcon: "simple-icons:supabase" },
+  { name: "Streamlit", iconifyIcon: "simple-icons:streamlit" },
+  { name: "Wagmi", iconifyIcon: "simple-icons:web3dotjs" },
+  { name: "Ethers.js", iconifyIcon: "simple-icons:ethereum" },
   {
     name: "Viem",
-    category: "Tools",
     customSvg: (
-      <svg viewBox='0 0 160 224' fill='currentColor' className='w-full h-full'>
-        <path d='M83.3 220.4L135.66 96.98C142.8 79.64 145.52 77.94 160.14 77.94V70.8H107.1V77.94C120.7 77.94 127.16 78.62 127.16 85.76C127.16 88.48 126.48 91.88 124.44 96.98L94.18 172.46L61.54 95.96C59.84 91.2 58.82 87.8 58.82 85.42C58.82 78.62 65.28 77.94 76.84 77.94V70.8H1.02V77.94C14.96 77.94 17 80.66 23.8 95.62L81.26 220.4H83.3Z' />
-      </svg>
-    )
-  },
-  {
-    name: "Wagmi",
-    category: "Tools",
-    iconifyIcon: "simple-icons:web3dotjs"
-  },
-  {
-    name: "Ethers.js",
-    category: "Tools",
-    iconifyIcon: "simple-icons:ethereum"
-  },
-  {
-    name: "Anchor",
-    category: "Tools",
-    customSvg: (
-      <svg viewBox='0 0 24 24' fill='currentColor' className='w-full h-full'>
-        <path d='M12 2C10.07 2 8.5 3.57 8.5 5.5C8.5 6.5 8.93 7.4 9.64 8.03L7 15H9.5L10.25 13H13.75L14.5 15H17L14.36 8.03C15.07 7.4 15.5 6.5 15.5 5.5C15.5 3.57 13.93 2 12 2M12 4C12.83 4 13.5 4.67 13.5 5.5C13.5 6.33 12.83 7 12 7C11.17 7 10.5 6.33 10.5 5.5C10.5 4.67 11.17 4 12 4M11 9H13L12 11.5L11 9M5 17V22H19V17H5Z' />
+      <svg viewBox="0 0 160 224" fill="currentColor" className="w-full h-full">
+        <path d="M83.3 220.4L135.66 96.98C142.8 79.64 145.52 77.94 160.14 77.94V70.8H107.1V77.94C120.7 77.94 127.16 78.62 127.16 85.76C127.16 88.48 126.48 91.88 124.44 96.98L94.18 172.46L61.54 95.96C59.84 91.2 58.82 87.8 58.82 85.42C58.82 78.62 65.28 77.94 76.84 77.94V70.8H1.02V77.94C14.96 77.94 17 80.66 23.8 95.62L81.26 220.4H83.3Z" />
       </svg>
     )
   },
   {
     name: "Foundry",
-    category: "Tools",
     customSvg: (
-      <svg viewBox='0 0 24 24' fill='currentColor' className='w-full h-full'>
-        <path d='M18 2H6C4.9 2 4 2.9 4 4V8H2V10H4V14H2V16H4V20C4 21.1 4.9 22 6 22H18C19.1 22 20 21.1 20 20V16H22V14H20V10H22V8H20V4C20 2.9 19.1 2 18 2M18 20H6V4H18V20M16 6H8V8H10V18H14V8H16V6Z' />
+      <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
+        <path d="M18 2H6C4.9 2 4 2.9 4 4V8H2V10H4V14H2V16H4V20C4 21.1 4.9 22 6 22H18C19.1 22 20 21.1 20 20V16H22V14H20V10H22V8H20V4C20 2.9 19.1 2 18 2M18 20H6V4H18V20M16 6H8V8H10V18H14V8H16V6Z" />
       </svg>
     )
   },
   {
-    name: "Slither",
-    category: "Tools",
+    name: "Anchor",
     customSvg: (
-      <svg viewBox='0 0 24 24' fill='currentColor' className='w-full h-full'>
-        <path d='M21,11C21,16.55 17.16,21.74 12,23C6.84,21.74 3,16.55 3,11V5L12,1L21,5V11M12,21C15.75,20 19,15.54 19,11.22V6.3L12,3.18L5,6.3V11.22C5,15.54 8.25,20 12,21M14.8,11L12,8.19L9.2,11L8,9.8L12,5.8L16,9.8L14.8,11M9.2,13L12,15.81L14.8,13L16,14.2L12,18.2L8,14.2L9.2,13Z' />
+      <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
+        <path d="M12 2C10.07 2 8.5 3.57 8.5 5.5C8.5 6.5 8.93 7.4 9.64 8.03L7 15H9.5L10.25 13H13.75L14.5 15H17L14.36 8.03C15.07 7.4 15.5 6.5 15.5 5.5C15.5 3.57 13.93 2 12 2M12 4C12.83 4 13.5 4.67 13.5 5.5C13.5 6.33 12.83 7 12 7C11.17 7 10.5 6.33 10.5 5.5C10.5 4.67 11.17 4 12 4M11 9H13L12 11.5L11 9M5 17V22H19V17H5Z" />
       </svg>
     )
-  }
+  },
 ]
+
+const TechItem = ({ item }: { item: TechItem }) => (
+  <div className="flex items-center gap-3 px-6 select-none">
+    <div className="w-5 h-5 opacity-50 shrink-0 text-[#E5E5E5]">
+      {item.customSvg ? (
+        <div className="w-5 h-5">{item.customSvg}</div>
+      ) : item.iconifyIcon ? (
+        <Icon icon={item.iconifyIcon} className="w-5 h-5" />
+      ) : null}
+    </div>
+    <span className="text-[11px] uppercase tracking-[0.18em] text-[#A8A8A8] whitespace-nowrap font-light">
+      {item.name}
+    </span>
+    <span className="text-white/10 ml-4">·</span>
+  </div>
+)
+
+const MarqueeRow = ({
+  items,
+  direction = "left",
+  duration = "35s"
+}: {
+  items: TechItem[]
+  direction?: "left" | "right"
+  duration?: string
+}) => {
+  const doubled = [...items, ...items]
+  const animClass = direction === "left" ? "marquee-left" : "marquee-right"
+
+  return (
+    <div
+      className="overflow-hidden py-3"
+      style={{
+        WebkitMaskImage:
+          "linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)",
+        maskImage:
+          "linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)"
+      }}
+    >
+      <div
+        className={`flex w-max ${animClass}`}
+        style={{ animationDuration: duration }}
+      >
+        {doubled.map((item, i) => (
+          <TechItem key={i} item={item} />
+        ))}
+      </div>
+    </div>
+  )
+}
 
 export const TechStackSection = () => {
   return (
-    <section className='relative pt-12 pb-16 px-4 sm:px-6 border-t border-white/5'>
-      <div className='max-w-6xl mx-auto'>
-        {/* Section Header */}
-        <div className='text-center mb-10 sm:mb-16'>
-          <span className='text-[10px] text-white/30 uppercase tracking-[0.5em] mb-4 block'>
-            / Technology Stack
-          </span>
-          <h2 className='text-4xl md:text-5xl font-extralight tracking-tighter text-[#E5E5E5] mb-6'>
-            Built with Modern Tools
-          </h2>
-          <p className='text-[#A8A8A8] text-sm max-w-2xl mx-auto'>
-            Production-grade development with industry-standard frameworks and
-            tools
-          </p>
-        </div>
+    <section className="relative py-16 border-t border-white/5 overflow-hidden">
+      <style>{`
+        @keyframes marquee-left {
+          0%   { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+        @keyframes marquee-right {
+          0%   { transform: translateX(-50%); }
+          100% { transform: translateX(0); }
+        }
+        .marquee-left  { animation: marquee-left  linear infinite; }
+        .marquee-right { animation: marquee-right linear infinite; }
+        .marquee-left:hover,
+        .marquee-right:hover { animation-play-state: paused; }
+      `}</style>
 
-        {/* Tech Grid */}
-        <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-6 md:gap-8 lg:gap-12'>
-          {techStack.map((tech, index) => (
-            <motion.div
-              key={tech.name}
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{
-                duration: 0.5,
-                delay: index * 0.05,
-                ease: "easeOut"
-              }}
-              whileHover={{ scale: 1.05, y: -5 }}
-              className='group relative flex flex-col items-center justify-center p-4 sm:p-6 rounded-lg bg-white/1 border border-white/5 hover:border-white/10 transition-all duration-300'
-            >
-              {/* Icon with grayscale filter */}
-              <div className='mb-3 sm:mb-4 transition-all duration-300 group-hover:scale-110 grayscale group-hover:grayscale-0 opacity-60 group-hover:opacity-100'>
-                {tech.customSvg ? (
-                  <div className='w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center'>
-                    {tech.customSvg}
-                  </div>
-                ) : tech.iconifyIcon ? (
-                  <Icon
-                    icon={tech.iconifyIcon}
-                    className='w-10 h-10 sm:w-12 sm:h-12'
-                  />
-                ) : null}
-              </div>
+      {/* Section Header */}
+      <div className="text-center mb-10 px-4">
+        <span className="font-mono text-[10px] text-white/30 uppercase tracking-[0.5em] mb-4 block">
+          / Technology Stack
+        </span>
+        <h2 className="text-4xl md:text-5xl font-extralight tracking-tighter text-[#E5E5E5]">
+          Built with Modern Tools
+        </h2>
+      </div>
 
-              {/* Name */}
-              <h3 className='text-[#E5E5E5] text-sm font-medium text-center mb-1'>
-                {tech.name}
-              </h3>
-
-              {/* Category */}
-              <span className='text-[10px] uppercase tracking-wider text-[#8A8A8A]/60'>
-                {tech.category}
-              </span>
-
-              {/* Hover glow effect */}
-              <div className='absolute inset-0 rounded-lg bg-linear-to-t from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none' />
-            </motion.div>
-          ))}
-        </div>
+      {/* Marquee rows */}
+      <div className="space-y-2">
+        <MarqueeRow items={ROW_ONE} direction="left" duration="38s" />
+        <MarqueeRow items={ROW_TWO} direction="right" duration="30s" />
       </div>
     </section>
   )
