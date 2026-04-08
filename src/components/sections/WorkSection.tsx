@@ -146,10 +146,10 @@ const ProjectCard = ({
         <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 mb-8 py-6 border-y border-white/3'>
           {[1, 2, 3, 4].map((num) => (
             <div key={num}>
-              <p className='font-mono text-[10px] tracking-[0.2em] text-[#757575] uppercase mb-1'>
+              <p className='font-mono text-[10px] tracking-[0.2em] text-[#909090] uppercase mb-1'>
                 {(metadata as any)[`label${num}`]}
               </p>
-              <p className='font-mono text-xs font-light text-[#B0B0B0] tracking-wider'>
+              <p className='font-mono text-xs font-light text-[#CCCCCC] tracking-wider'>
                 {(metadata as any)[`value${num}`]}
               </p>
             </div>
@@ -160,7 +160,7 @@ const ProjectCard = ({
           {tags.map((tag) => (
             <span
               key={tag.label}
-              className='px-3 py-1 rounded-full text-[10px] font-light uppercase tracking-widest border border-white/5 bg-white/2 text-[#909090]'
+              className='px-3 py-1 rounded-full text-[10px] font-light uppercase tracking-widest border border-white/15 bg-white/3 text-[#B8B8B8]'
             >
               {tag.label}
             </span>

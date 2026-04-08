@@ -101,7 +101,7 @@ const ExpertiseRow = ({ item, index }: { item: ExpertiseItem; index: number }) =
     }}
   >
     {/* Number */}
-    <div className="font-mono text-4xl md:text-5xl font-light text-white/8 group-hover:text-white/20 transition-colors duration-500 leading-none pt-1 select-none">
+    <div className="font-mono text-4xl md:text-5xl font-light text-white/20 group-hover:text-white/40 transition-colors duration-500 leading-none pt-1 select-none">
       {item.number}
     </div>
 
@@ -120,7 +120,7 @@ const ExpertiseRow = ({ item, index }: { item: ExpertiseItem; index: number }) =
         {item.tags.map(tag => (
           <span
             key={tag}
-            className="font-mono text-[9px] uppercase tracking-[0.15em] text-white/25 border border-white/8 px-2.5 py-1 rounded-sm"
+            className="font-mono text-[9px] uppercase tracking-[0.15em] text-white/50 border border-white/20 px-2.5 py-1 rounded-sm"
           >
             {tag}
           </span>
