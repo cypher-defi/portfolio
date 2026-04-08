@@ -39,10 +39,6 @@
   -webkit-tap-highlight-color: transparent;
 }
 
-html {
-  overflow-x: hidden;
-}
-
 body {
   background: var(--color-bg-primary);
   color: var(--color-text-primary);
