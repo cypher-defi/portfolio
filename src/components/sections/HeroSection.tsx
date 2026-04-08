@@ -117,7 +117,7 @@ export const HeroSection = ({
           </motion.div>
 
           {/* Title */}
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-[1.1] sm:leading-[1.05] lg:leading-[0.95] text-[#E5E5E5]">
+          <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-[1.1] sm:leading-[1.05] lg:leading-[0.95] text-[#E5E5E5]">
             <span className="font-light tracking-tight block">
               <BlurRevealText text={title} delay={0.35} />
             </span>
