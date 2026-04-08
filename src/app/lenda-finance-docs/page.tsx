@@ -139,7 +139,7 @@ export default function LendaFinanceDocs() {
                 </Heading>
                 <p className='text-sm text-[#E5E5E5]'>
                   Users deposit property, crypto, or vehicles as collateral.
-                  Each asset type carries its own depreciation rate — property
+                  Each asset type carries its own depreciation rate: property
                   1%, crypto 5%, car 10%.
                 </p>
               </Card>
@@ -164,7 +164,7 @@ export default function LendaFinanceDocs() {
                   Financial Position Tracking
                 </Heading>
                 <p className='text-sm text-[#E5E5E5]'>
-                  Real-time dashboard tracks each user&apos;s position —
+                  Real-time dashboard tracks each user&apos;s position : 
                   collateral value, outstanding debt, available credit, and
                   repayment history across all loans.
                 </p>
@@ -238,15 +238,15 @@ export default function LendaFinanceDocs() {
             <motion.div variants={fadeInUp} whileHover={{ scale: 1.05, y: -5 }}>
               <Card glow='green'>
                 <Heading level='h4' color='accent-green' className='mb-3'>
-                  Backend — FastAPI
+                  Backend: FastAPI
                 </Heading>
                 <ul className='list-disc list-inside space-y-2 text-sm text-[#E5E5E5]'>
-                  <li><code className='text-[#6BFF95]'>main.py</code> — Controller layer (all endpoints)</li>
-                  <li><code className='text-[#6BFF95]'>service.py</code> — Business logic</li>
-                  <li><code className='text-[#6BFF95]'>repository.py</code> — Database queries</li>
-                  <li><code className='text-[#6BFF95]'>models.py</code> — SQLAlchemy ORM models</li>
-                  <li><code className='text-[#6BFF95]'>schemas.py</code> — Pydantic request/response schemas</li>
-                  <li><code className='text-[#6BFF95]'>rules.py</code> — Business rules (asset types, statuses)</li>
+                  <li><code className='text-[#6BFF95]'>main.py</code>: Controller layer (all endpoints)</li>
+                  <li><code className='text-[#6BFF95]'>service.py</code>: Business logic</li>
+                  <li><code className='text-[#6BFF95]'>repository.py</code>: Database queries</li>
+                  <li><code className='text-[#6BFF95]'>models.py</code>: SQLAlchemy ORM models</li>
+                  <li><code className='text-[#6BFF95]'>schemas.py</code>: Pydantic request/response schemas</li>
+                  <li><code className='text-[#6BFF95]'>rules.py</code>: Business rules (asset types, statuses)</li>
                   <li>Alembic for database migrations</li>
                   <li>Pytest test suite</li>
                 </ul>
@@ -256,7 +256,7 @@ export default function LendaFinanceDocs() {
             <motion.div variants={fadeInUp} whileHover={{ scale: 1.05, y: -5 }}>
               <Card glow='blue'>
                 <Heading level='h4' color='accent-blue' className='mb-3'>
-                  Frontend — Next.js 16
+                  Frontend: Next.js 16
                 </Heading>
                 <ul className='list-disc list-inside space-y-2 text-sm text-[#E5E5E5]'>
                   <li>Auth-protected <code className='text-[#A7C8FF]'>(dashboard)</code> route group</li>
@@ -306,7 +306,7 @@ export default function LendaFinanceDocs() {
                 </Tr>
                 <Tr>
                   <Td className='font-medium text-[#A7C8FF]'>Frontend Framework</Td>
-                  <Td>Next.js 16 — App Router</Td>
+                  <Td>Next.js 16: App Router</Td>
                 </Tr>
                 <Tr>
                   <Td className='font-medium text-[#A7C8FF]'>Language</Td>
@@ -322,7 +322,7 @@ export default function LendaFinanceDocs() {
                 </Tr>
                 <Tr>
                   <Td className='font-medium text-[#A7C8FF]'>Auth (frontend)</Td>
-                  <Td>NextAuth.js v4 — Credentials + JWT</Td>
+                  <Td>NextAuth.js v4: Credentials + JWT</Td>
                 </Tr>
                 <Tr>
                   <Td className='font-medium text-[#A7C8FF]'>Charts</Td>
@@ -454,10 +454,10 @@ export default function LendaFinanceDocs() {
                   users
                 </Heading>
                 <ul className='space-y-1 text-sm text-[#E5E5E5]'>
-                  <li><code className='text-[#6BFF95]'>id</code> — Primary key</li>
-                  <li><code className='text-[#6BFF95]'>name</code> — Full name</li>
-                  <li><code className='text-[#6BFF95]'>email</code> — Unique identifier</li>
-                  <li><code className='text-[#6BFF95]'>password_hash</code> — bcrypt hash</li>
+                  <li><code className='text-[#6BFF95]'>id</code>: Primary key</li>
+                  <li><code className='text-[#6BFF95]'>name</code>: Full name</li>
+                  <li><code className='text-[#6BFF95]'>email</code>: Unique identifier</li>
+                  <li><code className='text-[#6BFF95]'>password_hash</code>: bcrypt hash</li>
                 </ul>
               </Card>
             </motion.div>
@@ -468,11 +468,11 @@ export default function LendaFinanceDocs() {
                   assets
                 </Heading>
                 <ul className='space-y-1 text-sm text-[#E5E5E5]'>
-                  <li><code className='text-[#A7C8FF]'>id</code> — Primary key</li>
-                  <li><code className='text-[#A7C8FF]'>user_id</code> — FK → users</li>
-                  <li><code className='text-[#A7C8FF]'>type</code> — property | crypto | car</li>
-                  <li><code className='text-[#A7C8FF]'>value</code> — Deposited value</li>
-                  <li><code className='text-[#A7C8FF]'>created_at</code> — Timestamp</li>
+                  <li><code className='text-[#A7C8FF]'>id</code>: Primary key</li>
+                  <li><code className='text-[#A7C8FF]'>user_id</code>: FK → users</li>
+                  <li><code className='text-[#A7C8FF]'>type</code>: property | crypto | car</li>
+                  <li><code className='text-[#A7C8FF]'>value</code>: Deposited value</li>
+                  <li><code className='text-[#A7C8FF]'>created_at</code>: Timestamp</li>
                 </ul>
               </Card>
             </motion.div>
@@ -483,13 +483,13 @@ export default function LendaFinanceDocs() {
                   loans
                 </Heading>
                 <ul className='space-y-1 text-sm text-[#E5E5E5]'>
-                  <li><code className='text-[#C3A6FF]'>id</code> — Primary key</li>
-                  <li><code className='text-[#C3A6FF]'>user_id</code> — FK → users</li>
-                  <li><code className='text-[#C3A6FF]'>amount</code> — Loan principal</li>
-                  <li><code className='text-[#C3A6FF]'>amount_repaid</code> — Running repayment</li>
-                  <li><code className='text-[#C3A6FF]'>interest_rate</code> — Default 5%</li>
-                  <li><code className='text-[#C3A6FF]'>status</code> — pending | approved | repaid</li>
-                  <li><code className='text-[#C3A6FF]'>created_at</code> — Timestamp</li>
+                  <li><code className='text-[#C3A6FF]'>id</code>: Primary key</li>
+                  <li><code className='text-[#C3A6FF]'>user_id</code>: FK → users</li>
+                  <li><code className='text-[#C3A6FF]'>amount</code>: Loan principal</li>
+                  <li><code className='text-[#C3A6FF]'>amount_repaid</code>: Running repayment</li>
+                  <li><code className='text-[#C3A6FF]'>interest_rate</code>: Default 5%</li>
+                  <li><code className='text-[#C3A6FF]'>status</code>: pending | approved | repaid</li>
+                  <li><code className='text-[#C3A6FF]'>created_at</code>: Timestamp</li>
                 </ul>
               </Card>
             </motion.div>
@@ -512,15 +512,15 @@ export default function LendaFinanceDocs() {
                   <Td>property, crypto, car</Td>
                 </Tr>
                 <Tr>
-                  <Td className='font-medium text-[#A7C8FF]'>Depreciation — property</Td>
+                  <Td className='font-medium text-[#A7C8FF]'>Depreciation: property</Td>
                   <Td>1% per period</Td>
                 </Tr>
                 <Tr>
-                  <Td className='font-medium text-[#A7C8FF]'>Depreciation — crypto</Td>
+                  <Td className='font-medium text-[#A7C8FF]'>Depreciation: crypto</Td>
                   <Td>5% per period</Td>
                 </Tr>
                 <Tr>
-                  <Td className='font-medium text-[#A7C8FF]'>Depreciation — car</Td>
+                  <Td className='font-medium text-[#A7C8FF]'>Depreciation: car</Td>
                   <Td>10% per period</Td>
                 </Tr>
                 <Tr>

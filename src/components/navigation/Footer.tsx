@@ -36,7 +36,7 @@ export const Footer = () => (
 
       {/* Copyright */}
       <p className='text-center text-[#A8A8A8] text-xs font-light'>
-        © 2025 CYPHER — Institutional-grade DeFi infrastructure and smart contract development.
+        © 2025 CYPHER. Institutional-grade DeFi infrastructure and smart contract development.
         <br className='sm:hidden' />
         <span className='hidden sm:inline'> </span>
         Built by Enrique Ibarra, Smart Contract Engineer.

@@ -121,7 +121,7 @@ export default function MEVLiquidationDocs() {
               barrier for non-privileged liquidators. A liquidator operating at ~75ms latency achieves
               approximately 0% capture probability against frontrunners executing at effective latencies
               around 25ms. This represents a <em>structural constraint</em> rather than an optimization
-              problem—no programming language choice or incremental improvements can overcome
+              problem: no programming language choice or incremental improvements can overcome
               network-level timing disadvantages.
             </p>
           </div>

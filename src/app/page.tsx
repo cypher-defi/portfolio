@@ -28,7 +28,7 @@ const HERO_DATA = {
 const STATS = [
   { value: "50+", label: "Smart Contracts" },
   { value: "600+", label: "Tests Written" },
-  { value: "3", label: "Chains — EVM · Solana · Base" },
+  { value: "3", label: "Chains: EVM · Solana · Base" },
   { value: "15+", label: "Production Projects" }
 ]
 

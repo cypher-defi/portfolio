@@ -246,7 +246,7 @@ export default function LendCoreDocs() {
                   Dashboard & Deposit UI
                 </Heading>
                 <ul className='list-disc list-inside space-y-2 text-sm text-[#E5E5E5]'>
-                  <li>Market overview — TVL, total borrows, per-market severity</li>
+                  <li>Market overview: TVL, total borrows, per-market severity</li>
                   <li>Deposit collateral and borrow against it per market</li>
                   <li>Per-user position tracking with live health factors</li>
                   <li>Recent liquidation event feed</li>
@@ -260,10 +260,10 @@ export default function LendCoreDocs() {
                   Monitoring Sub-Pages
                 </Heading>
                 <ul className='list-disc list-inside space-y-2 text-sm text-[#E5E5E5]'>
-                  <li>/monitoring/liquidity — Liquidity depth ratio over time</li>
-                  <li>/monitoring/utilization — Utilization vs. optimal kink</li>
-                  <li>/monitoring/rates — Borrow & lending APR history</li>
-                  <li>/monitoring/oracle — Oracle confidence & price feeds</li>
+                  <li>/monitoring/liquidity: Liquidity depth ratio over time</li>
+                  <li>/monitoring/utilization: Utilization vs. optimal kink</li>
+                  <li>/monitoring/rates: Borrow & lending APR history</li>
+                  <li>/monitoring/oracle: Oracle confidence & price feeds</li>
                 </ul>
               </Card>
             </motion.div>
@@ -387,10 +387,10 @@ export default function LendCoreDocs() {
                   Database Schema
                 </Heading>
                 <ul className='list-disc list-inside space-y-2 text-sm text-[#E5E5E5]'>
-                  <li><strong>Market</strong> — static market registry</li>
-                  <li><strong>MarketSnapshot</strong> — periodic state (~1 row/market/60s)</li>
-                  <li><strong>UserPositionSnapshot</strong> — per-user health factor history</li>
-                  <li><strong>LiquidationEvent</strong> — on-chain liquidation records</li>
+                  <li><strong>Market</strong>: static market registry</li>
+                  <li><strong>MarketSnapshot</strong>: periodic state (~1 row/market/60s)</li>
+                  <li><strong>UserPositionSnapshot</strong>: per-user health factor history</li>
+                  <li><strong>LiquidationEvent</strong>: on-chain liquidation records</li>
                 </ul>
               </Card>
             </motion.div>
@@ -471,7 +471,7 @@ export default function LendCoreDocs() {
                 <Tr>
                   <Td className='font-medium text-[#FFC36B]'>Multisig</Td>
                   <Td>Proposes and executes timelock operations</Td>
-                  <Td>—</Td>
+                  <Td>: </Td>
                 </Tr>
               </TBody>
             </Table>

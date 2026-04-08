@@ -463,7 +463,7 @@ const AI_AGENT_PROJECTS: ProjectProps[] = [
   {
     title: "Tollgate",
     description:
-      "Pay-per-use WireGuard VPN gateway for autonomous agents. No subscriptions, no pre-auth — each access is gated by a USDC micropayment verified on Base.",
+      "Pay-per-use WireGuard VPN gateway for autonomous agents. No subscriptions, no pre-auth. Each access is gated by a USDC micropayment verified on Base.",
     github: "https://github.com/Enricrypto/tollgate",
     docs: "/tollgate-docs",
     metadata: {
@@ -489,7 +489,7 @@ const AI_AGENT_PROJECTS: ProjectProps[] = [
   {
     title: "Solana Predictions SDK",
     description:
-      "TypeScript SDK for AI agents acting as market makers on a hybrid predictions market built on Solana — off-chain CLOB order matching, on-chain SPL token settlement.",
+      "TypeScript SDK for AI agents acting as market makers on a hybrid predictions market built on Solana, with off-chain CLOB order matching and on-chain SPL token settlement.",
     github: "https://github.com/Enricrypto/solana-predictions-sdk",
     docs: "/solana-predictions-docs",
     metadata: {
@@ -515,7 +515,7 @@ const AI_AGENT_PROJECTS: ProjectProps[] = [
   {
     title: "Claw Market",
     description:
-      "Decentralized ecosystem where autonomous agents create, buy, and sell digital products, compute resources, and services — earning, reinvesting, and scaling without human intervention.",
+      "Decentralized ecosystem where autonomous agents create, buy, and sell digital products, compute resources, and services, earning, reinvesting, and scaling without human intervention.",
     github: "https://github.com/Enricrypto/claw-market",
     docs: "/claw-market-docs",
     metadata: {
@@ -541,7 +541,7 @@ const AI_AGENT_PROJECTS: ProjectProps[] = [
   {
     title: "Ledgerling",
     description:
-      "Orchestration engine for x402 micropayments. Classifies natural-language requests into paid service calls, estimates costs before charging, and executes them atomically — users are never silently charged for partial work.",
+      "Orchestration engine for x402 micropayments. Classifies natural-language requests into paid service calls, estimates costs before charging, and executes them atomically. Users are never silently charged for partial work.",
     github: "https://github.com/Enricrypto/ledgerling",
     docs: "/ledgerling-docs",
     metadata: {
