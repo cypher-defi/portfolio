@@ -604,7 +604,7 @@ const FULLSTACK_PROJECTS: ProjectProps[] = [
     github: "https://github.com/Enricrypto/lenda_finance",
     docs: "/lenda-finance-docs",
     liveUrl: "https://lenda-finance.vercel.app/",
-    loomUrl: "https://www.loom.com/share/d7820be097ba45fba3d6d0c7373197ad",
+    loomUrl: "https://www.loom.com/share/920504542afb44d68be5a4caf65e7c44",
     metadata: {
       status: "PRODUCTION",
       label1: "STATUS",
