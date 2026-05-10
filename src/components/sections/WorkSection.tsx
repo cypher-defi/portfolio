@@ -642,7 +642,7 @@ const FULLSTACK_PROJECTS: ProjectProps[] = [
     github: "https://github.com/Enricrypto/rebroker-app",
     docs: "https://rebroker-web.vercel.app/es",
     docsIcon: "dashboard",
-    videoUrl: "/videos/rebroker-demo.mov",
+    videoUrl: "/videos/rebroker-demo.mp4",
     metadata: {
       status: "DEVELOPMENT",
       label1: "STATUS",
