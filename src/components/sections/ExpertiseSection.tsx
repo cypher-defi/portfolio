@@ -57,7 +57,7 @@ const ITEMS: ExpertiseItem[] = [
     description:
       "End-to-end applications with Next.js frontends, FastAPI backends, PostgreSQL and Supabase databases, and AWS cloud infrastructure.",
     accent: "green",
-    tags: ["TypeScript", "React", "React Native", "Next.js", "Python", "Node.js"]
+    tags: ["TypeScript", "React", "React Native", "Next.js", "Python", "Node.js", "SQL", "Prisma"]
   },
   {
     number: "02",
