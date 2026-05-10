@@ -118,13 +118,15 @@ export const HeroSection = ({
 
           {/* Title */}
           <h1 className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-[1.1] sm:leading-[1.05] lg:leading-[0.95] tracking-[-0.03em] text-[#E5E5E5]">
-            <span className="font-light block">
-              <BlurRevealText text={title} delay={0.35} />
-            </span>
+            {title && (
+              <span className="font-light block">
+                <BlurRevealText text={title} delay={0.35} />
+              </span>
+            )}
             <span className="font-serif italic font-light block">
               <BlurRevealText
                 text={titleItalic}
-                delay={0.35 + titleWordCount * 0.08 - 0.1}
+                delay={title ? 0.35 + titleWordCount * 0.08 - 0.1 : 0.35}
               />
             </span>
           </h1>

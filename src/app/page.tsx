@@ -12,7 +12,7 @@ import { Reveal } from "@/components/Reveal"
 
 const HERO_DATA = {
   label: "FULL STACK ENGINEER",
-  title: "Backend-Focused",
+  title: "",
   titleItalic: "Full-Stack Engineering",
   description: `I'm Enrique Ibarra. I design and ship scalable backend APIs, database architectures, and full-stack applications — from financial SaaS platforms and mobile apps to automation services and smart contract integrations. Architecture-first. Production-grade. End to end.`,
   primaryCTA: "View Work",
