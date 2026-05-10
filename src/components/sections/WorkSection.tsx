@@ -210,16 +210,17 @@ const ProjectCard = ({
 
       {videoOpen && videoUrl && (
         <div
-          className='fixed inset-0 z-50 flex items-center justify-center bg-black/85 backdrop-blur-sm'
+          className='fixed inset-0 z-50 flex items-center justify-center bg-black/85 backdrop-blur-sm p-4'
           onClick={() => setVideoOpen(false)}
         >
           <div
-            className='relative w-full max-w-4xl mx-4'
+            className='relative flex flex-col items-center'
+            style={{ maxHeight: '90vh' }}
             onClick={e => e.stopPropagation()}
           >
             <button
               onClick={() => setVideoOpen(false)}
-              className='absolute -top-10 right-0 font-mono text-[10px] uppercase tracking-[0.2em] text-white/50 hover:text-white transition-colors'
+              className='self-end mb-3 font-mono text-[10px] uppercase tracking-[0.2em] text-white/50 hover:text-white transition-colors'
             >
               Close ✕
             </button>
@@ -227,7 +228,8 @@ const ProjectCard = ({
               src={videoUrl}
               controls
               autoPlay
-              className='w-full rounded-lg'
+              playsInline
+              style={{ maxHeight: '80vh', maxWidth: '90vw', borderRadius: '12px' }}
             />
           </div>
         </div>
