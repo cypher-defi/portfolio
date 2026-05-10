@@ -1,5 +1,3 @@
-"use client"
-
 import { Icon } from "@iconify/react"
 
 interface TechItem {
@@ -111,21 +109,6 @@ const MarqueeRow = ({
 export const TechStackSection = () => {
   return (
     <section className="relative py-16 bg-[#F7F7F8] border-t border-black/6 overflow-hidden">
-      <style>{`
-        @keyframes marquee-left {
-          0%   { transform: translateX(0); }
-          100% { transform: translateX(-50%); }
-        }
-        @keyframes marquee-right {
-          0%   { transform: translateX(-50%); }
-          100% { transform: translateX(0); }
-        }
-        .marquee-left  { animation: marquee-left  linear infinite; }
-        .marquee-right { animation: marquee-right linear infinite; }
-        .marquee-left:hover,
-        .marquee-right:hover { animation-play-state: paused; }
-      `}</style>
-
       {/* Section Header */}
       <div className="text-center mb-10 px-4">
         <span className="font-mono text-[10px] text-black/30 uppercase tracking-[0.5em] mb-4 block">

@@ -1,5 +1,3 @@
-"use client"
-
 import { HeroSection } from "@/components/sections/HeroSection"
 import { TechStackSection } from "@/components/sections/TechStackSection"
 import { StatsSection } from "@/components/sections/StatsSection"
@@ -97,78 +95,6 @@ export default function Home() {
         </Reveal>
       </div>
 
-      {/* Global Animations - Optimized for smooth, performant experience */}
-      <style jsx>{`
-        /* Smoother pulse animation using transform for GPU acceleration */
-        @keyframes pulseSlow {
-          0%,
-          100% {
-            opacity: 0.1;
-            transform: scale(1);
-          }
-          50% {
-            opacity: 0.15;
-            transform: scale(1.02);
-          }
-        }
-
-        .animate-pulse-slow {
-          animation: pulseSlow 15s ease-in-out infinite;
-          transform-origin: center;
-        }
-
-        @keyframes fadeIn {
-          from {
-            opacity: 0;
-            transform: translateY(15px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        @keyframes fadeInUp {
-          from {
-            opacity: 0;
-            transform: translateY(40px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        .animate-fade-in {
-          animation: fadeIn 1s ease-out forwards;
-        }
-
-        .animate-fade-in-up {
-          animation: fadeInUp 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
-
-        .delay-100 {
-          animation-delay: 0.1s;
-        }
-        .delay-200 {
-          animation-delay: 0.2s;
-        }
-        .delay-300 {
-          animation-delay: 0.3s;
-        }
-        .delay-400 {
-          animation-delay: 0.4s;
-        }
-        .delay-500 {
-          animation-delay: 0.5s;
-        }
-        .delay-600 {
-          animation-delay: 0.6s;
-        }
-        .delay-700 {
-          animation-delay: 0.7s;
-        }
-      `}</style>
     </main>
   )
 }

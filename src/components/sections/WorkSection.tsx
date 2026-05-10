@@ -184,13 +184,18 @@ const ProjectCard = ({
         </div>
 
         <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 mb-8 py-6 border-y border-white/3'>
-          {[1, 2, 3, 4].map((num) => (
-            <div key={num}>
+          {([
+            { label: metadata.label1, value: metadata.value1 },
+            { label: metadata.label2, value: metadata.value2 },
+            { label: metadata.label3, value: metadata.value3 },
+            { label: metadata.label4, value: metadata.value4 },
+          ] as const).map(({ label, value }) => (
+            <div key={label}>
               <p className='font-mono text-[10px] tracking-[0.2em] text-[#909090] uppercase mb-1'>
-                {(metadata as any)[`label${num}`]}
+                {label}
               </p>
               <p className='font-mono text-xs font-light text-[#CCCCCC] tracking-wider'>
-                {(metadata as any)[`value${num}`]}
+                {value}
               </p>
             </div>
           ))}

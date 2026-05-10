@@ -40,27 +40,14 @@ export const Navigation: React.FC<NavigationProps> = ({
     e: React.MouseEvent<HTMLAnchorElement>,
     href: string
   ) => {
-    if (href.startsWith("/#")) {
-      e.preventDefault()
-      const id = href.substring(2)
+    if (!href.startsWith("/#")) return
 
-      if (pathname === "/") {
-        // Same page - just scroll
-        const element = document.getElementById(id)
-        if (element) {
-          element.scrollIntoView({ block: "start" })
-        }
-      } else {
-        // Different page - navigate then scroll
-        router.push("/")
-        setTimeout(() => {
-          const element = document.getElementById(id)
-          if (element) {
-            element.scrollIntoView({ behavior: "smooth", block: "start" })
-          }
-        }, 100)
-      }
+    if (pathname === "/") {
+      e.preventDefault()
+      const element = document.getElementById(href.substring(2))
+      if (element) element.scrollIntoView({ block: "start" })
     }
+    // Cross-page: let the Link's href ("/#work") navigate naturally — browser handles hash scroll
   }
 
   // Track scroll position to adjust the "floating" intensity

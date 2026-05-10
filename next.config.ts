@@ -1,5 +1,4 @@
 const nextConfig = {
-  images: { unoptimized: true },
   trailingSlash: true,
   compiler: {
     // Target modern browsers only - drops legacy polyfills

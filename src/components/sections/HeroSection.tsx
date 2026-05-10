@@ -50,25 +50,23 @@ const BlurRevealText = ({
   )
 }
 
-// Character-by-character decode for the label
-const DecodeLabel = ({ text, delay = 0 }: { text: string; delay?: number }) => {
-  const chars = text.split("")
-  return (
-    <span>
-      {chars.map((char, i) => (
-        <motion.span
-          key={i}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.03, delay: delay + i * 0.03 }}
-          className="inline-block"
-        >
-          {char === " " ? "\u00A0" : char}
-        </motion.span>
-      ))}
-    </span>
-  )
-}
+// Character-by-character decode for the label \u2014 CSS-only, zero Framer Motion overhead
+const DecodeLabel = ({ text, delay = 0 }: { text: string; delay?: number }) => (
+  <span>
+    {text.split("").map((char, i) => (
+      <span
+        key={i}
+        className="inline-block opacity-0"
+        style={{
+          animation: "charReveal 0.03s ease-out forwards",
+          animationDelay: `${delay + i * 0.03}s`
+        }}
+      >
+        {char === " " ? "\u00A0" : char}
+      </span>
+    ))}
+  </span>
+)
 
 export const HeroSection = ({
   label,

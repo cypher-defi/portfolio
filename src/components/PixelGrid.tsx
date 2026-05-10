@@ -16,12 +16,13 @@ export const PixelGrid = () => {
     if (!ctx) return
 
     interface Cell {
-      phase: number    // random phase offset
-      speed: number    // oscillation speed (cycles/sec)
-      amplitude: number // 0 = off, >0 = max opacity when fully lit
+      phase: number
+      speed: number
+      amplitude: number
     }
 
     let cols = 0, rows = 0
+    let canvasW = 0, canvasH = 0
     let cells: Cell[] = []
 
     const initCells = (w: number, h: number) => {
@@ -30,9 +31,8 @@ export const PixelGrid = () => {
       cells = Array.from({ length: cols * rows }, (_, i) => {
         const col = i % cols
         const row = Math.floor(i / cols)
-        // Cells on the right half and top are more active
-        const xBias = col / cols           // 0 (left) → 1 (right)
-        const yBias = 1 - row / rows       // 1 (top) → 0 (bottom)
+        const xBias = col / cols
+        const yBias = 1 - row / rows
         const bias  = xBias * 0.6 + yBias * 0.4
         const isActive = Math.random() < ACTIVE_RATIO * (0.4 + bias * 1.2)
         return {
@@ -44,13 +44,14 @@ export const PixelGrid = () => {
     }
 
     const resize = () => {
-      const dpr = window.devicePixelRatio || 1
-      const w   = canvas.offsetWidth
-      const h   = canvas.offsetHeight
-      canvas.width  = w * dpr
-      canvas.height = h * dpr
+      // Cap DPR at 2 — avoids 3–4× overdraw on high-density displays
+      const dpr = Math.min(window.devicePixelRatio || 1, 2)
+      canvasW = canvas.offsetWidth
+      canvasH = canvas.offsetHeight
+      canvas.width  = canvasW * dpr
+      canvas.height = canvasH * dpr
       ctx.scale(dpr, dpr)
-      initCells(w, h)
+      initCells(canvasW, canvasH)
     }
 
     resize()
@@ -59,38 +60,43 @@ export const PixelGrid = () => {
 
     const startTime = performance.now()
     let rafId: number
+    let visible = true
 
     const draw = (now: number) => {
-      const t  = (now - startTime) / 1000
-      const cw = canvas.offsetWidth
-      const ch = canvas.offsetHeight
-      ctx.clearRect(0, 0, cw, ch)
+      const t = (now - startTime) / 1000
+      ctx.clearRect(0, 0, canvasW, canvasH)
 
+      // Single fill colour; use globalAlpha per-cell — no string allocation per frame
+      ctx.fillStyle = "#ffffff"
       for (let i = 0; i < cells.length; i++) {
         const cell = cells[i]
         if (cell.amplitude === 0) continue
 
-        const col = i % cols
-        const row = Math.floor(i / cols)
-        const x   = col * CELL
-        const y   = row * CELL
-
-        // Sine wave mapped to [0, amplitude]
-        const t2      = t * cell.speed * Math.PI * 2
+        const t2 = t * cell.speed * Math.PI * 2
         const opacity = ((Math.sin(t2 + cell.phase) + 1) / 2) * cell.amplitude
 
-        ctx.fillStyle = `rgba(255,255,255,${opacity.toFixed(3)})`
-        ctx.fillRect(x, y, CELL - GAP, CELL - GAP)
+        ctx.globalAlpha = opacity
+        ctx.fillRect((i % cols) * CELL, Math.floor(i / cols) * CELL, CELL - GAP, CELL - GAP)
       }
+      ctx.globalAlpha = 1
 
-      rafId = requestAnimationFrame(draw)
+      if (visible) rafId = requestAnimationFrame(draw)
     }
+
+    // Pause the loop when the hero scrolls out of view
+    const io = new IntersectionObserver(([entry]) => {
+      const wasVisible = visible
+      visible = entry.isIntersecting
+      if (!wasVisible && visible) rafId = requestAnimationFrame(draw)
+    }, { threshold: 0 })
+    io.observe(canvas)
 
     rafId = requestAnimationFrame(draw)
 
     return () => {
       cancelAnimationFrame(rafId)
       ro.disconnect()
+      io.disconnect()
     }
   }, [])
 
