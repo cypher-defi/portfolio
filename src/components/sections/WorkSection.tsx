@@ -655,7 +655,7 @@ const FULLSTACK_PROJECTS: ProjectProps[] = [
     github: "https://github.com/Enricrypto/rebroker-app",
     docs: "https://rebroker-web.vercel.app/es",
     docsIcon: "dashboard",
-    videoUrl: "/videos/rebroker-demo.mp4",
+    loomUrl: "https://www.loom.com/share/6742c4b4a3f84add843dd54437df4df6",
     metadata: {
       status: "DEVELOPMENT",
       label1: "STATUS",
