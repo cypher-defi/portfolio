@@ -21,7 +21,7 @@ const STATS = [
   { value: "15+", label: "Production Projects" },
   { value: "600+", label: "Tests Written" },
   { value: "5+", label: "Client Apps Shipped" },
-  { value: "3", label: "Cloud Platforms: AWS · Railway · Vercel" }
+  { value: "3", label: "Cloud Platforms" }
 ]
 
 export default function Home() {

@@ -848,12 +848,12 @@ export const WorkSection = () => {
           {headings[activeTab]}
         </Heading>
 
-        <div className='inline-flex p-1 bg-white/2 border border-white/5 rounded-full mb-8'>
+        <div className='flex w-full sm:inline-flex sm:w-auto p-1 bg-white/2 border border-white/5 rounded-full mb-8'>
           {(["FULL STACK", "AI & AGENTS", "BLOCKCHAIN"] as const).map((tab) => (
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
-              className={`px-8 py-2 rounded-full text-[10px] uppercase tracking-[0.2em] transition-all duration-500 ${
+              className={`flex-1 sm:flex-none px-3 sm:px-8 py-2 rounded-full text-[10px] uppercase tracking-[0.1em] sm:tracking-[0.2em] transition-all duration-500 ${
                 activeTab === tab
                   ? "bg-[#4353ff] text-white"
                   : "text-white/30 hover:text-white/60"

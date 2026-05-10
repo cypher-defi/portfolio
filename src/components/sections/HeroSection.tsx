@@ -98,7 +98,7 @@ export const HeroSection = ({
         <PixelGrid />
       </div>
 
-      <div className="relative z-10 w-full max-w-400 mx-auto">
+      <div className="relative z-10 w-full mx-auto">
         <div className="max-w-2xl space-y-4 sm:space-y-8">
 
           {/* Label */}
@@ -115,7 +115,7 @@ export const HeroSection = ({
           </motion.div>
 
           {/* Title */}
-          <h1 className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-[1.1] sm:leading-[1.05] lg:leading-[0.95] tracking-[-0.03em] text-[#E5E5E5]">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-[1.1] sm:leading-[1.05] lg:leading-[0.95] tracking-[-0.03em] text-[#E5E5E5]">
             {title && (
               <span className="font-light block">
                 <BlurRevealText text={title} delay={0.35} />
