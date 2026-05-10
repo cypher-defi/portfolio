@@ -92,6 +92,7 @@ interface ProjectProps {
   docsIcon?: "docs" | "dashboard"
   liveUrl?: string
   loomUrl?: string
+  videoUrl?: string
   metadata: ProjectMetadata
   tags: ProjectTag[]
   glow: "blue" | "purple" | "green" | "red"
@@ -106,10 +107,13 @@ const ProjectCard = ({
   docsIcon = "docs",
   liveUrl,
   loomUrl,
+  videoUrl,
   metadata,
   tags,
   glow
 }: ProjectProps) => {
+  const [videoOpen, setVideoOpen] = useState(false)
+
   return (
     <div className='group relative'>
       {/* We keep your original glow color logic but the styling will be 'Calm' via globals.css */}
@@ -167,6 +171,15 @@ const ProjectCard = ({
                 <LoomIcon />
               </a>
             )}
+            {videoUrl && (
+              <button
+                onClick={() => setVideoOpen(true)}
+                className='p-3 sm:p-2.5 rounded-full border border-white/5 bg-white/2 text-[#A8A8A8] hover:text-white transition-all duration-500'
+                aria-label={`Watch ${title} demo video`}
+              >
+                <LoomIcon />
+              </button>
+            )}
           </div>
         </div>
 
@@ -194,6 +207,31 @@ const ProjectCard = ({
           ))}
         </div>
       </Card>
+
+      {videoOpen && videoUrl && (
+        <div
+          className='fixed inset-0 z-50 flex items-center justify-center bg-black/85 backdrop-blur-sm'
+          onClick={() => setVideoOpen(false)}
+        >
+          <div
+            className='relative w-full max-w-4xl mx-4'
+            onClick={e => e.stopPropagation()}
+          >
+            <button
+              onClick={() => setVideoOpen(false)}
+              className='absolute -top-10 right-0 font-mono text-[10px] uppercase tracking-[0.2em] text-white/50 hover:text-white transition-colors'
+            >
+              Close ✕
+            </button>
+            <video
+              src={videoUrl}
+              controls
+              autoPlay
+              className='w-full rounded-lg'
+            />
+          </div>
+        </div>
+      )}
     </div>
   )
 }
@@ -604,6 +642,7 @@ const FULLSTACK_PROJECTS: ProjectProps[] = [
     github: "https://github.com/Enricrypto/rebroker-app",
     docs: "https://rebroker-web.vercel.app/es",
     docsIcon: "dashboard",
+    videoUrl: "/videos/rebroker-demo.mov",
     metadata: {
       status: "DEVELOPMENT",
       label1: "STATUS",
