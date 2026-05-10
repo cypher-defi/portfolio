@@ -598,6 +598,60 @@ const AI_AGENT_PROJECTS: ProjectProps[] = [
 
 const FULLSTACK_PROJECTS: ProjectProps[] = [
   {
+    title: "Rebroker",
+    description:
+      "B2B real estate collaboration platform for Spain & LATAM. React Native mobile app with multi-role portals (brokers, developers, service providers), AI-powered property search, NDA signing flow, commission-split engine, and real-time chat. Express + PostgreSQL + Redis backend deployed on Railway.",
+    github: "https://github.com/Enricrypto/rebroker-app",
+    docs: "https://rebroker-web.vercel.app/es",
+    docsIcon: "dashboard",
+    metadata: {
+      status: "PRODUCTION",
+      label1: "STATUS",
+      value1: "LIVE",
+      label2: "STACK",
+      value2: "React Native + Express",
+      label3: "DATABASE",
+      value3: "PostgreSQL + Redis",
+      label4: "DEPLOY",
+      value4: "Railway · EAS"
+    },
+    tags: [
+      { label: "React Native", color: "purple" },
+      { label: "Expo", color: "purple" },
+      { label: "Express", color: "purple" },
+      { label: "PostgreSQL", color: "purple" },
+      { label: "Redis", color: "purple" },
+      { label: "Claude AI", color: "purple" }
+    ],
+    glow: "purple"
+  },
+  {
+    title: "River Labs",
+    description:
+      "AI-powered platform for autonomous agent infrastructure and tooling. Full-stack Next.js application with a production-grade interface.",
+    github: "https://github.com/Enricrypto/river-labs",
+    docs: "/river-labs-docs",
+    liveUrl: "https://www.riverlabs-ai.com/",
+    metadata: {
+      status: "PRODUCTION",
+      label1: "STATUS",
+      value1: "LIVE",
+      label2: "STACK",
+      value2: "Next.js + Tailwind",
+      label3: "TYPE",
+      value3: "AI PLATFORM",
+      label4: "LANGUAGE",
+      value4: "TypeScript"
+    },
+    tags: [
+      { label: "Next.js", color: "purple" },
+      { label: "AI Agents", color: "purple" },
+      { label: "TypeScript", color: "purple" },
+      { label: "TailwindCSS", color: "purple" }
+    ],
+    glow: "purple"
+  },
+  {
     title: "Lenda Finance",
     description:
       "Full-stack lending platform where users deposit real-world collateral (property, crypto, vehicles), borrow credit against it, and track their financial position in real time.",
@@ -651,60 +705,6 @@ const FULLSTACK_PROJECTS: ProjectProps[] = [
       { label: "TypeScript", color: "blue" }
     ],
     glow: "blue"
-  },
-  {
-    title: "River Labs",
-    description:
-      "AI-powered platform for autonomous agent infrastructure and tooling. Full-stack Next.js application with a production-grade interface.",
-    github: "https://github.com/Enricrypto/river-labs",
-    docs: "/river-labs-docs",
-    liveUrl: "https://www.riverlabs-ai.com/",
-    metadata: {
-      status: "PRODUCTION",
-      label1: "STATUS",
-      value1: "LIVE",
-      label2: "STACK",
-      value2: "Next.js + Tailwind",
-      label3: "TYPE",
-      value3: "AI PLATFORM",
-      label4: "LANGUAGE",
-      value4: "TypeScript"
-    },
-    tags: [
-      { label: "Next.js", color: "purple" },
-      { label: "AI Agents", color: "purple" },
-      { label: "TypeScript", color: "purple" },
-      { label: "TailwindCSS", color: "purple" }
-    ],
-    glow: "purple"
-  },
-  {
-    title: "Rebroker",
-    description:
-      "B2B real estate collaboration platform for Spain & LATAM. React Native mobile app with multi-role portals (brokers, developers, service providers), AI-powered property search, NDA signing flow, commission-split engine, and real-time chat. Express + PostgreSQL + Redis backend deployed on Railway.",
-    github: "https://github.com/Enricrypto/rebroker-app",
-    docs: "https://rebroker-web.vercel.app/es",
-    docsIcon: "dashboard",
-    metadata: {
-      status: "PRODUCTION",
-      label1: "STATUS",
-      value1: "LIVE",
-      label2: "STACK",
-      value2: "React Native + Express",
-      label3: "DATABASE",
-      value3: "PostgreSQL + Redis",
-      label4: "DEPLOY",
-      value4: "Railway · EAS"
-    },
-    tags: [
-      { label: "React Native", color: "purple" },
-      { label: "Expo", color: "purple" },
-      { label: "Express", color: "purple" },
-      { label: "PostgreSQL", color: "purple" },
-      { label: "Redis", color: "purple" },
-      { label: "Claude AI", color: "purple" }
-    ],
-    glow: "purple"
   },
   {
     title: "Weigsding Investments",
