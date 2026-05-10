@@ -18,9 +18,9 @@ const HERO_DATA = {
 }
 
 const STATS = [
-  { value: "15+", label: "Production Projects" },
+  { value: "20+", label: "Production Projects" },
   { value: "600+", label: "Tests Written" },
-  { value: "5+", label: "Client Apps Shipped" },
+  { value: "5+", label: "Years Building" },
   { value: "3", label: "Cloud Platforms" }
 ]
 
