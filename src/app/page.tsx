@@ -12,18 +12,18 @@ import { Reveal } from "@/components/Reveal"
 
 const HERO_DATA = {
   label: "FULL STACK ENGINEER",
-  title: "Building at the Intersection of",
-  titleItalic: "Blockchain, AI & Cloud",
-  description: `I'm Enrique Ibarra. I build production systems across three domains: DeFi protocols and smart contracts, AI agent infrastructure, and full-stack web applications. From ERC-4626 vaults to autonomous agent marketplaces to cloud-backed lending platforms.`,
+  title: "Backend-Focused",
+  titleItalic: "Full-Stack Engineering",
+  description: `I'm Enrique Ibarra. I design and ship scalable backend APIs, database architectures, and full-stack applications — from financial SaaS platforms and mobile apps to automation services and smart contract integrations. Architecture-first. Production-grade. End to end.`,
   primaryCTA: "View Work",
   secondaryCTA: "Get In Touch"
 }
 
 const STATS = [
-  { value: "50+", label: "Smart Contracts" },
+  { value: "15+", label: "Production Projects" },
   { value: "600+", label: "Tests Written" },
-  { value: "3", label: "Chains: EVM · Solana · Base" },
-  { value: "15+", label: "Production Projects" }
+  { value: "5+", label: "Client Apps Shipped" },
+  { value: "3", label: "Cloud Platforms: AWS · Railway · Vercel" }
 ]
 
 export default function Home() {

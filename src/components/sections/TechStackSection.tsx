@@ -13,6 +13,7 @@ const ROW_ONE: TechItem[] = [
   { name: "Rust", iconifyIcon: "simple-icons:rust" },
   { name: "TypeScript", iconifyIcon: "simple-icons:typescript" },
   { name: "React", iconifyIcon: "simple-icons:react" },
+  { name: "React Native", iconifyIcon: "simple-icons:react" },
   { name: "Next.js", iconifyIcon: "simple-icons:nextdotjs" },
   { name: "Tailwind CSS", iconifyIcon: "simple-icons:tailwindcss" },
   { name: "Python", iconifyIcon: "simple-icons:python" },
@@ -23,6 +24,10 @@ const ROW_ONE: TechItem[] = [
 const ROW_TWO: TechItem[] = [
   { name: "PostgreSQL", iconifyIcon: "simple-icons:postgresql" },
   { name: "AWS", iconifyIcon: "simple-icons:amazonwebservices" },
+  { name: "Docker", iconifyIcon: "simple-icons:docker" },
+  { name: "Redis", iconifyIcon: "simple-icons:redis" },
+  { name: "Prisma", iconifyIcon: "simple-icons:prisma" },
+  { name: "Sanity", iconifyIcon: "simple-icons:sanity" },
   { name: "Supabase", iconifyIcon: "simple-icons:supabase" },
   { name: "Streamlit", iconifyIcon: "simple-icons:streamlit" },
   { name: "Wagmi", iconifyIcon: "simple-icons:web3dotjs" },

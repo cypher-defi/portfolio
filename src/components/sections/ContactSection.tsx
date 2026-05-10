@@ -16,7 +16,7 @@ export const ContactSection = () => {
           Let's build something together.
         </h2>
         <p className='text-[#555555] mb-10'>
-          Interested in DeFi infrastructure? Have a protocol in mind? Let's talk.
+          Building a production app and need a backend-focused engineer? Open to full-stack and backend roles. Let's talk.
         </p>
 
         <form

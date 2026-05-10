@@ -52,12 +52,12 @@ interface ExpertiseItem {
 const ITEMS: ExpertiseItem[] = [
   {
     number: "01",
-    icon: <SmartContractsIcon />,
-    title: "Smart Contracts & DeFi",
+    icon: <FullStackIcon />,
+    title: "Full Stack Development",
     description:
-      "ERC-4626 vaults, isolated lending markets, DEX infrastructure, and flash loan systems. Solidity and Rust deployed across EVM-compatible chains.",
-    accent: "blue",
-    tags: ["Solidity", "Foundry", "EVM", "Rust"]
+      "End-to-end applications with Next.js frontends, FastAPI backends, PostgreSQL and Supabase databases, and AWS cloud infrastructure.",
+    accent: "green",
+    tags: ["Next.js", "FastAPI", "PostgreSQL", "AWS"]
   },
   {
     number: "02",
@@ -70,21 +70,21 @@ const ITEMS: ExpertiseItem[] = [
   },
   {
     number: "03",
-    icon: <FullStackIcon />,
-    title: "Full Stack Development",
-    description:
-      "End-to-end applications with Next.js frontends, FastAPI backends, PostgreSQL and Supabase databases, and AWS cloud infrastructure.",
-    accent: "green",
-    tags: ["Next.js", "FastAPI", "PostgreSQL", "AWS"]
-  },
-  {
-    number: "04",
     icon: <ObservabilityIcon />,
     title: "Security & Observability",
     description:
       "Foundry test suites, Slither static analysis, event-driven indexers, Grafana monitoring dashboards, and multi-sig Timelock governance.",
     accent: "red",
     tags: ["Slither", "Grafana", "Timelock", "viem"]
+  },
+  {
+    number: "04",
+    icon: <SmartContractsIcon />,
+    title: "Smart Contracts & DeFi",
+    description:
+      "ERC-4626 vaults, isolated lending markets, DEX infrastructure, and flash loan systems. Solidity and Rust deployed across EVM-compatible chains.",
+    accent: "blue",
+    tags: ["Solidity", "Foundry", "EVM", "Rust"]
   }
 ]
 

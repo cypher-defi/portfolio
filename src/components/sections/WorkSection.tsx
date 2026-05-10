@@ -52,6 +52,20 @@ const ExternalLinkIcon = () => (
   </svg>
 )
 
+const LoomIcon = () => (
+  <svg
+    viewBox='0 0 24 24'
+    width='18'
+    height='18'
+    fill='none'
+    stroke='currentColor'
+    strokeWidth='1.5'
+  >
+    <circle cx='12' cy='12' r='10' />
+    <path d='M10 8l6 4-6 4V8z' fill='currentColor' stroke='none' />
+  </svg>
+)
+
 // --- INTERFACES ---
 interface ProjectMetadata {
   status: "PRODUCTION" | "DEVELOPMENT"
@@ -77,6 +91,7 @@ interface ProjectProps {
   docs: string
   docsIcon?: "docs" | "dashboard"
   liveUrl?: string
+  loomUrl?: string
   metadata: ProjectMetadata
   tags: ProjectTag[]
   glow: "blue" | "purple" | "green" | "red"
@@ -90,6 +105,7 @@ const ProjectCard = ({
   docs,
   docsIcon = "docs",
   liveUrl,
+  loomUrl,
   metadata,
   tags,
   glow
@@ -138,6 +154,17 @@ const ProjectCard = ({
                 aria-label={`Open ${title} live app`}
               >
                 <ExternalLinkIcon />
+              </a>
+            )}
+            {loomUrl && (
+              <a
+                href={loomUrl}
+                target='_blank'
+                rel='noopener noreferrer'
+                className='p-3 sm:p-2.5 rounded-full border border-white/5 bg-white/2 text-[#A8A8A8] hover:text-white transition-all duration-500'
+                aria-label={`Watch ${title} demo`}
+              >
+                <LoomIcon />
               </a>
             )}
           </div>
@@ -205,6 +232,7 @@ const BLOCKCHAIN_PROJECTS: ProjectProps[] = [
     github: "https://github.com/Enricrypto/Isolated-Lending-Market",
     docs: "/lendcore-protocol-docs",
     liveUrl: "https://frontend-ashen-omega-89.vercel.app/",
+    loomUrl: "https://www.loom.com/share/d7820be097ba45fba3d6d0c7373197ad",
     metadata: {
       status: "PRODUCTION",
       label1: "STATUS",
@@ -383,6 +411,7 @@ const BLOCKCHAIN_PROJECTS: ProjectProps[] = [
     github: "https://github.com/Enricrypto/yield-guard-bot",
     docs: "https://yield-guard-bot.streamlit.app/",
     docsIcon: "dashboard",
+    loomUrl: "https://www.loom.com/share/53fde0958e5a4ac98eea6f675fef4d32",
     metadata: {
       status: "PRODUCTION",
       label1: "STATUS",
@@ -437,6 +466,7 @@ const BLOCKCHAIN_PROJECTS: ProjectProps[] = [
       "On-chain risk monitoring system for Aave. Collects blockchain metrics, visualizes them in Grafana, and generates alerts via email and Telegram with full auditability.",
     github: "https://github.com/Enricrypto/onchain-risk-monitor",
     docs: "/onchain-risk-monitor-docs",
+    loomUrl: "https://www.loom.com/share/22a1cc8a4d884a81acdf03c330a33da7",
     metadata: {
       status: "PRODUCTION",
       label1: "STATUS",
@@ -574,6 +604,7 @@ const FULLSTACK_PROJECTS: ProjectProps[] = [
     github: "https://github.com/Enricrypto/lenda_finance",
     docs: "/lenda-finance-docs",
     liveUrl: "https://lenda-finance.vercel.app/",
+    loomUrl: "https://www.loom.com/share/d7820be097ba45fba3d6d0c7373197ad",
     metadata: {
       status: "PRODUCTION",
       label1: "STATUS",
@@ -646,6 +677,90 @@ const FULLSTACK_PROJECTS: ProjectProps[] = [
       { label: "TailwindCSS", color: "purple" }
     ],
     glow: "purple"
+  },
+  {
+    title: "Rebroker",
+    description:
+      "B2B real estate collaboration platform for Spain & LATAM. React Native mobile app with multi-role portals (brokers, developers, service providers), AI-powered property search, NDA signing flow, commission-split engine, and real-time chat. Express + PostgreSQL + Redis backend deployed on Railway.",
+    github: "https://github.com/Enricrypto/rebroker-app",
+    docs: "https://rebroker-web.vercel.app/es",
+    docsIcon: "dashboard",
+    metadata: {
+      status: "PRODUCTION",
+      label1: "STATUS",
+      value1: "LIVE",
+      label2: "STACK",
+      value2: "React Native + Express",
+      label3: "DATABASE",
+      value3: "PostgreSQL + Redis",
+      label4: "DEPLOY",
+      value4: "Railway · EAS"
+    },
+    tags: [
+      { label: "React Native", color: "purple" },
+      { label: "Expo", color: "purple" },
+      { label: "Express", color: "purple" },
+      { label: "PostgreSQL", color: "purple" },
+      { label: "Redis", color: "purple" },
+      { label: "Claude AI", color: "purple" }
+    ],
+    glow: "purple"
+  },
+  {
+    title: "Weigsding Investments",
+    description:
+      "Luxury Mediterranean real estate advisory platform for high-net-worth clients. Sanity CMS-powered property listings with domain-driven architecture, 4-language i18n (ES/EN/PT/FR), and advanced property filtering across Barcelona, Ibiza, Brazil, and Miami.",
+    github: "https://github.com/Enricrypto/weigsding-web",
+    docs: "https://weigsding-investments.com",
+    docsIcon: "dashboard",
+    liveUrl: "https://weigsding-investments.com",
+    metadata: {
+      status: "PRODUCTION",
+      label1: "STATUS",
+      value1: "LIVE",
+      label2: "STACK",
+      value2: "Next.js 16 + Sanity CMS",
+      label3: "I18N",
+      value3: "ES · EN · PT · FR",
+      label4: "MARKETS",
+      value4: "Barcelona · Ibiza · Miami"
+    },
+    tags: [
+      { label: "Next.js", color: "blue" },
+      { label: "Sanity CMS", color: "blue" },
+      { label: "next-intl", color: "blue" },
+      { label: "TypeScript", color: "blue" },
+      { label: "Resend", color: "blue" }
+    ],
+    glow: "blue"
+  },
+  {
+    title: "Washdog",
+    description:
+      "Pet grooming booking platform for a dog grooming business in Santiago, Chile. Multi-step booking wizard backed by Google Calendar availability, real-time Google Places ratings, an interactive grooming frequency calculator, and automated email confirmations.",
+    github: "https://github.com/Enricrypto/washdog-website",
+    docs: "https://www.washdog.cl",
+    docsIcon: "dashboard",
+    liveUrl: "https://www.washdog.cl",
+    metadata: {
+      status: "PRODUCTION",
+      label1: "STATUS",
+      value1: "LIVE",
+      label2: "STACK",
+      value2: "Next.js 16 + TypeScript",
+      label3: "INTEGRATIONS",
+      value3: "Google Calendar + Places",
+      label4: "INFRA",
+      value4: "Vercel KV · Nodemailer"
+    },
+    tags: [
+      { label: "Next.js", color: "green" },
+      { label: "Google Calendar API", color: "green" },
+      { label: "Google Places", color: "green" },
+      { label: "Vercel KV", color: "green" },
+      { label: "TypeScript", color: "green" }
+    ],
+    glow: "green"
   }
 ]
 
