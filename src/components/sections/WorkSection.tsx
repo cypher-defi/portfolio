@@ -605,9 +605,9 @@ const FULLSTACK_PROJECTS: ProjectProps[] = [
     docs: "https://rebroker-web.vercel.app/es",
     docsIcon: "dashboard",
     metadata: {
-      status: "PRODUCTION",
+      status: "DEVELOPMENT",
       label1: "STATUS",
-      value1: "LIVE",
+      value1: "IN PROGRESS",
       label2: "STACK",
       value2: "React Native + Express",
       label3: "DATABASE",
