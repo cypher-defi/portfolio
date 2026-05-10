@@ -15,9 +15,9 @@ const robotoMono = Roboto_Mono({
 })
 
 export const metadata: Metadata = {
-  title: "Enrique | Protocol Engineer",
+  title: "Enrique | Full-Stack Engineer",
   description:
-    "Institutional-grade DeFi infrastructure & Smart Contract Architecture.",
+    "Backend-focused full-stack engineer building production-grade systems across cloud, mobile, and blockchain environments.",
   icons: {
     icon: "/favicon.svg"
   }
