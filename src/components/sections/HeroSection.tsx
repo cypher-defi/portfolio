@@ -1,7 +1,6 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { useRouter } from "next/navigation"
 import dynamic from "next/dynamic"
 
 const PixelGrid = dynamic(
@@ -76,7 +75,6 @@ export const HeroSection = ({
   primaryCTA,
   secondaryCTA
 }: HeroProps) => {
-  const router = useRouter()
   const titleWordCount = title.split(" ").length
 
   return (
@@ -147,7 +145,10 @@ export const HeroSection = ({
             className="flex flex-wrap gap-3 sm:gap-4"
           >
             <button
-              onClick={() => router.push("/#work")}
+              onClick={() => {
+                const el = document.getElementById("work")
+                if (el) el.scrollIntoView({ behavior: "smooth", block: "start" })
+              }}
               className="group px-6 sm:px-8 py-3 sm:py-3.5 rounded-sm bg-[#4353ff] text-white text-[9px] sm:text-[10px] uppercase tracking-[0.2em] font-medium hover:bg-[#5a6aff] transition-all duration-300 flex items-center gap-2"
             >
               {primaryCTA}
