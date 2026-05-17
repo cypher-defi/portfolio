@@ -85,15 +85,9 @@ const MarqueeRow = ({
   const animClass = direction === "left" ? "marquee-left" : "marquee-right"
 
   return (
-    <div
-      className="overflow-hidden py-3"
-      style={{
-        WebkitMaskImage:
-          "linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)",
-        maskImage:
-          "linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)"
-      }}
-    >
+    <div className="relative overflow-hidden py-3">
+      <div className="absolute inset-y-0 left-0 w-[8%] bg-gradient-to-r from-[#F7F7F8] to-transparent z-10 pointer-events-none" />
+      <div className="absolute inset-y-0 right-0 w-[8%] bg-gradient-to-l from-[#F7F7F8] to-transparent z-10 pointer-events-none" />
       <div
         className={`flex w-max ${animClass}`}
         style={{ animationDuration: duration }}

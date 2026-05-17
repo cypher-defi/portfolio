@@ -83,12 +83,12 @@ export const HeroSection = ({
     <section
       className="
         relative flex items-center
-        min-h-[60vh]
         lg:min-h-[calc(100vh-80px)]
         pt-12
         lg:pt-32
         xl:pt-40
-        pb-0
+        pb-12
+        lg:pb-0
         px-4 sm:px-6 lg:px-12 xl:px-24
         overflow-hidden
       "
