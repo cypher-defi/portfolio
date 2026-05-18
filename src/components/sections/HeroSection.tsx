@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion"
 import dynamic from "next/dynamic"
+import { useRouter } from "next/navigation"
 
 const PixelGrid = dynamic(
   () => import("@/components/PixelGrid").then((mod) => mod.PixelGrid),
@@ -75,6 +76,7 @@ export const HeroSection = ({
   primaryCTA,
   secondaryCTA
 }: HeroProps) => {
+  const router = useRouter()
   const titleWordCount = title.split(" ").length
 
   return (
