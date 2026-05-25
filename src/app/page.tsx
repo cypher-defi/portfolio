@@ -47,27 +47,6 @@ export default function Home() {
           }}
         />
 
-        {/* 2. Primary "Mist" Spotlight (Top Left) - Optimized gradient */}
-        <div
-          className='absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full opacity-10'
-          style={{
-            background:
-              "radial-gradient(circle, rgba(148, 163, 184, 0.15) 0%, rgba(148, 163, 184, 0) 70%)",
-            transform: "translate3d(0,0,0)",
-            backfaceVisibility: "hidden"
-          }}
-        />
-
-        {/* 3. Deep "Water" Glow (Bottom Right) - Optimized gradient */}
-        <div
-          className='absolute bottom-[-10%] right-[-10%] w-[60%] h-[60%] rounded-full opacity-20'
-          style={{
-            background:
-              "radial-gradient(circle, rgba(63, 63, 70, 0.3) 0%, rgba(63, 63, 70, 0) 70%)",
-            transform: "translate3d(0,0,0)",
-            backfaceVisibility: "hidden"
-          }}
-        />
       </div>
 
       {/* CONTENT LAYER 
